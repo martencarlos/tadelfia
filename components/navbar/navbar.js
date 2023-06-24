@@ -4,10 +4,12 @@ import styles from './navbar.module.css'
 import  './navbar.css'
 import Link from 'next/link'
 import { BsArrowDownShort } from "react-icons/bs";
-
+import { useSelectedLayoutSegment } from 'next/navigation'
 
 function Navbar() {
 
+    const activeSegment = useSelectedLayoutSegment()
+    
     function villasDropdownButtonClick() {
         let villasMenu = document.getElementById("villasMenu");
         if (villasMenu.style.display === "none" || villasMenu.style.display === "") 
@@ -37,7 +39,8 @@ function Navbar() {
   return (
     <nav className={styles.navbar}>
         <ul className={styles.links}>
-            <Link className={styles.link} href="/"><li >Home</li></Link>
+            <Link style={{fontWeight: (activeSegment === null) ? 'bolder' : 'normal'}}  
+                className={styles.link} href="/"><li >Home</li></Link>
             <li className={styles.dropdownLink} onClick={villasDropdownButtonClick}>
                 Villas <BsArrowDownShort className={styles.icon}/>
                 
@@ -56,8 +59,14 @@ function Navbar() {
                 </div>
 
             </li>
-            <Link className={styles.link} href="/about"><li >About</li></Link>
-            <Link className={styles.link} href="/contact"><li >Contact</li></Link>
+            <Link 
+                style={{fontWeight: (activeSegment === "about") ? 'bolder' : 'normal'}}  
+                className={styles.link} 
+                href="/about">
+                <li >About</li>
+            </Link>
+            <Link style={{fontWeight: (activeSegment === "contact") ? 'bolder' : 'normal'}}  
+            className={styles.link} href="/contact"><li >Contact</li></Link>
           
         </ul>
         <div id="hamb-zone" className={styles.hambMenuIcon} onClick={hambMenuClick}>
