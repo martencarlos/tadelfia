@@ -7,9 +7,10 @@ function LandingPage() {
     <div className={styles.landingPage}>
       
       <Image
-        src="/landing2.webp"
+        src="/landing.webp"
         alt="Exterior pool view of a villa"
         className={styles.landingImage}
+        priority={true}
         width={1585}
         height={891}
       />
