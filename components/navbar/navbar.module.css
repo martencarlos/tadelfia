@@ -1,86 +1,166 @@
-
-
-
-.navbar{
-    display: flex;
-    flex-direction: row;    
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    height: 60px;
-} 
-
-.links{
-    display: flex;
-    flex-direction: row;
-
-    gap: 20px;
-    margin: 0 10px;
-
-    list-style-type: none;
-}
-
-.link{
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
+@keyframes openMenu {
+  from {
+    top: -150px
   }
 
-  .link:hover{
-    transform: scale(1.02);
-    transition: transform 0.2s ease-in-out;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-}
-  .dropdownLink{
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
+  to {
+    top: 56px
   }
-  .dropdownLink:hover{
-    transition: transform 0.2s ease-in-out;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+@keyframes closeMenu {
+  from {
+    top: 56px
   }
 
-  
-
-.icon{
-    margin: 5px;
-}
-
-.villasMenu{
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 50px;
-    left: -10px;
-    z-index: 1;
-    
-    min-width: 105px;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-}
-
-.menuLinks{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-   
-    list-style-type: none;
-    
+  to {
+    top: -150px
   }
-  
-.menuLink{
-    padding: 10px 5px;
-    width: 100%;
-    text-align: center;
 }
 
-.menuLink:hover{
-    background-color: beige;
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    justify-content: flex-end !important;
+  }
+
+  .links {
+    display: none !important;
+  }
+
+  .hambMenuIcon {
+    display: block !important;
+  }
+
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  height: 60px;
+}
+
+/* LINKS SECTION */
+
+.links {
+  display: flex;
+  flex-direction: row;
+
+  gap: 20px;
+  margin: 0 10px;
+
+  list-style-type: none;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.link:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+
+/* VILLAS DROPDOWN BUTTON SECTION */
+.dropdownLink {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdownLink:hover {
+  transition: transform 0.2s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.icon {
+  margin: 5px;
+}
+
+
+/* VILLAS MENU SECTION */
+
+.villasMenu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  left: -10px;
+  z-index: 1;
+
+  min-width: 105px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.menuLinks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  list-style-type: none;
+}
+
+.menuLink {
+  padding: 10px 5px;
+  width: 100%;
+  text-align: center;
+}
+
+.menuLink:hover {
+  background-color: beige;
+}
+
+
+
+/* HAMBURGER MENU SECTION*/
+
+.hambMenuIcon {
+  display: none;
+  font-size: 40px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+/* bars */
+.hambMenuIcon div {
+  width: 35px;
+  height: 3px;
+  margin: 6px 0;
+  user-select: none;
+  transition: 0.2s;
+  background-color: rgb(43, 40, 58);
+
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  background-color: rgb(43, 40, 58);
+}
+
+
+.hambMenu {
+  display: none;
+  position: absolute;
+  justify-content: center;
+  background-color: white;
+  z-index: 1;
+  width: 100%;
+  top: 60px;
+  left: 0px;
 }

@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Villa() {
+function Villa({ params }) {
   return (
-    <div>Villa</div>
+    <div>{params.id}</div>
   )
 }
 
