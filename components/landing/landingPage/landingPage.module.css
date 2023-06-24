@@ -12,18 +12,23 @@
   width: 100%;
   object-fit: cover;
   user-select: none;
+  filter: blur(2px);
 }
 
 .logoContainer {
   position: absolute;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
+  height: 100%;
 }
 
 .logo {
   user-select: none;
   top: 0px;
   left: 0px;
+  
+  border-radius: 50%;
 
 }

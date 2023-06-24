@@ -20,8 +20,8 @@ function LandingPage() {
           src="/logo.webp"
           alt="logo"
           className={styles.logo}
-          width={200}
-          height={200}
+          width={250}
+          height={250}
         />
       </div>
       
