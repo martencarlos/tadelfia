@@ -29,6 +29,10 @@ function Navbar() {
         }
 
     }
+    function closeHambMenu(){
+        hambMenuClick()
+    }
+
 
   return (
     <nav className={styles.navbar}>
@@ -62,18 +66,18 @@ function Navbar() {
             <div className={styles.bar3}></div>
         </div>
         <div id="hamb-menu" className={styles.hambMenu}>
-            <ul className={styles.menuLinks}>
-                <li className={styles.link}><Link href="/">Home</Link></li>
-                <li className={styles.menuLink}><Link href="/villas/1">Villa</Link></li>
-                <li className={styles.menuLink}><Link href="/villas/2">Eros</Link></li>
-                <li className={styles.menuLink}><Link href="/villas/3">Galini</Link></li>
-                <li className={styles.menuLink}><Link href="/villas/4">Iris</Link></li>
-                <li className={styles.menuLink}><Link href="/villas/5">Astraia</Link></li>
-                <li className={styles.menuLink}><Link href="/villas/6">Armonia</Link></li>
-                <li className={styles.menuLink}><Link href="/villas/7">Gaia</Link></li>
-                <li className={styles.menuLink}><Link href="/villas/8">Ermis</Link></li>
-                <li className={styles.link}><Link href="/about">About</Link></li>
-                <li className={styles.link}><Link href="/contact">Contact</Link></li>
+            <ul onClick={closeHambMenu} className={styles.menuLinks}>
+                <Link className={styles.link} href="/"><li >Home</li></Link>
+                <Link href="/villas/villa" className={styles.menuLink}><li >Villa</li></Link>
+                <Link href="/villas/Eros" className={styles.menuLink}><li >Eros</li></Link>
+                <Link href="/villas/Galini" className={styles.menuLink}><li >Galini</li></Link>
+                <Link href="/villas/Iris" className={styles.menuLink}><li >Iris</li></Link>
+                <Link href="/villas/Astraia" className={styles.menuLink}><li >Astraia</li></Link>
+                <Link href="/villas/Armonia" className={styles.menuLink}><li >Armonia</li></Link>
+                <Link href="/villas/Gaia" className={styles.menuLink}><li >Gaia</li></Link>
+                <Link href="/villas/Ermis" className={styles.menuLink}><li >Ermis</li></Link>
+                <Link className={styles.link} href="/about"><li >About</li></Link>
+                <Link className={styles.link} href="/contact"><li >Contact</li></Link>
             </ul>
         </div>
     </nav>

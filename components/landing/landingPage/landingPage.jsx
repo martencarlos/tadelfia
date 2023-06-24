@@ -7,11 +7,11 @@ function LandingPage() {
     <div className={styles.landingPage}>
       
       <Image
-        src="/landing1.webp"
+        src="/landing2.webp"
         alt="Exterior pool view of a villa"
         className={styles.landingImage}
-        width={1470}
-        height={1050}
+        width={1585}
+        height={891}
       />
 
       <div className={styles.logoContainer}>
@@ -19,8 +19,8 @@ function LandingPage() {
           src="/logo.webp"
           alt="logo"
           className={styles.logo}
-          width={255}
-          height={253}
+          width={200}
+          height={200}
         />
       </div>
       
