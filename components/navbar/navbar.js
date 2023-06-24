@@ -33,26 +33,28 @@ function Navbar() {
   return (
     <nav className={styles.navbar}>
         <ul className={styles.links}>
-            <li className={styles.link}><Link href="/">Home</Link></li>
+            <Link className={styles.link} href="/"><li >Home</li></Link>
             <li className={styles.dropdownLink} onClick={villasDropdownButtonClick}>
                 Villas <BsArrowDownShort className={styles.icon}/>
+                
                 {/*Villas Menu - hidden*/}
                 <div id="villasMenu" className={styles.villasMenu}>
                     <ul className={styles.menuLinks}>
-                        <li className={styles.menuLink}><Link href="/villas/villa">Villa</Link></li>
-                        <li className={styles.menuLink}><Link href="/villas/Eros">Eros</Link></li>
-                        <li className={styles.menuLink}><Link href="/villas/Galini">Galini</Link></li>
-                        <li className={styles.menuLink}><Link href="/villas/Iris">Iris</Link></li>
-                        <li className={styles.menuLink}><Link href="/villas/Astraia">Astraia</Link></li>
-                        <li className={styles.menuLink}><Link href="/villas/Armonia">Armonia</Link></li>
-                        <li className={styles.menuLink}><Link href="/villas/Gaia">Gaia</Link></li>
-                        <li className={styles.menuLink}><Link href="/villas/Ermis">Ermis</Link></li>
+                        <Link href="/villas/villa" className={styles.menuLink}><li >Villa</li></Link>
+                        <Link href="/villas/Eros" className={styles.menuLink}><li >Eros</li></Link>
+                        <Link href="/villas/Galini" className={styles.menuLink}><li >Galini</li></Link>
+                        <Link href="/villas/Iris" className={styles.menuLink}><li >Iris</li></Link>
+                        <Link href="/villas/Astraia" className={styles.menuLink}><li >Astraia</li></Link>
+                        <Link href="/villas/Armonia" className={styles.menuLink}><li >Armonia</li></Link>
+                        <Link href="/villas/Gaia" className={styles.menuLink}><li >Gaia</li></Link>
+                        <Link href="/villas/Ermis" className={styles.menuLink}><li >Ermis</li></Link>
                     </ul>
                 </div>
 
             </li>
-            <li className={styles.link}><Link href="/about">About</Link></li>
-            <li className={styles.link}><Link href="/contact">Contact</Link></li>
+            <Link className={styles.link} href="/about"><li >About</li></Link>
+            <Link className={styles.link} href="/contact"><li >Contact</li></Link>
+          
         </ul>
         <div id="hamb-zone" className={styles.hambMenuIcon} onClick={hambMenuClick}>
             <div className={styles.bar1}></div>
