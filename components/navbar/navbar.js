@@ -41,13 +41,14 @@ function Navbar() {
         <ul className={styles.links}>
             <Link style={{fontWeight: (activeSegment === null) ? 'bolder' : 'normal'}}  
                 className={styles.link} href="/"><li >Home</li></Link>
-            <li className={styles.dropdownLink} onClick={villasDropdownButtonClick}>
-                Villas <BsArrowDownShort className={styles.icon}/>
+            <li 
+                className={styles.dropdownLink} onClick={villasDropdownButtonClick}>
+                <div style={{fontWeight: (activeSegment === "villas") ? 'bolder' : 'normal'}}>Villas</div> <BsArrowDownShort className={styles.icon}/>
                 
                 {/*Villas Menu - hidden*/}
                 <div id="villasMenu" className={styles.villasMenu}>
                     <ul className={styles.menuLinks}>
-                        <Link href="/villas/villa" className={styles.menuLink}><li >Villa</li></Link>
+                        <Link href="/villas/villa" className={styles.menuLink}>Villa</Link>
                         <Link href="/villas/Eros" className={styles.menuLink}><li >Eros</li></Link>
                         <Link href="/villas/Galini" className={styles.menuLink}><li >Galini</li></Link>
                         <Link href="/villas/Iris" className={styles.menuLink}><li >Iris</li></Link>
