@@ -1,0 +1,57 @@
+
+
+
+.about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    min-height: calc(100dvh - 60px);
+}
+
+.aboutTitle{
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+.teamContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.teamMember{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 300px;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+.avatar{
+    border-radius: 50%;
+    
+}
+
+.title{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 15px 0;
+}
+
+.description{
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.2rem;
+    margin: 10px 0; 
+    font-style: italic;
+}

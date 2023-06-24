@@ -50,10 +50,10 @@ function Gallery() {
   return (
     <div className={styles.gallery}>
         <h1 className={styles.h1}>{"Gallery"}</h1>
-        <div onClick={openModal} className={styles.imageContainer}>
+        <div onClick={openModal} className={styles.galleryContainer}>
         {/* Image modal - hidden */}
         <div id="imgModal" className={styles.modal}>
-            <div className={styles.imageContainer}>
+            <div className={styles.galleryContainer}>
                 <Image
                     src={selectedImageId ? selectedImageSrc : "/maingallery/1.webp"}
                     alt="Exterior pool view of a villa"
@@ -80,32 +80,32 @@ function Gallery() {
                 src="/maingallery/1.webp"
                 alt="Exterior pool view of a villa"
                 className={styles.galleryImage}
-                width={300}
-                height={300}
+                width={250}
+                height={250}
             />
             <Image
                 id='5'
                 src="/maingallery/5.webp"
                 alt="Exterior pool view of a villa"
                 className={styles.galleryImage}
-                width={300}
-                height={300}
+                width={250}
+                height={250}
             />
             <Image
                 id='6'
                 src="/maingallery/6.webp"
                 alt="Exterior pool view of a villa"
                 className={styles.galleryImage}
-                width={300}
-                height={300}
+                width={250}
+                height={250}
             />
             <Image
                 id='7'
                 src="/maingallery/7.webp"
                 alt="Exterior pool view of a villa"
                 className={styles.galleryImage}
-                width={300}
-                height={300}
+                width={250}
+                height={250}
             />
         </div>
         <div className={styles.column}>
@@ -114,32 +114,32 @@ function Gallery() {
                 src="/maingallery/2.webp"
                 alt="Exterior pool view of a villa"
                 className={styles.galleryImage}
-                width={300}
-                height={300}
+                width={250}
+                height={250}
             />
             <Image
                 id='8'
                 src="/maingallery/8.webp"
                 alt="Exterior pool view of a villa"
                 className={styles.galleryImage}
-                width={300}
-                height={300}
+                width={250}
+                height={250}
             />
             <Image
                 id='9'
                 src="/maingallery/9.webp"
                 alt="Exterior pool view of a villa"
                 className={styles.galleryImage}
-                width={300}
-                height={300}
+                width={250}
+                height={250}
             />
             <Image
                 id='10'
                 src="/maingallery/10.webp"
                 alt="Exterior pool view of a villa"
                 className={styles.galleryImage}
-                width={300}
-                height={300}
+                width={250}
+                height={250}
             />
         </div>
         <div className={styles.column}>
@@ -148,32 +148,32 @@ function Gallery() {
                 src="/maingallery/3.webp"
                 alt="Exterior pool view of a villa"
                 className={styles.galleryImage}
-                width={300}
-                height={300}
+                width={250}
+                height={250}
             />
             <Image
                 id='11'
                 src="/maingallery/11.webp"
                 alt="Exterior pool view of a villa"
                 className={styles.galleryImage}
-                width={300}
-                height={300}
+                width={250}
+                height={250}
             />
             <Image
                 id='12'
                 src="/maingallery/12.webp"
                 alt="Exterior pool view of a villa"
                 className={styles.galleryImage}
-                width={300}
-                height={300}
+                width={250}
+                height={250}
             />
             <Image
                 id='13'
                 src="/maingallery/13.webp"
                 alt="Exterior pool view of a villa"
                 className={styles.galleryImage}
-                width={300}
-                height={300}
+                width={250}
+                height={250}
             />
         </div>
         <div className={styles.column}>
@@ -182,32 +182,32 @@ function Gallery() {
                 src="/maingallery/4.webp"
                 alt="Exterior pool view of a villa"
                 className={styles.galleryImage}
-                width={300}
-                height={300}
+                width={250}
+                height={250}
             />
             <Image
                 id='14'
                 src="/maingallery/14.webp"
                 alt="Exterior pool view of a villa"
                 className={styles.galleryImage}
-                width={300}
-                height={300}
+                width={250}
+                height={250}
             />
             <Image
                 id='15'
                 src="/maingallery/15.webp"
                 alt="Exterior pool view of a villa"
                 className={styles.galleryImage}
-                width={300}
-                height={300}
+                width={250}
+                height={250}
             />
             <Image
                 id='16'
                 src="/maingallery/16.webp"
                 alt="Exterior pool view of a villa"
                 className={styles.galleryImage}
-                width={300}
-                height={300}
+                width={250}
+                height={250}
             />
         </div>
         </div>
