@@ -1,0 +1,29 @@
+.landingPage {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  height: calc(100dvh - 60px);
+}
+
+.landingImage {
+  height: calc(100vh - 60px);
+  width: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+
+.logoContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.logo {
+  user-select: none;
+  top: 0px;
+  left: 0px;
+
+}
