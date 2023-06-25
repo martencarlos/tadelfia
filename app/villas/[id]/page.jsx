@@ -13,13 +13,13 @@ const ranges = [
   {
     startDate: new Date(2023,7,1),
     endDate: new Date(2023,7,31),
-    color: "red",
+    color: "#d11a2a",
     key: "range1",
   },
   {
     startDate: new Date(2023,6,6),
     endDate: new Date(2023,6,9),
-    color: "red",
+    color: "#d11a2a",
     key: "range1",
   },
 ];
