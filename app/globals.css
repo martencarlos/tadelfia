@@ -77,6 +77,8 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  
+  -webkit-tap-highlight-color: transparent;
 }
 
 html,
@@ -96,6 +98,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  user-select: none;
 }
 
 /* @media (prefers-color-scheme: dark) {
