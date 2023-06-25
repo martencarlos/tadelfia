@@ -25,15 +25,7 @@ const ranges = [
 ];
 
 function Villa({ params }) {
-  const [state, setState] = useState([
-    {
-      startDate: new Date(),
-      endDate: null,
-      key: "selection",
-    },
-  ]);
-  // console.log(state[0].startDate);
-  // console.log(state[0].endDate);
+ 
   console.log(params.id);
   return (
     <div className={styles.villa}>
@@ -47,7 +39,7 @@ function Villa({ params }) {
 
       <div className={styles.imgContainer}>
         <Image
-          src={"/maingallery/" + (Math.floor(Math.random() * 10) + 1) + ".webp"}
+          src={"/maingallery/" + data[params.id].img + ".webp"}
           className={styles.img}
           width={1600}
           height={1400}
