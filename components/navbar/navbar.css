@@ -12,3 +12,22 @@
     transform: rotate(45deg) translate(-6px, -8px);
   }
   
+
+  /* ACCORDEON SECTION */
+
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, [class*="accordion"]:hover {
+  background-color: #dcdcdc;
+}
+
+button.active + [class*="panel"]{
+  margin: 5px 0px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Icons */
+
+
+.active:after {
+  content: "\2796" !important; /* Unicode character for "minus" sign (-) */
+}

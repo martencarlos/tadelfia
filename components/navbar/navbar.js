@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './navbar.module.css'
 import  './navbar.css'
 import Link from 'next/link'
@@ -7,6 +7,26 @@ import { BsArrowDownShort } from "react-icons/bs";
 import { useSelectedLayoutSegment } from 'next/navigation'
 
 function Navbar() {
+
+
+        
+
+        function openCloseAccordeon(e) {
+            const accordeon = document.getElementsByClassName("accordeon");
+            /* Toggle between adding and removing the "active" class,
+            to highlight the button that controls the panel */
+            e.target.classList.toggle("active");
+        
+            /* Toggle between hiding and showing the active panel */
+            var panel = e.target.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+              } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+              }
+          }
+
+
 
     const activeSegment = useSelectedLayoutSegment()
     
@@ -31,8 +51,9 @@ function Navbar() {
         }
 
     }
-    function closeHambMenu(){
-        hambMenuClick()
+    function closeHambMenu(e){
+        if(e.target.tagName !== "BUTTON")
+            hambMenuClick()
     }
 
 
@@ -43,7 +64,7 @@ function Navbar() {
                 className={styles.link} href="/"><li >Home</li></Link>
             <li 
                 className={styles.dropdownLink} onClick={villasDropdownButtonClick}>
-                <div style={{fontWeight: (activeSegment === "villas") ? 'bolder' : 'normal'}}>Villas</div> <BsArrowDownShort className={styles.icon}/>
+                <div style={{fontWeight: (activeSegment === "villas") ? 'bolder' : 'normal'}}>Apartments</div> <BsArrowDownShort className={styles.icon}/>
                 
                 {/*Villas Menu - hidden*/}
                 <div id="villasMenu" className={styles.villasMenu}>
@@ -70,6 +91,11 @@ function Navbar() {
             className={styles.link} href="/contact"><li >Contact</li></Link>
           
         </ul>
+        {/*Logo - hidden*/}
+        <div className={styles.logo}>
+            <Link href="/">{"Τ'αδελφια"}</Link>
+        </div>
+        {/*Hamburger Menu ICON - hidden*/}
         <div id="hamb-zone" className={styles.hambMenuIcon} onClick={hambMenuClick}>
             <div className={styles.bar1}></div>
             <div className={styles.bar2}></div>
@@ -77,17 +103,22 @@ function Navbar() {
         </div>
         <div id="hamb-menu" className={styles.hambMenu}>
             <ul onClick={closeHambMenu} className={styles.menuLinks}>
-                <Link className={styles.link} href="/"><li >Home</li></Link>
-                <Link href="/villas/villa" className={styles.menuLink}><li >Villa</li></Link>
-                <Link href="/villas/Eros" className={styles.menuLink}><li >Eros</li></Link>
-                <Link href="/villas/Galini" className={styles.menuLink}><li >Galini</li></Link>
-                <Link href="/villas/Iris" className={styles.menuLink}><li >Iris</li></Link>
-                <Link href="/villas/Astraia" className={styles.menuLink}><li >Astraia</li></Link>
-                <Link href="/villas/Armonia" className={styles.menuLink}><li >Armonia</li></Link>
-                <Link href="/villas/Gaia" className={styles.menuLink}><li >Gaia</li></Link>
-                <Link href="/villas/Ermis" className={styles.menuLink}><li >Ermis</li></Link>
-                <Link className={styles.link} href="/about"><li >About</li></Link>
-                <Link className={styles.link} href="/contact"><li >Contact</li></Link>
+                <Link className={styles.hambMenuLink} href="/"><li >Home</li></Link>
+                
+                <button onClick={openCloseAccordeon} className={styles.accordion}>Apartments</button>
+                <div className={styles.panel}>
+                    <Link href="/villas/villa" className={styles.hambMenuLink}><li >Villa</li></Link>
+                    <Link href="/villas/Eros" className={styles.hambMenuLink}><li >Eros</li></Link>
+                    <Link href="/villas/Galini" className={styles.hambMenuLink}><li >Galini</li></Link>
+                    <Link href="/villas/Iris" className={styles.hambMenuLink}><li >Iris</li></Link>
+                    <Link href="/villas/Astraia" className={styles.hambMenuLink}><li >Astraia</li></Link>
+                    <Link href="/villas/Armonia" className={styles.hambMenuLink}><li >Armonia</li></Link>
+                    <Link href="/villas/Gaia" className={styles.hambMenuLink}><li >Gaia</li></Link>
+                    <Link href="/villas/Ermis" className={styles.hambMenuLink}><li >Ermis</li></Link>
+                </div>
+                
+                <Link className={styles.hambMenuLink} href="/about"><li >About</li></Link>
+                <Link className={styles.hambMenuLink} href="/contact"><li >Contact</li></Link>
             </ul>
         </div>
     </nav>
