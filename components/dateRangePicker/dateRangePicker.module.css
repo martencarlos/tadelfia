@@ -1,14 +1,23 @@
+@media screen and (max-width: 680px) {
+    
+    .dateRangePicker{
+        width: 100%;
+    }
+    
+}
 
 
 .dateRangePicker{
     display: flex;
     justify-content: center;
     align-items: center;
+    /* width: 100%; */
 }
 
 .button{
     border: 1px solid #ccc;
     height: 40px;
+    cursor: pointer;
 }
 
 .icon {

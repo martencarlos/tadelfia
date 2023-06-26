@@ -2,7 +2,15 @@
     .MuiTextField-root {
         width: 100% !important;
       }
+      .css-1869usk-MuiFormControl-root {
+        margin:0px ;
+        width: 100% ;
+    }
 
     
+}
+
+.css-1869usk-MuiFormControl-root {
+    margin:0px !important;
 }
 

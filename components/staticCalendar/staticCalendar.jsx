@@ -3,6 +3,7 @@
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRange } from "react-date-range";
+import { useWindowSize } from "@/hooks/windowSize";
 
 import styles from "./staticCalendar.module.css";
 import "./component.css"
@@ -24,6 +25,8 @@ const ranges = [
   ];
 
 function StaticCalendar() {
+  const size = useWindowSize();
+  console.log(size.width)
   return (
     <div className={styles.staticCalendar}>
       <h1 className={styles.h1}>Availability</h1>
@@ -37,7 +40,7 @@ function StaticCalendar() {
         showPreview={false}
         showDateDisplay={false}
         dragSelectionEnabled={false}
-        months={2}
+        months={size.width<800?1:2}
         direction="horizontal"
         ranges={ranges}
         weekStartsOn={1}

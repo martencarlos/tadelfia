@@ -3,6 +3,8 @@
 import styles from "./booking.module.css";
 import DateRangePicker from "@/components/dateRangePicker/dateRangePicker";
 import TextField from "@mui/material/TextField";
+import TextareaAutosize from '@mui/base/TextareaAutosize';
+
 import Select from '@mui/material/Select';
 import SelectSmall from "../mui/selectSmall/selectSmall";
 import "./booking.css"
@@ -30,9 +32,9 @@ function Booking() {
             required
             size="small"
           />
-        </div>
-        <h3 className={styles.h2}>Address</h3>
-        <div className={styles.section}>
+        
+        <h5 className={styles.h2}>Address</h5>
+        <div className={styles.subSection}>
           <TextField label="Street / Number" id="street" type="text" required size="small" />
           <TextField label="Postal Code" id="postal" type="number" required size="small" />
           <TextField
@@ -50,11 +52,17 @@ function Booking() {
             size="small"
           />
         </div>
+        </div>
         <h3 className={styles.h2}>Booking details</h3>
         <div className={styles.section}>
           <DateRangePicker />
           <SelectSmall />
-          
+          <TextareaAutosize 
+            style={{fontSize:"16px", padding:"8.5px 14px", width: "100%"}} 
+            minRows={3}
+            className={styles.textarea}
+            placeholder="Message for the host"
+          />
         </div>
         
         <input className={styles.button} type="submit" value="Available - Book Now !" />

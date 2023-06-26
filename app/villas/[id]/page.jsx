@@ -25,6 +25,10 @@ function Villa({ params }) {
       
       {/* Image Section */}
       <div className={styles.imgContainer}>
+       {/* Availability Section */}
+       <div className={styles.availability}>
+       <StaticCalendar />
+     </div>
         <Image
           src={"/maingallery/" + data[params.id].img + ".webp"}
           className={styles.img}
@@ -32,12 +36,11 @@ function Villa({ params }) {
           height={1400}
           alt={params.id}
         />
+       
       </div>
 
-      {/* Availability Section */}
-      <div className={styles.availability}>
-        <StaticCalendar />
-      </div>
+      
+      
 
       {/* Booking Section */}
       <div className={styles.booking}>

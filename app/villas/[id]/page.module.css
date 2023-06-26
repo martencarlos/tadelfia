@@ -29,6 +29,7 @@
 }
 
 .imgContainer{
+    position:relative;
     height: 100dvh;
     width: 100%;
 }
@@ -40,6 +41,7 @@
 }
 
 .availability{
+    position:absolute;
     min-height: 100dvh;
     width: 100%;
 }

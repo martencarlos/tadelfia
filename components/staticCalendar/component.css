@@ -16,10 +16,12 @@
 
 .rdrCalendarWrapper{
     font-size: 14px;
+    opacity: 0.95;
+    border-radius: 10px;
 }
 
 .rdrMonths {
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: center;
 }
 
