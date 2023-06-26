@@ -12,7 +12,7 @@ const calculateOrderAmount = (items) => {
 };
 
 export const POST = async (req) => {
-    console.log("route hit")
+  
   const { items } = req.body;
   
 
@@ -24,7 +24,7 @@ export const POST = async (req) => {
       enabled: true,
     },
   });
-  console.log("secret", paymentIntent.client_secret)
+ 
   return new NextResponse(JSON.stringify({ clientSecret: paymentIntent.client_secret }), { status: 200 });
 
 };

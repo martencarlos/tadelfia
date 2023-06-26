@@ -6,8 +6,6 @@ function Success({searchParams, params}) {
   return (
     <div className={styles.success}>
         <h1>Payment {searchParams.redirect_status}!</h1>
-
-
     </div>
   )
 }

@@ -97,6 +97,7 @@ export default function Checkout({trigger}) {
         </span>
         </button>*/}
       {/* Show any error or success messages */}
+      <br />
       {message && <div id="payment-message">{message}</div>}
     </div>
   );
