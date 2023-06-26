@@ -1,0 +1,18 @@
+
+
+
+.rmdp-input{
+    height: 40px !important;
+    border: 1px solid #ccc !important;
+    border-radius: unset !important;
+    text-align: center; 
+    cursor: pointer;
+    font-size: 16px !important;
+}
+
+.rmdp-today span{
+    /* background-color: #7ea6f0 !important; */
+    background-color: #b0b0b0 !important;
+
+    color: white !important;
+}

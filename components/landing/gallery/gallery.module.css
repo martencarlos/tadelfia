@@ -90,7 +90,7 @@
     align-items: center;
     top: 20px;
     right: 40px;
-   
+    opacity: 0.5;
     padding: 5px;
     height: 55px;
     width: 55px;
@@ -105,6 +105,7 @@
 .closeButton:hover{
     transition: all 0.2s ease-in-out;
     transform: rotate(90deg) scale(1.1);
+    opacity: 0.8;
 }
 
 .previous{
@@ -120,6 +121,7 @@
     height: 60px;
     width: 60px;
     box-shadow: 0px 0px 5px 0px rgba(111, 111, 111, 0.75);
+    opacity: 0.5;
     
     background-color: rgb(255, 255, 255);
     color: #070707;
@@ -129,6 +131,7 @@
 .previous:hover{
     transition: all 0.2s ease-in-out;
     transform: scale(1.1);
+    opacity: 0.8;
 }
 
 .next{
@@ -144,6 +147,7 @@
     height: 60px;
     width: 60px;
     box-shadow: 0px 0px 5px 0px rgba(111, 111, 111, 0.75);
+    opacity: 0.5;
     
     background-color: rgb(248, 248, 248);
     color: #070707;
@@ -153,4 +157,5 @@
 .next:hover{
     transition: all 0.2s ease-in-out;
     transform: scale(1.1);
+    opacity: 0.8;
 }

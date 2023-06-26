@@ -1,0 +1,8 @@
+@media screen and (max-width: 522px) {
+    .MuiTextField-root {
+        width: 100% !important;
+      }
+
+    
+}
+

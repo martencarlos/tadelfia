@@ -1,0 +1,26 @@
+
+
+@media screen and (max-width: 680px) {
+    .rdrCalendarWrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px !important;
+    }
+    
+    .rdrMonthAndYearWrapper{
+        width: 332px;
+    }
+
+}
+
+.rdrCalendarWrapper{
+    font-size: 14px;
+}
+
+.rdrMonths {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
