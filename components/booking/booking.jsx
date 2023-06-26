@@ -8,12 +8,24 @@ import TextareaAutosize from '@mui/base/TextareaAutosize';
 import Select from '@mui/material/Select';
 import SelectSmall from "../mui/selectSmall/selectSmall";
 import "./booking.css"
+import Checkout from "@/components/checkout/checkout";
+import { useState } from "react";
+
 
 function Booking() {
+
+  const [trigger, setTrigger] = useState(null);
+
+  const handleSubmit = async(e) => {
+      e.preventDefault();
+      console.log("submitted");
+      setTrigger(true);
+  }
+
   return (
     <div className={styles.booking}>
       <h1 className={styles.h1}>Booking</h1>
-      <form className={styles.bookingForm}>
+      <form onSubmit={handleSubmit} className={styles.bookingForm}>
         <h3 className={styles.h2}>Contact</h3>
         <div className={styles.section}>
           <TextField label="First Name" id="firstName" required size="small" />
@@ -53,7 +65,7 @@ function Booking() {
           />
         </div>
         </div>
-        <h3 className={styles.h2}>Booking details</h3>
+        <h3 className={styles.h2}>Accommodation</h3>
         <div className={styles.section}>
           <DateRangePicker />
           <SelectSmall />
@@ -64,8 +76,15 @@ function Booking() {
             placeholder="Message for the host"
           />
         </div>
-        
-        <input className={styles.button} type="submit" value="Available - Book Now !" />
+
+        <h3 className={styles.h2}>Payment</h3>
+        <div className={styles.paymentSection}>
+
+        <Checkout
+          trigger={trigger}
+        />
+        </div>
+        <input className={styles.button} type="submit" value=" Book Now !" />
         
       </form>
     </div>

@@ -26,7 +26,7 @@ const ranges = [
 
 function StaticCalendar() {
   const size = useWindowSize();
-  console.log(size.width)
+
   return (
     <div className={styles.staticCalendar}>
       <h1 className={styles.h1}>Availability</h1>
