@@ -14,6 +14,7 @@ export default function Checkout({trigger}) {
   const [isLoading, setIsLoading] = React.useState(false);
 
   React.useEffect(() => {
+    console.log("trigger:", trigger)
     if (trigger) {
         handleSubmit();
     }
@@ -51,16 +52,12 @@ export default function Checkout({trigger}) {
   }, [stripe]);
 
   const handleSubmit = async () => {
- 
-
     if (!stripe || !elements) {
       // Stripe.js hasn't yet loaded.
       // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
-
     setIsLoading(true);
-
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
@@ -68,7 +65,6 @@ export default function Checkout({trigger}) {
         return_url: `${process.env.NEXT_PUBLIC_HOST}/booking/success`,
       },
     });
-
     // This point will only be reached if there is an immediate error when
     // confirming the payment. Otherwise, your customer will be redirected to
     // your `return_url`. For some payment methods like iDEAL, your customer will
@@ -79,7 +75,6 @@ export default function Checkout({trigger}) {
     } else {
       setMessage("An unexpected error occurred.");
     }
-
     setIsLoading(false);
   };
 

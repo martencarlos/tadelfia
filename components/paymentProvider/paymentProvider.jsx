@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
-import Booking from "@/components/booking/booking";
 
 import getStripe from "@/lib/getStripe";
 import { Elements } from "@stripe/react-stripe-js";
+import Checkout from "../checkout/checkout";
 
 const stripePromise = getStripe();
 
-function PaymentProvider() {
+function PaymentProvider({trigger}) {
   const [clientSecret, setClientSecret] = React.useState("");
 
   React.useEffect(() => {
@@ -37,7 +37,9 @@ function PaymentProvider() {
     <div>
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>
-          <Booking />
+          <Checkout
+            trigger={trigger}
+          />
         </Elements>
       )}
     </div>

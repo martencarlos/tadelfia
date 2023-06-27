@@ -8,8 +8,10 @@ import TextareaAutosize from '@mui/base/TextareaAutosize';
 import Select from '@mui/material/Select';
 import SelectSmall from "../mui/selectSmall/selectSmall";
 import "./booking.css"
-import Checkout from "@/components/checkout/checkout";
+
 import { useState } from "react";
+import PaymentProvider from "../paymentProvider/paymentProvider";
+
 
 
 function Booking() {
@@ -19,9 +21,10 @@ function Booking() {
   const handleSubmit = async(e) => {
       e.preventDefault();
       console.log("submitted");
+      
       setTrigger(true);
   }
-
+ 
   return (
     <div className={styles.booking}>
       <h1 className={styles.h1}>Booking</h1>
@@ -79,10 +82,10 @@ function Booking() {
 
         <h3 className={styles.h2}>Payment</h3>
         <div className={styles.paymentSection}>
-
-        <Checkout
+        <PaymentProvider 
           trigger={trigger}
         />
+        
         </div>
         <input className={styles.button} type="submit" value=" Book Now !" />
         

@@ -5,7 +5,7 @@ import data from "./data.json";
 import Image from "next/image";
 
 import StaticCalendar from "@/components/staticCalendar/staticCalendar";
-import PaymentProvider from "@/components/paymentProvider/paymentProvider";
+import Booking from "@/components/booking/booking";
 
 
 function Villa({ params }) {
@@ -41,7 +41,7 @@ function Villa({ params }) {
 
       {/* Booking Section */}
       <div className={styles.booking}>
-        <PaymentProvider />
+        <Booking />
       </div>
     </div>
   );
