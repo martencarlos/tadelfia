@@ -26,12 +26,12 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100dvh;
+    height: 100vh;
 }
 
 .imgContainer{
     position:relative;
-    height: 100dvh;
+    height: 100vh;
     width: 100%;
 }
 
@@ -43,11 +43,11 @@
 
 .availability{
     position:absolute;
-    min-height: 100dvh;
+    min-height: 100vh;
     width: 100%;
 }
 
 .booking{
-    min-height: 100dvh;
+    min-height: 100vh;
     width: 100%;
 }
