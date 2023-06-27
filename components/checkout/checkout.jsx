@@ -1,39 +1,39 @@
-import React from "react";
+"use client"
+import { useEffect, useState } from "react";
 import {
   PaymentElement,
   useStripe,
-  useElements
+  useElements,
 } from "@stripe/react-stripe-js";
 
-export default function Checkout({trigger}) {
+export default function Checkout({ trigger }) {
   const stripe = useStripe();
   const elements = useElements();
 
+  const [message, setMessage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const [message, setMessage] = React.useState(null);
-  const [isLoading, setIsLoading] = React.useState(false);
-
-  React.useEffect(() => {
-    console.log("trigger:", trigger)
+  useEffect(() => {
     if (trigger) {
-        handleSubmit();
+      handleSubmit();
     }
   }, [trigger]);
 
-  React.useEffect(() => {
+  {/* show a message when the payment has been completed */}
+  useEffect(() => {
     if (!stripe) {
       return;
     }
 
-    const clientSecret = new URLSearchParams(window.location.search).get(
+    const clientSecretParams = new URLSearchParams(window.location.search).get(
       "payment_intent_client_secret"
     );
 
-    if (!clientSecret) {
+    if (!clientSecretParams) {
       return;
     }
 
-    stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
+    stripe.retrievePaymentIntent(clientSecretParams).then(({ paymentIntent }) => {
       switch (paymentIntent.status) {
         case "succeeded":
           setMessage("Payment succeeded!");
@@ -52,6 +52,7 @@ export default function Checkout({trigger}) {
   }, [stripe]);
 
   const handleSubmit = async () => {
+    setMessage(null);
     if (!stripe || !elements) {
       // Stripe.js hasn't yet loaded.
       // Make sure to disable form submission until Stripe.js has loaded.
@@ -84,15 +85,11 @@ export default function Checkout({trigger}) {
 
   return (
     <div id="payment-form">
-
       <PaymentElement id="payment-element" options={paymentElementOptions} />
-      {/*<button disabled={isLoading || !stripe || !elements} id="submit">
-        <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
-        </span>
-        </button>*/}
-      {/* Show any error or success messages */}
+      
       <br />
+      {(isLoading || !stripe || !elements) ? "Processing payment..." : ""}
+      {/* Show any error or success messages */}
       {message && <div id="payment-message">{message}</div>}
     </div>
   );

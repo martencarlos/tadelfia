@@ -1,33 +1,39 @@
 "use client";
-import React from "react";
 
 import getStripe from "@/lib/getStripe";
 import { Elements } from "@stripe/react-stripe-js";
 import Checkout from "../checkout/checkout";
+import { useEffect, useState } from "react";
 
 const stripePromise = getStripe();
 
-function PaymentProvider({trigger}) {
-  const [clientSecret, setClientSecret] = React.useState("");
+function PaymentProvider({trigger, booking, nights}) {
+  const [clientSecret, setClientSecret] = useState("");
 
-  React.useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    fetch("/api/create-payment-intent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setClientSecret(data.clientSecret)
-    });
-
+  useEffect(() => {
+    console.log("first render")
   }, []);
 
+  // Create PaymentIntent as soon as the page loads
+  useEffect(() => {
+    
+      fetch("/api/create-payment-intent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(booking),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data.clientSecret)
+          setClientSecret(data.clientSecret)
+      });
+
+  }, [nights]);
+
+  // standard options for stripe
   const appearance = {
     theme: "stripe",
   };
-
   const options = {
     clientSecret,
     appearance,
@@ -36,7 +42,7 @@ function PaymentProvider({trigger}) {
   return (
     <div>
       {clientSecret && (
-        <Elements options={options} stripe={stripePromise}>
+        <Elements key={clientSecret} id="payment-element" options={options} stripe={stripePromise}>
           <Checkout
             trigger={trigger}
           />

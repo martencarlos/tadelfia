@@ -3,32 +3,107 @@
 import styles from "./booking.module.css";
 import DateRangePicker from "@/components/dateRangePicker/dateRangePicker";
 import TextField from "@mui/material/TextField";
-import TextareaAutosize from '@mui/base/TextareaAutosize';
+import TextareaAutosize from "@mui/base/TextareaAutosize";
 
-import Select from '@mui/material/Select';
-import SelectSmall from "../mui/selectSmall/selectSmall";
-import "./booking.css"
+import "./booking.css";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PaymentProvider from "../paymentProvider/paymentProvider";
+import GuestPicker from "../guestPicker/guestPicker";
 
+const pricing = [
+  { villa: "villa", price: 128 },
+  { villa: "Eros", price: 140 },
+  { villa: "Galini", price: 130 },
+  { villa: "Iris", price: 132 },
+  { villa: "Astraia", price: 145 },
+  { villa: "Armonia", price: 160 },
+  { villa: "Gaia", price: 126 },
+  { villa: "Ermis", price: 129 },
+];
 
+function Booking({ villa }) {
+  const [trigger, setTrigger] = useState(0);
+  const [rangeDates, setRangeDates] = useState(null);
+  const [guests, setGuests] = useState(1);
+  const [nights, setNights] = useState(null);
+  const [price, setPrice] = useState(null);
+  const [booking, setBooking] = useState(null);
 
-function Booking() {
+  useEffect(() => {
+    if (rangeDates) {
+      const nightsCalc = Math.ceil(
+        (rangeDates[1] - rangeDates[0]) / (1000 * 3600 * 24)
+      );
+      if (nightsCalc !== nights && nightsCalc > 0) {
+        setNights(nightsCalc);
+        setPrice(
+          pricing.find((item) => item.villa === villa).price * nightsCalc
+        );
+      }
+    }
+  }, [rangeDates, villa]);
 
-  const [trigger, setTrigger] = useState(null);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const handleSubmit = async(e) => {
-      e.preventDefault();
-      console.log("submitted");
-      
-      setTrigger(true);
-  }
- 
+    const form = document.getElementById("booking");
+
+    const newBooking = {
+      contact: {
+        firstName: form.elements["firstName"].value,
+        lastName: form.elements["lastName"].value,
+        email: form.elements["email"].value,
+        phone: form.elements["phone"].value,
+      },
+      address: {
+        street: form.elements["street"].value,
+        postal: form.elements["postal"].value,
+        towncity: form.elements["towncity"].value,
+        country: form.elements["country"].value,
+      },
+      accomodation: {
+        villa: villa,
+        checkin: rangeDates[0].format("DD.MM.YYYY"),
+        checkout: rangeDates[1].format("DD.MM.YYYY"),
+        nights: nights,
+        price: price ? price : 0,
+        guests: guests,
+      },
+    };
+
+    if (JSON.stringify(booking) !== JSON.stringify(newBooking)) {
+      console.log("booking changed");
+      setBooking(newBooking);
+    }
+
+    //payment trigger
+    setTrigger((prev_trigger) => prev_trigger + 1);
+  };
+  console.log("booking:");
+  console.log(booking);
   return (
     <div className={styles.booking}>
       <h1 className={styles.h1}>Booking</h1>
-      <form onSubmit={handleSubmit} className={styles.bookingForm}>
+      <form id="booking" onSubmit={handleSubmit} className={styles.bookingForm}>
+        {/* Accommodation Section */}
+        <h3 className={styles.h2}>Accommodation</h3>
+        <div className={styles.section}>
+          <DateRangePicker setRangeDates={setRangeDates} />
+
+          {/*Guests*/}
+          <GuestPicker setGuests={setGuests} />
+
+          {/*Comment to host*/}
+          <TextareaAutosize
+            style={{ fontSize: "16px", padding: "8.5px 14px", width: "100%" }}
+            minRows={3}
+            className={styles.textarea}
+            placeholder="Message for the host"
+          />
+        </div>
+
+        {/* Contact Section */}
         <h3 className={styles.h2}>Contact</h3>
         <div className={styles.section}>
           <TextField label="First Name" id="firstName" required size="small" />
@@ -47,48 +122,57 @@ function Booking() {
             required
             size="small"
           />
-        
-        <h5 className={styles.h2}>Address</h5>
-        <div className={styles.subSection}>
-          <TextField label="Street / Number" id="street" type="text" required size="small" />
-          <TextField label="Postal Code" id="postal" type="number" required size="small" />
-          <TextField
-            label="Town / City"
-            type="text"
-            id="towncity"
-            required
-            size="small"
-          />
-          <TextField
-            label="Country"
-            type="text"
-            id="country"
-            required
-            size="small"
-          />
+
+          {/* Address Section */}
+          <h5 className={styles.h2}>Address</h5>
+          <div className={styles.subSection}>
+            <TextField
+              label="Street / Number"
+              id="street"
+              type="text"
+              required
+              size="small"
+            />
+            <TextField
+              label="Postal Code"
+              id="postal"
+              type="number"
+              required
+              size="small"
+            />
+            <TextField
+              label="Town / City"
+              type="text"
+              id="towncity"
+              required
+              size="small"
+            />
+            <TextField
+              label="Country"
+              type="text"
+              id="country"
+              required
+              size="small"
+            />
+          </div>
         </div>
-        </div>
-        <h3 className={styles.h2}>Accommodation</h3>
-        <div className={styles.section}>
-          <DateRangePicker />
-          <SelectSmall />
-          <TextareaAutosize 
-            style={{fontSize:"16px", padding:"8.5px 14px", width: "100%"}} 
-            minRows={3}
-            className={styles.textarea}
-            placeholder="Message for the host"
+
+        {/* Payment Section */}
+        <h3 className={styles.h2}>Payment</h3>
+        {!isNaN(price) &&
+          price !== null &&
+          price !== 0 &&
+          "price: " + price + "€"}
+
+        <div className={styles.paymentSection}>
+          <PaymentProvider
+            trigger={trigger}
+            booking={booking}
+            nights={nights}
           />
         </div>
 
-        <h3 className={styles.h2}>Payment</h3>
-        <div className={styles.paymentSection}>
-        <PaymentProvider 
-          trigger={trigger}
-        />
-        
-        </div>
         <input className={styles.button} type="submit" value=" Book Now !" />
-        
       </form>
     </div>
   );

@@ -41,7 +41,9 @@ function Villa({ params }) {
 
       {/* Booking Section */}
       <div className={styles.booking}>
-        <Booking />
+        <Booking
+          villa={params.id}
+         />
       </div>
     </div>
   );
