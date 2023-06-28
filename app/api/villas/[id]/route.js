@@ -1,6 +1,5 @@
 
 
-
 export const GET = async (request) => {
     return {
         status: 200,

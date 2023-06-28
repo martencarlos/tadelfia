@@ -27,7 +27,9 @@ function Villa({ params }) {
       <div className={styles.imgContainer}>
        {/* Availability Section */}
        <div className={styles.availability}>
-       <Availability />
+       <Availability
+        villa={params.id}
+       />
      </div>
         <Image
           src={"/maingallery/" + data[params.id].img + ".webp"}
