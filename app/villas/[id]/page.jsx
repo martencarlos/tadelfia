@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 import data from "./data.json";
 import Image from "next/image";
 
-import StaticCalendar from "@/components/staticCalendar/staticCalendar";
+import Availability from "@/components/availability/availability";
 import Booking from "@/components/booking/booking";
 
 
@@ -27,7 +27,7 @@ function Villa({ params }) {
       <div className={styles.imgContainer}>
        {/* Availability Section */}
        <div className={styles.availability}>
-       <StaticCalendar />
+       <Availability />
      </div>
         <Image
           src={"/maingallery/" + data[params.id].img + ".webp"}

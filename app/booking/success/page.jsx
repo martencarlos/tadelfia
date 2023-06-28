@@ -77,6 +77,7 @@ async function Success ({searchParams, params}) {
         <br/>
         <p>{"id: "+data.id}</p>
         <p>{data.amount+" "+ data.currency}</p>
+        <p>{data.status}</p>
         </div>
       </div>
       {/* <div className={styles.paymentContainer}>

@@ -5,7 +5,7 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRange } from "react-date-range";
 import { useWindowSize } from "@/hooks/windowSize";
 
-import styles from "./staticCalendar.module.css";
+import styles from "./availability.module.css";
 import "./component.css"
 
 // Booked ranges
@@ -24,11 +24,11 @@ const ranges = [
     },
   ];
 
-function StaticCalendar() {
+function Availability() {
   const size = useWindowSize();
 
   return (
-    <div className={styles.staticCalendar}>
+    <div className={styles.availability}>
       <h1 className={styles.h1}>Availability</h1>
       <DateRange
         onChange={(item) => {}}
@@ -50,4 +50,4 @@ function StaticCalendar() {
   )
 }
 
-export default StaticCalendar
+export default Availability
