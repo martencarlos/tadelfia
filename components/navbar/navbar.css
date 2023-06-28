@@ -16,9 +16,9 @@
   /* ACCORDEON SECTION */
 
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, [class*="accordion"]:hover {
+/* .active, [class*="accordion"]:hover {
   background-color: #dcdcdc;
-}
+} */
 
 button.active + [class*="panel"]{
   margin: 5px 0px;
