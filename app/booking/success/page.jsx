@@ -1,8 +1,29 @@
 import React from 'react'
 import styles from './page.module.css'
+import dbConnect from '@/lib/dbConnect'
+import Booking from '@/models/Booking'
 
-async function Success({searchParams, params}) {
-    console.log(searchParams);
+async function saveBooking (booking,data) {
+  console.log("saving booking")
+  await dbConnect();
+  //add payment info to the booking
+  booking.payment ={
+    id: data.id,
+    amount: data.amount,
+    currency: data.currency
+  }
+  //save booking to db
+  const newBooking = new Booking(booking);
+  await newBooking.save();
+  
+  console.log(booking)
+
+
+
+}
+
+async function Success ({searchParams, params}) {
+    
     const res = await fetch ("https://api.stripe.com/v1/payment_intents/"+searchParams.payment_intent,
     {
       method: "GET",
@@ -11,9 +32,9 @@ async function Success({searchParams, params}) {
       }
     })
     const data = await res.json();
-    console.log(data);
     const booking = JSON.parse(data.metadata.booking);
-    // const createDate = new Date(data.created).toLocaleDateString();
+    
+    await saveBooking(booking,data);
    
     
   return (

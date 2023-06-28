@@ -21,9 +21,6 @@ export const POST = async (req) => {
   
   const {booking,clientSecret}  = await req.json();
 
-  console.log(booking)
-  console.log(clientSecret)
-
   if(!clientSecret){
     // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({

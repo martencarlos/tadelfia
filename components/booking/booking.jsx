@@ -64,9 +64,9 @@ function Booking({ villa }) {
       },
       accomodation: {
         villa: villa,
-        MessageToHost: form.elements["messageToHost"].value,
-        checkin: rangeDates[0].format("DD.MM.YYYY"),
-        checkout: rangeDates[1].format("DD.MM.YYYY"),
+        messageToHost: form.elements["messageToHost"].value,
+        checkin: new Date(rangeDates[0]),  //rangeDates[0].format("DD.MM.YYYY"),
+        checkout:  new Date(rangeDates[1].format("DD.MM.YYYY")),
         nights: nights,
         price: price ? price : 0,
         guests: guests,
