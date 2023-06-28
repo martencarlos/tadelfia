@@ -3,20 +3,24 @@
     .dateRangePicker{
         width: 100%;
     }
+    .datesSelected{
+        width: 100% !important;
+    }
     
 }
 
 
 .dateRangePicker{
     display: flex;
-    justify-content: center;
+    position: relative;
+    /* justify-content: center; */
     align-items: center;
     /* width: 100%; */
 }
 
 .button{
     border: 1px solid #ccc;
-    height: 40px;
+    height: 40px !important;
     cursor: pointer;
 }
 
@@ -25,4 +29,17 @@
     color: #8c8c8c;
     font-size: larger;
     cursor: pointer;
+  }
+
+  .datesSelected{
+    height: 40px;
+    width: 206px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    /* cursor: pointer; */
+    font-size: 16px ;
+    z-index: -11;
   }

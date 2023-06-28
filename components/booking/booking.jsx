@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import PaymentProvider from "../paymentProvider/paymentProvider";
 import GuestPicker from "../guestPicker/guestPicker";
 
+
 const pricing = [
   { villa: "villa", price: 128 },
   { villa: "Eros", price: 140 },
@@ -30,6 +31,7 @@ function Booking({ villa }) {
   const [price, setPrice] = useState(null);
   const [booking, setBooking] = useState(null);
 
+  // if picked checkin and checkout dates change, update the nights and pricing
   useEffect(() => {
     if (rangeDates) {
       const nightsCalc = Math.ceil(
@@ -91,7 +93,7 @@ function Booking({ villa }) {
         {/* Accommodation Section */}
         <h3 className={styles.h2}>Accommodation</h3>
         <div className={styles.section}>
-          <DateRangePicker setRangeDates={setRangeDates} />
+          <DateRangePicker rangeDates={rangeDates} villa = {villa} setRangeDates={setRangeDates} />
 
           {/*Guests*/}
           <GuestPicker setGuests={setGuests} />

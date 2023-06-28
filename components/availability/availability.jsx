@@ -8,12 +8,12 @@ import { useWindowSize } from "@/hooks/windowSize";
 import styles from "./availability.module.css";
 import "./component.css";
 import { useEffect, useState } from "react";
-import { getAllBookings, getYearBookingsFromVilla } from "@/lib/booking";
+import { getYearBookingsFromVilla } from "@/lib/booking";
 
 function Availability({ villa }) {
   const size = useWindowSize();
   const [ranges, setRanges] = useState([]); // Booked ranges
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getYearBookingsFromVilla(new Date().getFullYear(), villa).then((data) => {
@@ -33,11 +33,11 @@ function Availability({ villa }) {
     });
   }, [villa]);
 
-  useEffect(() => {
-    setLoading(false);
-  }, [ranges]);
+  // useEffect(() => {
+  //   setLoading(false);
+  // }, [ranges]);
 
-  return !loading ? (
+  return ( // !loading ? 
     <div className={styles.availability}>
       <h1 className={styles.h1}>Availability</h1>
       <DateRange
@@ -47,6 +47,7 @@ function Availability({ villa }) {
         shownDate={new Date()}
         editableDateInputs={false}
         showPreview={false}
+        
         showDateDisplay={false}
         dragSelectionEnabled={false}
         months={size.width < 800 ? 1 : 2}
@@ -56,10 +57,10 @@ function Availability({ villa }) {
         minDate={new Date()}
       />
     </div>
-  ) : (
-    <div className={styles.availability}>
-      <h1 className={styles.h1}>Loading availability...</h1>
-    </div>
+  //  : 
+  //   <div className={styles.availability}>
+  //     <h1 className={styles.h1}>Loading availability...</h1>
+  //   </div>
   );
 }
 

@@ -4,6 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useState } from 'react';
+import styles from "./guestpicker.module.css";
 
 export default function GuestPicker({setGuests}) {
   const [people, setPeople] = useState(1);
@@ -15,7 +16,7 @@ export default function GuestPicker({setGuests}) {
   };
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+    <FormControl className={styles.guestPicker}  sx={{ m: 1, minWidth: 120 }} size="small">
       <InputLabel id="demo-select-small-label">Guests</InputLabel>
       <Select
         labelId="demo-select-small-label"
