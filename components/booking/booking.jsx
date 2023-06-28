@@ -44,6 +44,7 @@ function Booking({ villa }) {
     }
   }, [rangeDates, villa]);
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
