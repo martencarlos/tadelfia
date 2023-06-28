@@ -6,7 +6,7 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 
-export default function Checkout({ trigger }) {
+export default function Checkout({ trigger, updatingIntent }) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -14,10 +14,10 @@ export default function Checkout({ trigger }) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (trigger) {
+    if (trigger && !updatingIntent) {
       handleSubmit();
     }
-  }, [trigger]);
+  }, [trigger,updatingIntent]);
 
   {/* show a message when the payment has been completed */}
   useEffect(() => {

@@ -1,10 +1,43 @@
 .success{
     display: flex;
     flex:1;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: calc(100vh - 60px);
     width: 100%;
+    /* gap: 30px; */
+    flex-wrap: wrap;
+    /* align-items: center; */
+    min-height: calc(100vh - 60px);
+    
+    padding: 60px 20px;
 }
 
+
+.bookingInfo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* gap: 30px; */
+
+}
+.section{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* .paymentContainer{
+    display: flex;
+    flex-direction: column;
+
+    
+}
+.json{
+    max-width: 500px;
+    width: 100%;
+    white-space: pre-wrap;
+    overflow-x: scroll;
+} */

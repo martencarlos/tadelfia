@@ -48,7 +48,7 @@ function Booking({ villa }) {
     e.preventDefault();
 
     const form = document.getElementById("booking");
-
+  
     const newBooking = {
       contact: {
         firstName: form.elements["firstName"].value,
@@ -64,6 +64,7 @@ function Booking({ villa }) {
       },
       accomodation: {
         villa: villa,
+        MessageToHost: form.elements["messageToHost"].value,
         checkin: rangeDates[0].format("DD.MM.YYYY"),
         checkout: rangeDates[1].format("DD.MM.YYYY"),
         nights: nights,
@@ -71,6 +72,7 @@ function Booking({ villa }) {
         guests: guests,
       },
     };
+  
 
     if (JSON.stringify(booking) !== JSON.stringify(newBooking)) {
       console.log("booking changed");
@@ -80,8 +82,7 @@ function Booking({ villa }) {
     //payment trigger
     setTrigger((prev_trigger) => prev_trigger + 1);
   };
-  console.log("booking:");
-  console.log(booking);
+ 
   return (
     <div className={styles.booking}>
       <h1 className={styles.h1}>Booking</h1>
@@ -98,6 +99,7 @@ function Booking({ villa }) {
           <TextareaAutosize
             style={{ fontSize: "16px", padding: "8.5px 14px", width: "100%" }}
             minRows={3}
+            id="messageToHost"
             className={styles.textarea}
             placeholder="Message for the host"
           />

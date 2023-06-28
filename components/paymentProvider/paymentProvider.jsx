@@ -3,33 +3,41 @@
 import getStripe from "@/lib/getStripe";
 import { Elements } from "@stripe/react-stripe-js";
 import Checkout from "../checkout/checkout";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 
 const stripePromise = getStripe();
+let updated = false;
 
-function PaymentProvider({trigger, booking, nights}) {
-  const [clientSecret, setClientSecret] = useState("");
+function PaymentProvider({trigger, booking}) {
+  const [clientSecret, setClientSecret] = useState(null);
+
+  const [copmponentBooking, setComponentBooking] = useState(null);
 
   useEffect(() => {
-    console.log("first render")
-  }, []);
-
-  // Create PaymentIntent as soon as the page loads
-  useEffect(() => {
-    
-      fetch("/api/create-payment-intent", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(booking),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data.clientSecret)
+    // Create first intent to load payment form once
+    // Update PaymentIntent when booking changes.
+    fetch("/api/create-payment-intent", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({booking: booking, clientSecret: clientSecret}),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setComponentBooking(booking)
+        if(data.clientSecret !== "updated")
           setClientSecret(data.clientSecret)
-      });
+        
+         
+    });
 
-  }, [nights]);
+}, [booking]);
 
+  // check if booking has changed. If so, wait for booking useEffect before enforcing checkout trigger
+  updated = false;
+  if(JSON.stringify(booking) !== JSON.stringify(copmponentBooking)){
+    updated = true;
+  }
+  
   // standard options for stripe
   const appearance = {
     theme: "stripe",
@@ -41,10 +49,12 @@ function PaymentProvider({trigger, booking, nights}) {
 
   return (
     <div>
+    {/*when booking has updated, only load after updated intent*/}
       {clientSecret && (
-        <Elements key={clientSecret} id="payment-element" options={options} stripe={stripePromise}>
+        <Elements id="payment-element" options={options} stripe={stripePromise}>
           <Checkout
             trigger={trigger}
+            updatingIntent={updated}
           />
         </Elements>
       )}

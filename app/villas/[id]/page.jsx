@@ -10,7 +10,7 @@ import Booking from "@/components/booking/booking";
 
 function Villa({ params }) {
   
-  console.log(params.id);
+  // console.log(params.id);
   return (
     <div className={styles.villa}>
       

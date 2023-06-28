@@ -4,36 +4,54 @@ import { NextResponse } from "next/server";
 const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 
+// Replace this constant with a calculation of the order's amount
+  // Calculate the order total on the server to prevent
+  // people from directly manipulating the amount on the client
 const calculateOrderAmount = (booking) => {
 
-  let price = 100;
+  let price = 50;
   if (booking) {
     price = booking.accomodation.price;
   }
-  // Replace this constant with a calculation of the order's amount
-  // Calculate the order total on the server to prevent
-  // people from directly manipulating the amount on the client
+  
   return price;
 };
 
 export const POST = async (req) => {
   
-  const booking  = await req.json();
-  // console.log(booking)
-  
+  const {booking,clientSecret}  = await req.json();
 
-  // Create a PaymentIntent with the order amount and currency
+  console.log(booking)
+  console.log(clientSecret)
+
+  if(!clientSecret){
+    // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
     amount: calculateOrderAmount(booking),
     currency: "eur",
     metadata: {
-      order_id: '6735' //example of metadata that we can add to the payment intent
+      booking: JSON.stringify(booking)
     },
     automatic_payment_methods: {
       enabled: true,
     },
-  });
- 
+  })
   return new NextResponse(JSON.stringify({ clientSecret: paymentIntent.client_secret }), { status: 200 });
+  // update payment intent metadata
+  } else if(clientSecret){
+    console.log(clientSecret.substring(0, clientSecret.indexOf("_secret_")))
+     await stripe.paymentIntents.update(
+      clientSecret.substring(0, clientSecret.indexOf("_secret_")),
+      {
+        amount: calculateOrderAmount(booking),
+        metadata: {
+          booking: JSON.stringify(booking)
+        },
+      }
+    );
+    return new NextResponse(JSON.stringify({ clientSecret: "updated" }), { status: 200 });
+  }
+ 
+  
 
 };
