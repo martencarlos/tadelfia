@@ -45,7 +45,7 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
     return (
         <div className={styles.dateRangePicker}>
             <div placeholder="Arrival & Departure dates" className={styles.datesSelected}>
-            {rangeDates && rangeDates.length==2 ? (new Date(rangeDates[0]).toLocaleDateString()) + " - " + (new Date(rangeDates[1]).toLocaleDateString()) : ""}
+            {rangeDates && rangeDates.length==2 ? (new Date(rangeDates[0]).toLocaleDateString()) + " - " + (new Date(rangeDates[1]).toLocaleDateString()) : "Arrival & Departure dates"}
             </div>
             <DatePicker
                 ref={datePickerRef} 
