@@ -44,7 +44,7 @@ function Booking({ villa }) {
     }
   }, [rangeDates, villa]);
 
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -67,7 +67,7 @@ function Booking({ villa }) {
         villa: villa,
         messageToHost: form.elements["messageToHost"].value,
         checkin: new Date(rangeDates[0]),  //rangeDates[0].format("DD.MM.YYYY"),
-        checkout:  new Date(rangeDates[1].format("DD.MM.YYYY")),
+        checkout: new Date(rangeDates[1]),
         nights: nights,
         price: price ? price : 0,
         guests: guests,
