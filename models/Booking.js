@@ -47,7 +47,7 @@ const bookingSchema = new Schema(
       },
       messageToHost: {
         type: String,
-        required: true,
+        required: false,
       },
       checkin: {
         type: Date,
