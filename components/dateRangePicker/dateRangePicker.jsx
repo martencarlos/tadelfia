@@ -6,19 +6,17 @@ import "./component.css"
 import styles from "./dateRangePicker.module.css"
 // import "react-multi-date-picker/styles/layouts/mobile.css"
 import { BsFillCalendarWeekFill } from "react-icons/bs";
-import { useWindowSize } from "@/hooks/windowSize"
+// import { useWindowSize } from "@/hooks/windowSize"
 import { getYearBookingsFromVilla } from "@/lib/booking";
 
 
 function DateRangePicker({rangeDates, setRangeDates,villa}) {
     const datePickerRef = useRef()
-    const { width } = useWindowSize()
+    // const { width } = useWindowSize()
     const [bookedRanges, setBookedRanges] = useState([]); // Booked ranges
     const [values, setValues] = useState([]);
   // const [loading, setLoading] = useState(true);
-  if(rangeDates)
-    console.log(new Date(rangeDates[0]).toLocaleDateString())
-  console.log(rangeDates)
+  
 
   function isReserved(strDate) {
     return bookedRanges.some(([start, end]) => strDate >= (new Date(start)) && strDate <= (new Date(end)));
@@ -46,8 +44,8 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
 
     return (
         <div className={styles.dateRangePicker}>
-            <div className={styles.datesSelected}>
-            {rangeDates.length==2 ? (new Date(rangeDates[0]).toLocaleDateString()) + " - " + (new Date(rangeDates[1]).toLocaleDateString()) : ""}
+            <div placeholder="Arrival & Departure dates" className={styles.datesSelected}>
+            {rangeDates && rangeDates.length==2 ? (new Date(rangeDates[0]).toLocaleDateString()) + " - " + (new Date(rangeDates[1]).toLocaleDateString()) : ""}
             </div>
             <DatePicker
                 ref={datePickerRef} 
@@ -59,13 +57,17 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                 // dateSeparator=" to "
                 // className={width<600?"rmdp-mobile":"rmdp-desktop"}
                 onChange={(ranges) => {
-                    
+                    console.log(ranges)
+                    console.log(bookedRanges.length)
                     const bookingRangeIndex = bookedRanges.length
                     if(ranges.length== bookingRangeIndex)
                       return false
                     
                     if(ranges.length>(bookingRangeIndex+1)){
-                      ranges.splice(bookingRangeIndex,bookingRangeIndex)
+                      if(bookingRangeIndex==0)
+                        ranges.splice(0,1)
+                      else
+                        ranges.splice(bookingRangeIndex,1)
                       // return false
                     }
                       
