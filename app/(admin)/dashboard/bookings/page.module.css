@@ -17,8 +17,9 @@
 .bookingsList{
   display: flex;
   flex-direction: column;
+  margin: 20px 0px;
 
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
 
 }
