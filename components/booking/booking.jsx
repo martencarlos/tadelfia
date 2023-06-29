@@ -46,12 +46,18 @@ function Booking({ villa }) {
     }
   }, [rangeDates, villa]);
 
-
+  // submit form function
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    //check rangeDates
+    console.log(rangeDates)
+    if (!rangeDates) {
+      alert("Please select arrival and departure dates");
+      return;
+    }
+
     const form = document.getElementById("booking");
-  
     const newBooking = {
       contact: {
         firstName: form.elements["firstName"].value,
@@ -76,9 +82,8 @@ function Booking({ villa }) {
       },
     };
   
-
+    //check if booking has changed, if update payment intent in paymentProvider children with new price and booking info
     if (JSON.stringify(booking) !== JSON.stringify(newBooking)) {
-
       setBooking(newBooking);
     }
 
@@ -90,9 +95,12 @@ function Booking({ villa }) {
     <div className={styles.booking}>
       <h1 className={styles.h1}>Booking</h1>
       <form id="booking" onSubmit={handleSubmit} className={styles.bookingForm}>
+
         {/* Accommodation Section */}
         <h3 className={styles.h2}>Accommodation</h3>
         <div className={styles.section}>
+
+          {/*Arrival and departure dates*/}
           <DateRangePicker rangeDates={rangeDates} villa = {villa} setRangeDates={setRangeDates} />
 
           {/*Guests*/}
@@ -111,8 +119,11 @@ function Booking({ villa }) {
         {/* Contact Section */}
         <h3 className={styles.h2}>Contact</h3>
         <div className={styles.section}>
+          {/* firstname*/}
           <TextField label="First Name" id="firstName" required size="small" />
+          {/* lastname*/}
           <TextField label="Last Name" id="lastName" required size="small" />
+          {/* email*/}
           <TextField
             label="Email"
             type="email"
@@ -120,10 +131,12 @@ function Booking({ villa }) {
             required
             size="small"
           />
+          {/* phone*/}
           <TextField
             label="Phone"
             type="tel"
             id="phone"
+            pattern="/^\+(?:[0-9] ?){6,14}[0-9]$/"
             required
             size="small"
           />
@@ -177,7 +190,7 @@ function Booking({ villa }) {
           />
         </div>
 
-        <input className={styles.button} type="submit" value=" Book Now !" />
+        <input className={styles.button} type="submit" value="Available - Book Now !" />
       </form>
     </div>
   );

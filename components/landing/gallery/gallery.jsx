@@ -46,7 +46,7 @@ function Gallery() {
             
     }
 
-  console.log("render" + selectedImageId)
+ 
   return (
     <div className={styles.gallery}>
         <h1 className={styles.h1}>{"Gallery"}</h1>
