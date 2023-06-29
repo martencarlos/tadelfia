@@ -6,8 +6,6 @@ import { BsXLg } from "react-icons/bs";
 import { BsChevronLeft } from "react-icons/bs";
 import { BsChevronRight } from "react-icons/bs";
 
-
-
 function Gallery() {
 
     const [selectedImageSrc, setSelectedImageSrc] = useState(null)
@@ -43,7 +41,6 @@ function Gallery() {
             setSelectedImageId(parseInt(selectedImageId)+1)
             setSelectedImageSrc(nextImgSrc)
         }
-            
     }
 
  

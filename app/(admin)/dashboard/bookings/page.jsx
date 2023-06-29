@@ -12,7 +12,7 @@ async function Bookings() {
         <div className={styles.bookingsList}>
             {allBookings.map((booking) => (
                 <div key={booking._id} className={styles.booking}>
-                    {booking._id}
+                    {booking.contact.firstName}
                 </div>
             ))}
         </div>

@@ -1,4 +1,9 @@
-
+@media screen and (max-width: 680px) {
+    
+    .villaLandingSection{
+       flex-direction: column-reverse;
+    }
+}
 
 .villa{
     display: flex;
@@ -6,6 +11,29 @@
     width: 100%;
     /* flex: 1;
     min-height: calc(100vh - 60px); */
+}
+
+.villaLandingSection{
+    display:flex;
+    min-height: calc(100vh - 60px);
+    align-items: center;
+}
+
+
+.textContainer{
+    flex:1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    margin: 0px 30px;
+}
+
+.imgContainer{
+    position:relative;
+    height: 100vh;
+    width: 100%;
 }
 
 .h1{
@@ -19,20 +47,6 @@
     margin: 20px 20px;
     line-height: 1.6rem;
     font-style: italic;
-}
-
-.textContainer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-}
-
-.imgContainer{
-    position:relative;
-    height: 100vh;
-    width: 100%;
 }
 
 .img{

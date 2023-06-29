@@ -4,21 +4,31 @@ import Image from "next/image";
 
 import Availability from "@/components/availability/availability";
 import Booking from "@/components/booking/booking";
+import Carousel from "@/components/carousel/carousel";
 
 function Villa({ params }) {
   // console.log(params.id);
+
   return (
     <div className={styles.villa}>
-      {/* Text Section */}
-      <div className={styles.textContainer}>
-        <h1 className={styles.h1}>{data[params.id].title}</h1>
-        <p className={styles.p}>{data[params.id].p1}</p>
-        <p className={styles.p}>{data[params.id].p2}</p>
-        <p className={styles.p}>{data[params.id].p3}</p>
-        {data[params.id].p4 && <p className={styles.p}>{data[params.id].p4}</p>}
+
+      {/* Landing section */}
+      <div className={styles.villaLandingSection}>
+        
+        {/* Text Section */}
+        <div className={styles.textContainer}>
+          <h1 className={styles.h1}>{data[params.id].title}</h1>
+          <p className={styles.p}>{data[params.id].p1}</p>
+          <p className={styles.p}>{data[params.id].p2}</p>
+          <p className={styles.p}>{data[params.id].p3}</p>
+          {data[params.id].p4 && (
+            <p className={styles.p}>{data[params.id].p4}</p>
+          )}
+        </div>
+         <Carousel />
       </div>
 
-      {/* Image Section */}
+      {/* Availability image */}
       <div className={styles.imgContainer}>
         {/* Availability Section */}
         <div className={styles.availability}>
