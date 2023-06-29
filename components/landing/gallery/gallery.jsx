@@ -23,7 +23,7 @@ function Gallery() {
         
         const modal = document.getElementById("imgModal")
         if (e.target.tagName === "IMG" && (modal.style.display === "none" || modal.style.display === "") ) {
-            setSelectedImageSrc(e.target.src)
+            setSelectedImageSrc("/maingallery/"+e.target.id+".webp")
             setSelectedImageId(e.target.id)
             modal.style.display = "flex"
         }
@@ -53,17 +53,17 @@ function Gallery() {
         <div onClick={openModal} className={styles.galleryContainer}>
         {/* Image modal - hidden */}
         <div id="imgModal" className={styles.modal}>
-            <div className={styles.galleryContainer}>
-                {selectedImageSrc &&<Image
+            <div className={styles.carousel}>
+                {selectedImageSrc &&
+                <Image
                     src={selectedImageSrc}
                     alt="gallery"
                     className={styles.modalImage}
                     priority
-                   
-                    // placeholder="blur"
-                    // blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+                    
                     fill
                 />}
+                
                 <div className={styles.closeButton} onClick={closeModal}>
                     <BsXLg />
                 </div>
