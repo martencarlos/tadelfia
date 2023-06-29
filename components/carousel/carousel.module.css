@@ -2,10 +2,11 @@
 @media screen and (max-width: 680px) {
     .carouselImg{
         position: relative !important;
+        height: 300px !important;
     }
     .carousel{
         min-height: unset !important;
-        height: 300px !important;
+       
         width: unset !important;
     }
 
