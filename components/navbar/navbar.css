@@ -27,7 +27,6 @@ button.active + [class*="panel"]{
 
 /* Icons */
 
-
 .active:after {
-  content: "\2796" !important; /* Unicode character for "minus" sign (-) */
+  content: "\02C4" !important; /* Unicode character for "minus" sign (-) */
 }

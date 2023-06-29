@@ -64,7 +64,8 @@ function Navbar() {
                 className={styles.link} href="/"><li >Home</li></Link>
             <li 
                 className={styles.dropdownLink} onClick={villasDropdownButtonClick}>
-                <div style={{fontWeight: (activeSegment === "villas") ? 'bolder' : 'normal'}}>Apartments</div> <BsArrowDownShort className={styles.icon}/>
+                <div style={{fontWeight: (activeSegment === "villas") ? 'bolder' : 'normal'}}>Apartments</div> 
+                <BsArrowDownShort className={styles.icon}/>
                 
                 {/*Villas Menu - hidden*/}
                 <div id="villasMenu" className={styles.villasMenu}>
@@ -105,7 +106,10 @@ function Navbar() {
             <ul onClick={closeHambMenu} className={styles.menuLinks}>
                 <Link className={styles.hambMenuLink} href="/"><li >Home</li></Link>
                 
-                <button onClick={openCloseAccordeon} className={styles.accordion}>Apartments</button>
+                <button onClick={openCloseAccordeon} className={styles.accordion}>
+                    Apartments
+                    {/* <BsArrowDownShort className={styles.icon}/>*/}
+                </button>
                 <div className={styles.panel}>
                     <Link href="/villas/villa" className={styles.hambMenuLink}><li >Villa</li></Link>
                     <Link href="/villas/Eros" className={styles.hambMenuLink}><li >Eros</li></Link>

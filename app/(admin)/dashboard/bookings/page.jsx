@@ -5,7 +5,6 @@ import { serverGetAllBookings } from '@/lib/booking'
 async function Bookings() {
 
     const allBookings = await serverGetAllBookings()
-    console.log(allBookings)
 
     return (
     <div className={styles.bookings}>
