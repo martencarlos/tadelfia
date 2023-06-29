@@ -113,7 +113,7 @@ function Booking({ villa }) {
         <div className={styles.section}>
 
           {/*Arrival and departure dates*/}
-          <div id="arrivalAndDepartureDates" >
+          <div className={styles.arrivalAndDepartureDates }id="arrivalAndDepartureDates" >
             <DateRangePicker rangeDates={rangeDates} villa = {villa} setRangeDates={setRangeDates} />
           </div>
           {/*Guests*/}
