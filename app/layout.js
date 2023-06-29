@@ -2,7 +2,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import  Navbar from '@/components/navbar/navbar'
 import styles from './layout.module.css'
-import AuthProvider from "@/components/AuthProvider/AuthProvider";
+import AuthProvider from "@/components/authProvider/authProvider";
 
 
 const inter = Inter({ subsets: ['latin'] })
