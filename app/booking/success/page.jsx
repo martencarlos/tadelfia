@@ -4,7 +4,7 @@ import dbConnect from '@/lib/dbConnect'
 import Booking from '@/models/Booking'
 
 async function saveBooking (booking,data) {
-  console.log("saving booking")
+
   await dbConnect();
   //add payment info to the booking
   booking.payment ={
@@ -16,7 +16,6 @@ async function saveBooking (booking,data) {
   const newBooking = new Booking(booking);
   await newBooking.save();
   
-  console.log(booking)
 
 
 

@@ -78,7 +78,7 @@ function Booking({ villa }) {
   
 
     if (JSON.stringify(booking) !== JSON.stringify(newBooking)) {
-      console.log("booking changed");
+
       setBooking(newBooking);
     }
 

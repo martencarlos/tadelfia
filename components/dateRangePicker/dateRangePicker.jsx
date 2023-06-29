@@ -57,8 +57,7 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                 // dateSeparator=" to "
                 // className={width<600?"rmdp-mobile":"rmdp-desktop"}
                 onChange={(ranges) => {
-                    console.log(ranges)
-                    console.log(bookedRanges.length)
+     
                     const bookingRangeIndex = bookedRanges.length
                     if(ranges.length== bookingRangeIndex)
                       return false

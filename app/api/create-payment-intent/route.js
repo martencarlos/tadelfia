@@ -36,7 +36,7 @@ export const POST = async (req) => {
   return new NextResponse(JSON.stringify({ clientSecret: paymentIntent.client_secret }), { status: 200 });
   // update payment intent metadata
   } else if(clientSecret){
-    console.log(clientSecret.substring(0, clientSecret.indexOf("_secret_")))
+    
      await stripe.paymentIntents.update(
       clientSecret.substring(0, clientSecret.indexOf("_secret_")),
       {
