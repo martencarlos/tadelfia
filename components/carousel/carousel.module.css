@@ -9,6 +9,14 @@
        
         width: unset !important;
     }
+    .previous{
+        height: 50px !important;
+        width: 50px !important;
+    }
+    .next{
+        height: 50px !important;
+        width: 50px !important;
+    }
 
     
 }
