@@ -72,7 +72,7 @@ function Gallery() {
         <div id="imgModal" className={styles.modal}>
             <div className={styles.galleryContainer}>
                 <Image
-                    src={selectedImageId ? selectedImageSrc : "/logo.webp"}
+                    src={selectedImageId ? selectedImageSrc : "/maingallery/1.webp"}
                     alt="gallery"
                     className={styles.modalImage}
                     placeholder="blur"
