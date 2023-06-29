@@ -1,4 +1,10 @@
-
+@media screen and (max-width: 680px) {
+    
+    .arrivalAndDepartureDates{
+        width: 100% !important;
+    }
+    
+}
 
 .booking{
     display: flex;
@@ -79,9 +85,8 @@
     transition: ease-in-out 0.2s;
 }
 
-
 .arrivalAndDepartureDates{
-    width: 100%;
-    display: flex;
-    flex: 1;
+    width: 246px;
+
 }
+
