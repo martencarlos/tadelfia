@@ -1,0 +1,25 @@
+import React from 'react'
+import styles from './page.module.css'
+import { serverGetAllBookings } from '@/lib/booking'
+
+async function Bookings() {
+
+    const allBookings = await serverGetAllBookings()
+    console.log(allBookings)
+
+    return (
+    <div className={styles.bookings}>
+        <h1>Bookings</h1>
+        <div className={styles.bookingsList}>
+            {allBookings.map((booking) => (
+                <div key={booking._id} className={styles.booking}>
+                    {booking._id}
+                </div>
+            ))}
+        </div>
+                    
+    </div>
+    )
+}
+
+export default Bookings

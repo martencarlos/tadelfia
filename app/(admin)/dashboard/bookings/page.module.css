@@ -1,10 +1,11 @@
+
 @media (min-width:500px) {
-    .dashboard{
+    .bookings{
       margin-left: 200px ;
     }
   }
 
-.dashboard{
+.bookings{
     display: flex;
     flex-direction: column;
     align-items: center;

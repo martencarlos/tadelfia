@@ -1,0 +1,114 @@
+@media (min-width:500px) {
+    .sidebarPanel{
+        display: flex !important;
+    }
+    .sidebarButtonInline{
+        display: none !important;
+    }
+}
+
+@media (max-width:500px) {
+    .sidebarPanel{
+        display: none;
+        width: 100% !important;
+    }
+}
+
+.sidebarButton{
+    position: absolute;
+    margin: 10px 0px;
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 24px !important;
+}
+
+.sidebarButtonInline{
+    border: none;
+    display: flex;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 24px !important;
+    width: 100%;
+}
+
+.sidebarPanel{
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+    width: 200px;
+    position: absolute;
+    background-color: #fff;
+    position: fixed !important;
+    z-index: 1;
+    overflow: auto;
+    padding: 10px 0px;
+
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+
+    animation: animateleft 0.4s
+}
+
+.sidebarLink{
+    width: 100%;
+    display: block;
+    padding: 8px 16px;
+    text-align: left;
+    border: none;
+    white-space: normal;
+    float: none;
+    outline: 0;
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.sidebarLink:hover {
+    color: #000 !important;
+    background-color: #ccc !important
+}
+
+.sidebarPanelTop{
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebarPanelBottom{
+
+}
+
+
+
+@keyframes animateleft {
+    from {
+        left: -300px;
+        opacity: 0
+    }
+
+    to {
+        left: 0;
+        opacity: 1
+    }
+}
