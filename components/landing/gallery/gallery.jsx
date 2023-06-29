@@ -58,8 +58,9 @@ function Gallery() {
                     src={selectedImageId ? selectedImageSrc : "/maingallery/1.webp"}
                     alt="Exterior pool view of a villa"
                     className={styles.modalImage}
-                    width={2000}
-                    height={1800}
+                    width={800}
+                    quality={100}
+                    height={680}
                 />
                 <div className={styles.closeButton} onClick={closeModal}>
                     <BsXLg />
