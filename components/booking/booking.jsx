@@ -34,6 +34,13 @@ function Booking({ villa }) {
   // if picked checkin and checkout dates change, update the nights and pricing
   useEffect(() => {
     if (rangeDates) {
+      
+      //remove red border from arrivalAndDepartureDates if there was an error
+      const arrivalAndDepartureDates = document.getElementById("arrivalAndDepartureDates");
+      if (arrivalAndDepartureDates.style.border === "1px solid red")
+        arrivalAndDepartureDates.style.border = "none";
+
+
       const nightsCalc = Math.ceil(
         (rangeDates[1] - rangeDates[0]) / (1000 * 3600 * 24)
       );
@@ -51,9 +58,14 @@ function Booking({ villa }) {
     e.preventDefault();
 
     //check rangeDates
-    console.log(rangeDates)
+
     if (!rangeDates) {
-      alert("Please select arrival and departure dates");
+      const arrivalAndDepartureDates = document.getElementById("arrivalAndDepartureDates");
+
+      arrivalAndDepartureDates.style.border = "1px solid red";
+      arrivalAndDepartureDates.scrollIntoView();
+
+      // alert("Please select arrival and departure dates");
       return;
     }
 
@@ -101,8 +113,9 @@ function Booking({ villa }) {
         <div className={styles.section}>
 
           {/*Arrival and departure dates*/}
-          <DateRangePicker rangeDates={rangeDates} villa = {villa} setRangeDates={setRangeDates} />
-
+          <div id="arrivalAndDepartureDates" >
+            <DateRangePicker rangeDates={rangeDates} villa = {villa} setRangeDates={setRangeDates} />
+          </div>
           {/*Guests*/}
           <GuestPicker setGuests={setGuests} />
 
