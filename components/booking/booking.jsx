@@ -47,7 +47,6 @@ function Booking({ villa }) {
     e.preventDefault();
 
     //check rangeDates
-
     if (!rangeDates) {
       const arrivalAndDepartureDates = document.getElementById("arrivalAndDepartureDates");
 
