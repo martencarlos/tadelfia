@@ -63,7 +63,7 @@ function Villas() {
                 </div>
                 <div className={styles.apartmentButtonSection}>
                     <div className={styles.priceWrapper}> 
-                        <p className={styles.priceLabel}>1 night, 2 adults</p>
+                        <p className={styles.priceLabel}>1 night</p>
                         <h4> {"€ "+item.pricePerNight}</h4>
                     </div>
                     <Link className={styles.button} href={"/villas/"+item.villa}  > Book now </Link>
