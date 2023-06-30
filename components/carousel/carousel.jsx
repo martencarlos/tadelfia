@@ -37,7 +37,7 @@ function Carousel() {
         <Image
           src={selectedImageSrc}
           alt="gallery"
-          className={loadingImage? styles.carouselImgLoading:styles.carouselImg}
+          className={loadingImage?`${styles.carouselImg} ${styles.carouselImgLoading}`:styles.carouselImg}
           priority
           fill
           onLoadingComplete={() => setLoadingImage(false)}
