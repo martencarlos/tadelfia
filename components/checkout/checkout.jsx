@@ -7,7 +7,7 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 
-export default function Checkout({ trigger, updatingIntent, price}) {
+export default function Checkout({ trigger, updatingIntent, price,setProcessing}) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -57,6 +57,7 @@ export default function Checkout({ trigger, updatingIntent, price}) {
     if (!stripe || !elements) {
       // Stripe.js hasn't yet loaded.
       // Make sure to disable form submission until Stripe.js has loaded.
+      setProcessing(false);
       return;
     }
     setIsLoading(true);
@@ -78,6 +79,7 @@ export default function Checkout({ trigger, updatingIntent, price}) {
       setMessage("An unexpected error occurred.");
     }
     setIsLoading(false);
+    setProcessing(false);
   };
 
   const paymentElementOptions = {
@@ -91,7 +93,7 @@ export default function Checkout({ trigger, updatingIntent, price}) {
       <br />
       {(isLoading || !stripe || !elements) ? "Processing payment..." : ""}
       {/* Show any error or success messages */}
-      {message && <div id="payment-message">{message}</div>}
+      {message && <div className={styles.paymentMessage} id="payment-message">{message}</div>}
       {!isNaN(price) &&
         price !== null &&
         price !== 0 &&

@@ -10,6 +10,7 @@ import "./booking.css";
 import { useEffect, useState } from "react";
 import PaymentProvider from "../paymentProvider/paymentProvider";
 import GuestPicker from "../guestPicker/guestPicker";
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 function Booking({ villa }) {
@@ -19,6 +20,7 @@ function Booking({ villa }) {
   const [nights, setNights] = useState(null);
   const [price, setPrice] = useState(null);
   const [booking, setBooking] = useState(null);
+  const [processing, setProcessing] = useState(false);
 
   // if picked checkin and checkout dates change, update the nights and pricing
   useEffect(() => {
@@ -45,7 +47,7 @@ function Booking({ villa }) {
   // submit form function
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setProcessing(true)
     //check rangeDates
     if (!rangeDates) {
       const arrivalAndDepartureDates = document.getElementById("arrivalAndDepartureDates");
@@ -54,6 +56,7 @@ function Booking({ villa }) {
       arrivalAndDepartureDates.scrollIntoView();
 
       // alert("Please select arrival and departure dates");
+      setProcessing(false)
       return;
     }
 
@@ -183,13 +186,18 @@ function Booking({ villa }) {
         <div className={styles.paymentSection}>
           <PaymentProvider
             trigger={trigger}
+            setProcessing={setProcessing}
             booking={booking}
             nights={nights}
             price={price}
           />
         </div>
-
-        <input className={styles.button} type="submit" value="Available - Book Now !" />
+        {processing ? <div className={styles.button} >
+          <CircularProgress className={styles.progress}/> 
+          </div>
+          :<input className={styles.button} type="submit" value= "Available - Book Now!" />
+           
+        }
       </form>
     </div>
   );

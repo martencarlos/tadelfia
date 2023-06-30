@@ -1,21 +1,21 @@
 
 "use client"
+
 import { useEffect, useRef, useState } from "react"
-import DatePicker, { DateObject } from "react-multi-date-picker"
-import "./component.css"
 import styles from "./dateRangePicker.module.css"
-// import "react-multi-date-picker/styles/layouts/mobile.css"
+import "./component.css"
+
+import DatePicker from "react-multi-date-picker"
 import { BsFillCalendarWeekFill } from "react-icons/bs";
-// import { useWindowSize } from "@/hooks/windowSize"
 import { getYearBookingsFromVilla } from "@/lib/booking";
+import "react-multi-date-picker/styles/layouts/mobile.css"
+// import { useWindowSize } from "@/hooks/windowSize"
 
 
 function DateRangePicker({rangeDates, setRangeDates,villa}) {
     const datePickerRef = useRef()
     // const { width } = useWindowSize()
     const [bookedRanges, setBookedRanges] = useState([]); // Booked ranges
-    const [values, setValues] = useState([]);
-  // const [loading, setLoading] = useState(true);
   
 
   function isReserved(strDate) {
@@ -37,7 +37,7 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
         });
         newRanges.push(...newBookedRanges);
         setBookedRanges(newRanges);
-        setValues(newRanges);
+        
       }
     });
   }, [villa]);
@@ -49,15 +49,13 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
             </div>
             <DatePicker
                 ref={datePickerRef} 
+                id="date-picker"
+                required
                 format="DD.MM.YYYY"
                 multiple
                 currentDate={new Date()}
-                // value={new Date()}
-                placeholder="Arrival & Departure dates"
-                // dateSeparator=" to "
-                // className={width<600?"rmdp-mobile":"rmdp-desktop"}
                 onChange={(ranges) => {
-     
+                  
                     const bookingRangeIndex = bookedRanges.length
                     if(ranges.length== bookingRangeIndex)
                       return false
@@ -82,22 +80,24 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                       setRangeDates(ranges[bookingRangeIndex]) //update prop
                 
                   }}
-                required
+                
                 //style the reserved dates red
-                mapDays={({ date}) => {
+                mapDays={({date}) => {
                     let className;
                     const strDate = new Date(date)//date.format();
                     if (isReserved(strDate)) className = "reserved";
                     if (className) return { className };
                   }}
                 range
-                value={values}
-                
+                value={bookedRanges} //only first time
                 editable = {false}
                 rangeHover
                 minDate={new Date()}
                 showOtherDays
                 monthYearSeparator="|"
+                // dateSeparator=" to "
+                // className={width<600?"rmdp-mobile":"rmdp-desktop"}
+                // placeholder="Arrival & Departure dates"
             />
 
             <div className={styles.button} onClick={() => datePickerRef.current.isOpen?datePickerRef.current.closeCalendar():datePickerRef.current.openCalendar()}>
