@@ -29,8 +29,18 @@
     align-items: center;
     flex:1;
     width: 100%;
+    min-width: 350px;
     min-height: calc(100vh - 200px);
     margin: 30px 30px;
+}
+
+.carouselImgLoading{
+    border-radius: 30px;
+    object-fit: cover;
+    filter: grayscale(20%) blur(2px);
+    background-color: rgb(222, 222, 222);
+    box-shadow: 0px 0px 5px 0px rgba(111, 111, 111, 0.75);
+    transition: all 0.7s ease-in-out;
 }
 
 .carouselImg{
