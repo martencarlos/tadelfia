@@ -39,14 +39,13 @@
     border-radius: 30px;
     object-fit: cover;
     box-shadow: 0px 0px 5px 0px rgba(111, 111, 111, 0.75);
-    animation-name: fade;
-    animation-duration: 2s;
+    animation-name: fadeBlur;
+    animation-duration: 1s;
 }
 
-
-@keyframes fade {
-    from {opacity: .6}
-    to {opacity: 1}
+  @keyframes fadeBlur {
+    from {filter: blur(2px) opacity(0.6)}
+    to {filter: blur(0px) opacity(1) }
   }
 
   
