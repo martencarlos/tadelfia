@@ -5,6 +5,7 @@ import  './navbar.css'
 import Link from 'next/link'
 import { BsArrowDownShort } from "react-icons/bs";
 import { useSelectedLayoutSegment } from 'next/navigation'
+import { set } from 'mongoose'
 
 
 function Navbar() {
@@ -50,8 +51,13 @@ function Navbar() {
 
     }
     function closeHambMenu(e){
-        if(e.target.tagName !== "BUTTON")
-            hambMenuClick()
+        
+        if(e.target.tagName !== "BUTTON"){
+            setTimeout(() => {
+                hambMenuClick()
+            }, 200);
+        }
+       
     }
 
 
