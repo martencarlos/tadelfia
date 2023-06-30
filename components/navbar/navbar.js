@@ -70,7 +70,7 @@ function Navbar() {
                     <ul className={styles.menuLinks}>
                         <Link href="/villas" className={styles.menuLink}><li >Apartments</li></Link>
                         <div className={styles.separator}></div>
-                        <Link href="/villas/villa" className={styles.menuLink}>Villa</Link>
+                        <Link href="/villas/Villa" className={styles.menuLink}>Villa</Link>
                         <Link href="/villas/Eros" className={styles.menuLink}><li >Eros</li></Link>
                         <Link href="/villas/Galini" className={styles.menuLink}><li >Galini</li></Link>
                         <Link href="/villas/Iris" className={styles.menuLink}><li >Iris</li></Link>
@@ -113,7 +113,7 @@ function Navbar() {
                 <div className={styles.panel}>
                     <Link href="/villas" className={styles.hambMenuLink}><li >Apartments</li></Link>
                     <div className={styles.separator1}></div>
-                    <Link href="/villas/villa" className={styles.hambMenuLink}><li >Villa</li></Link>
+                    <Link href="/villas/Villa" className={styles.hambMenuLink}><li >Villa</li></Link>
                     <Link href="/villas/Eros" className={styles.hambMenuLink}><li >Eros</li></Link>
                     <Link href="/villas/Galini" className={styles.hambMenuLink}><li >Galini</li></Link>
                     <Link href="/villas/Iris" className={styles.hambMenuLink}><li >Iris</li></Link>

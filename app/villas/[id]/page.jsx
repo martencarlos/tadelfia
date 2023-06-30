@@ -5,14 +5,26 @@ import Image from "next/image";
 import Availability from "@/components/availability/availability";
 import Booking from "@/components/booking/booking";
 import Carousel from "@/components/carousel/carousel";
+import { get } from "mongoose";
 
+async function filter(arr, callback) {
+  const fail = Symbol()
+  return (await Promise.all(arr.map(async item => (await callback(item)) ? item : fail))).filter(i=>i!==fail)
+}
 
+  function Villa({ params }) {
+    // //sync filter function
+    // function filterData(item) {
+    //   for (let i = 0; i < item.length; i++) {
+    //     if (item[i].villa === params.id) {
+    //       return item[i]
+    //     }
+    //   }
+    // }
+    // const villaJsonInfo = filterData(data)
 
-function Villa({ params }) {
-  console.log(params.id);
-  const villaJsonInfo = data.filter((item)=> item.villa === params.id)[0]
-  console.log(villaJsonInfo)
-
+    const villaJsonInfo = data.filter((item) => item.villa === params.id)[0]
+  
   return (
     <div className={styles.villa}>
 
