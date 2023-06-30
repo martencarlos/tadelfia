@@ -11,6 +11,7 @@ import Image from "next/image";
 
 let slideIndex = 0;
 let slideshowActive = true;
+let timerIds = null;
  // Next/previous controls
  function plusSlides(n) {
   showSlides(slideIndex += n);
@@ -28,9 +29,8 @@ function showSlides(n) {
     if (slideIndex > slides.length) {slideIndex = 1}
     slides[slideIndex-1].style.display = "block";
 
-    setTimeout(() => {
-      showSlides()
-    }, 5000);
+    
+    timerIds = window.setTimeout(showSlides, 5000);
   } else {
     //button pressed
     slideshowActive = false;
@@ -52,6 +52,9 @@ function Carousel() {
   //start slideshow
   useEffect(() => {
       showSlides()
+      return () => {
+        window.clearTimeout(timerIds);
+      }
     }, []);
 
   return (
