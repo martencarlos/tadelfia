@@ -6,10 +6,8 @@ import Link from 'next/link'
 import { BsArrowDownShort } from "react-icons/bs";
 import { useSelectedLayoutSegment } from 'next/navigation'
 
+
 function Navbar() {
-
-
-        
 
         function openCloseAccordeon(e) {
             const accordeon = document.getElementsByClassName("accordeon");
@@ -70,6 +68,8 @@ function Navbar() {
                 {/*Villas Menu - hidden*/}
                 <div id="villasMenu" className={styles.villasMenu}>
                     <ul className={styles.menuLinks}>
+                        <Link href="/villas" className={styles.menuLink}><li >Apartments</li></Link>
+                        <div className={styles.separator}></div>
                         <Link href="/villas/villa" className={styles.menuLink}>Villa</Link>
                         <Link href="/villas/Eros" className={styles.menuLink}><li >Eros</li></Link>
                         <Link href="/villas/Galini" className={styles.menuLink}><li >Galini</li></Link>

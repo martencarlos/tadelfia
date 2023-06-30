@@ -13,7 +13,7 @@ import GuestPicker from "../guestPicker/guestPicker";
 
 
 const pricing = [
-  { villa: "villa", price: 128 },
+  { villa: "villa", price: 128*9 },
   { villa: "Eros", price: 140 },
   { villa: "Galini", price: 130 },
   { villa: "Iris", price: 132 },
