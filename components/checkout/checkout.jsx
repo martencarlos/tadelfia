@@ -1,12 +1,13 @@
 "use client"
 import { useEffect, useState } from "react";
+import styles from "./checkout.module.css";
 import {
   PaymentElement,
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
 
-export default function Checkout({ trigger, updatingIntent }) {
+export default function Checkout({ trigger, updatingIntent, price}) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -91,6 +92,10 @@ export default function Checkout({ trigger, updatingIntent }) {
       {(isLoading || !stripe || !elements) ? "Processing payment..." : ""}
       {/* Show any error or success messages */}
       {message && <div id="payment-message">{message}</div>}
+      {!isNaN(price) &&
+        price !== null &&
+        price !== 0 &&
+        <div className={styles.price}>{"Total payment: "+ price + "€"}</div>}
     </div>
   );
 }

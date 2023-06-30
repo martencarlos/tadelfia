@@ -1,0 +1,17 @@
+
+
+
+
+.price{
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    margin:10px 0px;
+    text-align: center;
+    line-height: 1.2;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}

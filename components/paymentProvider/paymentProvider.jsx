@@ -8,7 +8,7 @@ import { use, useEffect, useState } from "react";
 const stripePromise = getStripe();
 let updated = false;
 
-function PaymentProvider({trigger, booking}) {
+function PaymentProvider({trigger, booking, price}) {
   const [clientSecret, setClientSecret] = useState(null);
 
   const [copmponentBooking, setComponentBooking] = useState(null);
@@ -55,6 +55,7 @@ function PaymentProvider({trigger, booking}) {
           <Checkout
             trigger={trigger}
             updatingIntent={updated}
+            price={price}
           />
         </Elements>
       )}

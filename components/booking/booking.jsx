@@ -190,16 +190,14 @@ function Booking({ villa }) {
 
         {/* Payment Section */}
         <h3 className={styles.h2}>Payment</h3>
-        {!isNaN(price) &&
-          price !== null &&
-          price !== 0 &&
-          "price: " + price + "€"}
-
+        
+        
         <div className={styles.paymentSection}>
           <PaymentProvider
             trigger={trigger}
             booking={booking}
             nights={nights}
+            price={price}
           />
         </div>
 
