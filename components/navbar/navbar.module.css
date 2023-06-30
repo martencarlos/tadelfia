@@ -202,7 +202,7 @@
   background-color: unset;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   color: #444;
   width: 200px;
   cursor: pointer;
