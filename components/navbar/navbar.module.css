@@ -204,9 +204,11 @@
   /* width: 100%; */
   height: 40px;
   text-align: left;
-  border: none;
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
   outline: none;
   transition: 0.4s;
+  
 }
 
 .accordion:after {
@@ -236,9 +238,17 @@
 }
 
 .separator{
-  width: 100%;
-  height: 1px;
-  margin: 5px 0;
+  width: 80%;
+ 
+  padding: 0.5px;
+  /* margin: 5px 0; */
   background-color: #dcdcdc;
 }
-  
+
+.separator1{
+  display: none;
+  width: 140px;
+  padding: 0.5px;
+  background-color: #dcdcdc;
+}
+

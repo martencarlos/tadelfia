@@ -3,6 +3,10 @@
     .villaLandingSection{
        flex-direction: column-reverse;
     }
+
+    .textContainer{
+        margin: 0px 20px !important;
+    }
 }
 
 .villa{

@@ -4,24 +4,13 @@ import styles from "./booking.module.css";
 import DateRangePicker from "@/components/dateRangePicker/dateRangePicker";
 import TextField from "@mui/material/TextField";
 import TextareaAutosize from "@mui/base/TextareaAutosize";
-
+import dataJson from "@/app/villas/[id]/data.json";
 import "./booking.css";
 
 import { useEffect, useState } from "react";
 import PaymentProvider from "../paymentProvider/paymentProvider";
 import GuestPicker from "../guestPicker/guestPicker";
 
-
-const pricing = [
-  { villa: "villa", price: 128*9 },
-  { villa: "Eros", price: 140 },
-  { villa: "Galini", price: 130 },
-  { villa: "Iris", price: 132 },
-  { villa: "Astraia", price: 145 },
-  { villa: "Armonia", price: 160 },
-  { villa: "Gaia", price: 126 },
-  { villa: "Ermis", price: 129 },
-];
 
 function Booking({ villa }) {
   const [trigger, setTrigger] = useState(0);
@@ -47,7 +36,7 @@ function Booking({ villa }) {
       if (nightsCalc !== nights && nightsCalc > 0) {
         setNights(nightsCalc);
         setPrice(
-          pricing.find((item) => item.villa === villa).price * nightsCalc
+          dataJson.find((item) => item.villa === villa).pricePerNight * nightsCalc
         );
       }
     }

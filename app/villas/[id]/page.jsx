@@ -6,8 +6,12 @@ import Availability from "@/components/availability/availability";
 import Booking from "@/components/booking/booking";
 import Carousel from "@/components/carousel/carousel";
 
+
+
 function Villa({ params }) {
-  // console.log(params.id);
+  console.log(params.id);
+  const villaJsonInfo = data.filter((item)=> item.villa === params.id)[0]
+  console.log(villaJsonInfo)
 
   return (
     <div className={styles.villa}>
@@ -17,12 +21,12 @@ function Villa({ params }) {
         
         {/* Text Section */}
         <div className={styles.textContainer}>
-          <h1 className={styles.h1}>{data[params.id].title}</h1>
-          <p className={styles.p}>{data[params.id].p1}</p>
-          <p className={styles.p}>{data[params.id].p2}</p>
-          <p className={styles.p}>{data[params.id].p3}</p>
-          {data[params.id].p4 && (
-            <p className={styles.p}>{data[params.id].p4}</p>
+          <h1 className={styles.h1}>{villaJsonInfo.title }</h1>
+          <p className={styles.p}>{villaJsonInfo.p1}</p>
+          <p className={styles.p}>{villaJsonInfo.p2}</p>
+          <p className={styles.p}>{villaJsonInfo.p3}</p>
+          {villaJsonInfo.p4 && (
+            <p className={styles.p}>{villaJsonInfo.p4}</p>
           )}
         </div>
          <Carousel />
@@ -35,7 +39,7 @@ function Villa({ params }) {
           <Availability villa={params.id} />
         </div>
         <Image
-          src={"/maingallery/" + data[params.id].img + ".webp"}
+          src={"/maingallery/" + villaJsonInfo.img + ".webp"}
           className={styles.img}
           width={1000}
           height={700}

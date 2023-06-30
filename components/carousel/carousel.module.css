@@ -6,7 +6,7 @@
     }
     .carousel{
         min-height: unset !important;
-       
+        margin:20px !important;
         width: unset !important;
     }
     .previous{

@@ -1,5 +1,9 @@
-{
-  "villa": {
+
+
+[
+   {
+    "villa": "Villa",
+    "pricePerNight": 1152,
     "title": "Villa - Book the whole property",
     "subTitle":"Perfect for a very large families or large groups who also need their privacy from time to time",
     "bedrooms": "9",
@@ -11,7 +15,9 @@
     "p2": "The spacious private terrace offers a direct access to the pool and a breathtaking view of the Ionian Sea and olive tree groves.",
     "p3": ""
   },
-  "Eros": {
+   {
+    "villa":"Eros",
+    "pricePerNight": 140,
     "title": "Welcome to EROS, the lovers' suite!",
     "subTitle":"Perfect for couples madly in love",
     "bedrooms": "1",
@@ -24,7 +30,9 @@
     "p3": "Private parking spaces are available to our guests."
   },
 
-  "Galini": {
+   {
+    "villa":"Galini",
+    "pricePerNight": 139,
     "title": "Welcome to GALINI !",
     "subTitle":"Perfect for a couple or a family",
     "bedrooms": "1",
@@ -37,7 +45,9 @@
     "p3": "Guests have access to the swimming pool area with its sunbeds, sun shades and cozy place. A perfect place to relax, enjoy the sun, read a book or just admire the sea and mountain views. The swimming pool area is exclusive for T'Adelfia Guests.",
     "p4": "Private parking spaces are available to our guests."
   },
-  "Iris": {
+   {
+    "villa": "Iris",
+    "pricePerNight": 132,
     "title": "Welcome to Iris !",
     "subTitle":"Perfect for a couple or a family",
     "bedrooms": "1",
@@ -50,7 +60,9 @@
     "p3": "Guests have access to the swimming pool area with its sunbeds, sun shades and cozy place. A perfect place to relax, enjoy the sun, read a book or just admire the sea and mountain views. The swimming pool area is exclusive for T'Adelfia Guests.",
     "p4": "Private parking spaces are available to our guests."
   },
-  "Astraia": {
+   {
+    "villa": "Astraia",
+    "pricePerNight": 145,
     "title": "Welcome to Astraia !",
     "subTitle":"Perfect for a couple or a family",
     "bedrooms": "2",
@@ -63,7 +75,9 @@
     "p3": "Guests have access to the swimming pool area with its sunbeds, sun shades and cozy place. A perfect place to relax, enjoy the sun, read a book or just admire the sea and mountain views. The swimming pool area is exclusive for T'Adelfia Guests.",
     "p4": "Private parking spaces are available to our guests."
   },
-  "Armonia": {
+  {
+    "villa": "Armonia",
+    "pricePerNight": 152,
     "title": "Welcome to Armonia !",
     "subTitle":"Perfect for a couple or a family",
     "bedrooms": "1",
@@ -76,7 +90,9 @@
     "p3": "Guests have access to the swimming pool area with its sunbeds, sun shades and cozy place. A perfect place to relax, enjoy the sun, read a book or just admire the sea and mountain views. The swimming pool area is exclusive for T'Adelfia Guests.",
     "p4": "Parking spaces are also available to our guests."
   },
-  "Gaia": {
+  {
+    "villa": "Gaia",
+    "pricePerNight": 163,
     "title": "Welcome to Gaïa !",
     "subTitle":"Perfect for a couple or a family",
     "bedrooms": "1",
@@ -89,7 +105,9 @@
     "p3": "Parking spaces are also available to our guests.",
     "p4": ""
   },
-  "Ermis": {
+   {
+    "villa": "Ermis",
+    "pricePerNight": 137,
     "title": "Welcome to Ermis !",
     "subTitle":"Perfect for a couple or a family",
     "bedrooms": "2",
@@ -103,4 +121,4 @@
     "p4": ""
   }
 
-}
+]

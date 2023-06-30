@@ -1,0 +1,135 @@
+
+@media screen and (max-width: 680px) {
+    
+    .apartmentImage{
+        width: 100% !important;
+    }
+    .apartmentInfo{
+        width: 100% !important;
+        margin: 15px 0px !important;
+    }
+
+    .apartmentList{
+        width: 95% !important;
+    }
+
+    .apartment{
+        flex-direction: column !important;
+    }
+
+    .amenities{
+        width: 100% !important;
+    }
+    .apartmentButtonSection{
+        flex-direction: row !important;
+        justify-content: flex-end !important;
+        min-height: unset !important;
+        margin: 0px 5px !important;
+        /* width: 100% !important; */
+    }
+
+}
+
+
+.villasFullPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: calc(100vh - 60px);
+}
+
+.apartmentList{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 30px 0px;
+    width: 80%;
+}
+
+.apartment{
+    display:flex;
+    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+   
+    min-height: 150px;
+    padding: 10px;
+    /* border: 1px solid #9b9b9b; */
+    box-shadow: 0px 0px 5px 0px #9b9b9b;
+}
+
+.apartmentImage{
+    display:flex;
+    align-items: center;
+    width: 200px;
+    min-height: 150px;
+    position: relative;
+}
+
+.img{
+    object-fit: cover;
+}
+
+.apartmentInfo{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin:0px 20px;
+    flex:1;
+}
+
+.title{
+    
+}
+
+.subTitle{
+    margin:10px 0px;
+    color: #717171;
+}
+
+.amenities{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.amenity{
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.amenityTitle{
+    margin: 10px 0px;
+    color: #5a5a5a;
+}
+
+.apartmentButtonSection{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 176px;
+    margin: 0px 20px;
+}
+
+.priceWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px;
+    gap: 5px;
+}
+
+.priceLabel{
+    font-size: x-small;
+    color: #5a5a5a;
+}
+
+.button{
+    padding: 10px;;
+    border-radius: 5px;
+    border: 1px solid #000;
+}

@@ -22,7 +22,15 @@
 
 button.active + [class*="panel"]{
   margin: 5px 0px;
-  border-bottom: 1px solid #ccc;
+  /* border-bottom: 1px solid #ccc; */
+}
+
+button.active + [class*="panel"] [class*="separator1"]{
+  display: block !important;
+}
+
+button.active + [class*="panel"] + [class*="separator1"]{
+  display: block !important;
 }
 
 /* Icons */

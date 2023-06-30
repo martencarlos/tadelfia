@@ -111,6 +111,8 @@ function Navbar() {
                     {/* <BsArrowDownShort className={styles.icon}/>*/}
                 </button>
                 <div className={styles.panel}>
+                    <Link href="/villas" className={styles.hambMenuLink}><li >Apartments</li></Link>
+                    <div className={styles.separator1}></div>
                     <Link href="/villas/villa" className={styles.hambMenuLink}><li >Villa</li></Link>
                     <Link href="/villas/Eros" className={styles.hambMenuLink}><li >Eros</li></Link>
                     <Link href="/villas/Galini" className={styles.hambMenuLink}><li >Galini</li></Link>
@@ -120,7 +122,7 @@ function Navbar() {
                     <Link href="/villas/Gaia" className={styles.hambMenuLink}><li >Gaia</li></Link>
                     <Link href="/villas/Ermis" className={styles.hambMenuLink}><li >Ermis</li></Link>
                 </div>
-                
+                <div className={styles.separator1}></div>
                 <Link className={styles.hambMenuLink} href="/about"><li >About</li></Link>
                 <Link className={styles.hambMenuLink} href="/contact"><li >Contact</li></Link>
             </ul>
