@@ -6,8 +6,8 @@
     }
     .carousel{
         min-height: unset !important;
-        margin:20px !important;
-        width: unset !important;
+        padding: 20px !important;
+        width: 100% !important;
     }
     .previous{
         height: 50px !important;
