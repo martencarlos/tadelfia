@@ -9,7 +9,7 @@ import Image from "next/image";
 function Carousel() {
   const [selectedImageSrc, setSelectedImageSrc] = useState("/maingallery/1.webp");
   const [selectedImageId, setSelectedImageId] = useState(1);
-  const [loadingImage, setLoadingImage] = useState(true);
+  // const [loadingImage, setLoadingImage] = useState(true);
 
   const previousImage = () => {
 
@@ -37,6 +37,7 @@ function Carousel() {
         <Image
           src={selectedImageSrc}
           alt="gallery"
+          className={styles.carouselImg}
           // className={loadingImage?`${styles.carouselImg} ${styles.carouselImgLoading}`:styles.carouselImg}
           priority
           fill
