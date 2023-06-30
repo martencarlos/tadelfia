@@ -11,6 +11,7 @@ function LandingPage() {
         alt="Exterior pool view of a villa"
         className={styles.landingImage}
         priority={true}
+        placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
         width={1585}
         height={891}
       />
@@ -19,6 +20,8 @@ function LandingPage() {
         <Image
           src="/logo.webp"
           alt="logo"
+          priority
+          placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
           className={styles.logo}
           width={250}
           height={250}

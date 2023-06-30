@@ -57,7 +57,7 @@ function Gallery() {
                     alt="gallery"
                     className={styles.modalImage}
                     priority
-                    
+                    placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                     fill
                 />}
                 
@@ -80,7 +80,7 @@ function Gallery() {
                 src="/maingallery/1.webp"
                 alt="Exterior pool view of a villa"
                 className={styles.galleryImage}
-               
+                placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                 width={144}
                 height={104}
             />
@@ -88,6 +88,7 @@ function Gallery() {
                 id='5'
                 src="/maingallery/5.webp"
                 alt="Exterior pool view of a villa"
+                placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                 className={styles.galleryImage}
                 width={144}
                 height={104}
@@ -96,6 +97,7 @@ function Gallery() {
                 id='6'
                 src="/maingallery/6.webp"
                 alt="Exterior pool view of a villa"
+                placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                 className={styles.galleryImage}
                 width={144}
                 height={104}
@@ -104,6 +106,7 @@ function Gallery() {
                 id='7'
                 src="/maingallery/7.webp"
                 alt="Exterior pool view of a villa"
+                placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                 className={styles.galleryImage}
                 width={144}
                 height={104}
@@ -114,6 +117,7 @@ function Gallery() {
                 id='2'
                 src="/maingallery/2.webp"
                 alt="Exterior pool view of a villa"
+                placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                 className={styles.galleryImage}
                 width={144}
                 height={104}
@@ -122,6 +126,7 @@ function Gallery() {
                 id='8'
                 src="/maingallery/8.webp"
                 alt="Exterior pool view of a villa"
+                placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                 className={styles.galleryImage}
                 width={144}
                 height={104}
@@ -130,6 +135,7 @@ function Gallery() {
                 id='9'
                 src="/maingallery/9.webp"
                 alt="Exterior pool view of a villa"
+                placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                 className={styles.galleryImage}
                 width={144}
                 height={104}
@@ -138,6 +144,7 @@ function Gallery() {
                 id='10'
                 src="/maingallery/10.webp"
                 alt="Exterior pool view of a villa"
+                placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                 className={styles.galleryImage}
                 width={144}
                 height={104}
@@ -148,6 +155,7 @@ function Gallery() {
                 id='3'
                 src="/maingallery/3.webp"
                 alt="Exterior pool view of a villa"
+                placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                 className={styles.galleryImage}
                 width={144}
                 height={104}
@@ -156,6 +164,7 @@ function Gallery() {
                 id='11'
                 src="/maingallery/11.webp"
                 alt="Exterior pool view of a villa"
+                placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                 className={styles.galleryImage}
                 width={144}
                 height={104}
@@ -164,6 +173,7 @@ function Gallery() {
                 id='12'
                 src="/maingallery/12.webp"
                 alt="Exterior pool view of a villa"
+                placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                 className={styles.galleryImage}
                 width={144}
                 height={104}
@@ -172,6 +182,7 @@ function Gallery() {
                 id='13'
                 src="/maingallery/13.webp"
                 alt="Exterior pool view of a villa"
+                placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                 className={styles.galleryImage}
                 width={144}
                 height={104}
@@ -182,6 +193,7 @@ function Gallery() {
                 id='4'
                 src="/maingallery/4.webp"
                 alt="Exterior pool view of a villa"
+                placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                 className={styles.galleryImage}
                 width={144}
                 height={104}
@@ -190,6 +202,7 @@ function Gallery() {
                 id='14'
                 src="/maingallery/14.webp"
                 alt="Exterior pool view of a villa"
+                placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                 className={styles.galleryImage}
                 width={144}
                 height={104}
@@ -198,6 +211,7 @@ function Gallery() {
                 id='15'
                 src="/maingallery/15.webp"
                 alt="Exterior pool view of a villa"
+                placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                 className={styles.galleryImage}
                 width={144}
                 height={104}
@@ -206,6 +220,7 @@ function Gallery() {
                 id='16'
                 src="/maingallery/16.webp"
                 alt="Exterior pool view of a villa"
+                placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                 className={styles.galleryImage}
                 width={144}
                 height={104}

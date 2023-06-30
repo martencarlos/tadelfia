@@ -61,6 +61,7 @@ function Carousel() {
           src={"/maingallery/1.webp"}
           id="carouselImg"
           alt="gallery"
+          placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
           className={styles.carouselImg}
           priority
           style={{display: "block"}}

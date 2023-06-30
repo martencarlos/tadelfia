@@ -56,6 +56,7 @@ async function filter(arr, callback) {
           width={1000}
           height={700}
           priority
+          placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
           alt={params.id}
         />
       </div>
