@@ -58,7 +58,7 @@ function Carousel() {
     <div className={styles.carousel}>
 
         <Image
-          src={"/mainGallery/1.webp"}
+          src={"/maingallery/1.webp"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -67,7 +67,7 @@ function Carousel() {
           fill
         />
         <Image
-          src={"/mainGallery/2.webp"}
+          src={"/maingallery/2.webp"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -75,7 +75,7 @@ function Carousel() {
           fill
         />
         <Image
-          src={"/mainGallery/4.webp"}
+          src={"/maingallery/4.webp"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -83,7 +83,7 @@ function Carousel() {
           fill
         />
         <Image
-          src={"/mainGallery/5.webp"}
+          src={"/maingallery/5.webp"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -91,7 +91,7 @@ function Carousel() {
           fill
         />
         <Image
-          src={"/mainGallery/6.webp"}
+          src={"/maingallery/6.webp"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -99,7 +99,7 @@ function Carousel() {
           fill
         />
         <Image
-          src={"/mainGallery/7.webp"}
+          src={"/maingallery/7.webp"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -107,7 +107,7 @@ function Carousel() {
           fill
         />
         <Image
-          src={"/mainGallery/8.webp"}
+          src={"/maingallery/8.webp"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -115,7 +115,7 @@ function Carousel() {
           fill
         />
         <Image
-          src={"/mainGallery/9.webp"}
+          src={"/maingallery/9.webp"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -123,7 +123,7 @@ function Carousel() {
           fill
         />
         <Image
-          src={"/mainGallery/10.webp"}
+          src={"/maingallery/10.webp"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -131,7 +131,7 @@ function Carousel() {
           fill
         />
         <Image
-          src={"/mainGallery/11.webp"}
+          src={"/maingallery/11.webp"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
