@@ -50,8 +50,8 @@ const Login = ({ url }) => {
         <h1 className={styles.title}>{ "Admin login"}</h1>
        
         <br />
-        {success && <p className={styles.title}>{success}</p>}
-        {error && <p className={styles.title}>{error}</p>}
+        {success && <p className={styles.subtitle}>{success}</p>}
+        {error && <p className={styles.subtitle}>{error}</p>}
         <form className={styles.loginForm} onSubmit={handleSubmit}>
           <input
             required
