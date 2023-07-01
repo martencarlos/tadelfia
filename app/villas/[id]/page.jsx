@@ -5,7 +5,7 @@ import Image from "next/image";
 import Availability from "@/components/availability/availability";
 import Booking from "@/components/booking/booking";
 import Carousel from "@/components/carousel/carousel";
-import { get } from "mongoose";
+
 
 async function filter(arr, callback) {
   const fail = Symbol()

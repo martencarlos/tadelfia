@@ -7,6 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 import Loading from "@/components/loading/loading";
 
+
 const Login = ({ url }) => {
   const session = useSession();
   const router = useRouter();
@@ -33,11 +34,17 @@ const Login = ({ url }) => {
     const email = e.target[0].value;
     const password = e.target[1].value;
 
-    signIn("credentials", {
+    signIn("credentials", { redirect:false,
       email,
       password,
     }).then((res) => {
-      // setLoggingIn(false);
+      console.log(res);
+      if (res.error) {
+        setError(res.error);
+        setLoggingIn(false);
+      } else {
+        router.push("/dashboard");
+      }
     });
   };
 
@@ -50,8 +57,8 @@ const Login = ({ url }) => {
         <h1 className={styles.title}>{ "Admin login"}</h1>
        
         <br />
-        {success && <p className={styles.subtitle}>{success}</p>}
-        {error && <p className={styles.subtitle}>{error}</p>}
+        {success && <p className={styles.success}>{success}</p>}
+        {error && <p className={styles.error}>{error}</p>}
         <form className={styles.loginForm} onSubmit={handleSubmit}>
           <input
             required
