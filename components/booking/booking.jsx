@@ -3,7 +3,7 @@
 import styles from "./booking.module.css";
 import DateRangePicker from "@/components/dateRangePicker/dateRangePicker";
 import TextField from "@mui/material/TextField";
-import TextareaAutosize from "@mui/base/TextareaAutosize";
+// import TextareaAutosize from "@mui/base/TextareaAutosize";
 import dataJson from "@/app/villas/[id]/data.json";
 import "./booking.css";
 
@@ -111,9 +111,9 @@ function Booking({ villa }) {
           <GuestPicker setGuests={setGuests} />
 
           {/*Comment to host*/}
-          <TextareaAutosize
-            style={{ fontSize: "16px", padding: "8.5px 14px", width: "100%" }}
-            minRows={3}
+          <textarea
+            style={{ minHeight:"100px", fontSize: "16px", padding: "8.5px 14px", width: "100%" }}
+            // minRows={3}
             id="messageToHost"
             className={styles.textarea}
             placeholder="Message for the host"

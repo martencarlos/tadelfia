@@ -53,7 +53,7 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                 required
                 format="DD.MM.YYYY"
                 multiple
-                currentDate={new Date()}
+                currentDate={rangeDates?rangeDates[0]:new Date()}
                 onChange={(ranges) => {
                   
                     const bookingRangeIndex = bookedRanges.length
@@ -80,7 +80,6 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                       setRangeDates(ranges[bookingRangeIndex]) //update prop
                 
                   }}
-                
                 //style the reserved dates red
                 mapDays={({date}) => {
                     let className;
@@ -89,6 +88,8 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                     if (className) return { className };
                   }}
                 range
+                
+                weekStartDayIndex={1}
                 value={bookedRanges} //only first time
                 editable = {false}
                 rangeHover
