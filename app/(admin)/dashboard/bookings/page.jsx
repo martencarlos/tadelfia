@@ -31,6 +31,8 @@ async function Bookings() {
                             <h3>Address</h3>
                         </div>
                         <div className={styles.sectionContent}>
+                            <div className={styles.elipsis}>{booking.address.street}</div>
+                            <div className={styles.elipsis}>{booking.address.postal}</div>
                             <div>{booking.address.towncity}</div>
                             <div>{booking.address.country}</div>
                         </div>
