@@ -13,10 +13,12 @@ const Login = ({ url }) => {
   const params = useSearchParams();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [loggingIn, setLoggingIn] = useState(false);
 
   useEffect(() => {
     setError(params.get("error"));
     setSuccess(params.get("success"));
+    setLoggingIn(false);
   }, [params]);
 
   useEffect(() => {
@@ -27,12 +29,15 @@ const Login = ({ url }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoggingIn(true);
     const email = e.target[0].value;
     const password = e.target[1].value;
 
     signIn("credentials", {
       email,
       password,
+    }).then((res) => {
+      // setLoggingIn(false);
     });
   };
 
@@ -61,7 +66,9 @@ const Login = ({ url }) => {
             placeholder="password"
           />
           <br />
-          <button className={styles.loginButton}>Login</button>
+          <button className={styles.loginButton}>
+            {loggingIn ? "Logging in..." : "Login"}
+          </button>
           
         </form>
       </div>
