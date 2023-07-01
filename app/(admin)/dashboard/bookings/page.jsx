@@ -1,11 +1,12 @@
 import React from 'react'
 import styles from './page.module.css'
 import { serverGetAllBookings } from '@/lib/booking'
+import Link from 'next/link'
 
 async function Bookings() {
 
     const allBookings = await serverGetAllBookings()
-    console.log(allBookings[0].payment)
+    console.log(allBookings[0])
     return (
     <div className={styles.bookings}>
         <div className={styles.header}>
@@ -13,7 +14,7 @@ async function Bookings() {
         </div>
         <div className={styles.bookingsList}>
             {allBookings.map((booking) => (
-                <div key={booking._id} className={styles.booking}>
+                <Link href={"/dashboard/bookings/"+booking._id} key={booking._id} className={styles.booking}>
                     <div className={styles.section}>
                         <div className={styles.sectionTitle}>
                             <h3>Contact</h3>
@@ -56,10 +57,9 @@ async function Bookings() {
                             <div className={styles.elipsis}>{booking.payment.id}</div>
                             <div>{new Date(booking.createdAt).toLocaleDateString()}</div>
                             <div>{booking.payment.currency+" "+booking.payment.amount}</div>
-               
                         </div>
                     </div>
-                </div>
+                </Link>
             ))}
         </div>
                     
