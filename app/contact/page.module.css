@@ -10,6 +10,10 @@
         flex-direction: column !important;
         width: 100% !important;
     }
+
+    .contactDetails{
+        flex-direction: column-reverse !important;
+    }
    
 
 }
