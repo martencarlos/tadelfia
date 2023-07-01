@@ -6,7 +6,7 @@ import Link from 'next/link'
 async function Bookings() {
 
     const allBookings = await serverGetAllBookings()
-    console.log(allBookings[0])
+   
     return (
     <div className={styles.bookings}>
         <div className={styles.header}>

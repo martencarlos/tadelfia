@@ -21,7 +21,7 @@ function showSlides(n) {
   if(n === undefined && slideshowActive) {
     let i;
     let slides = document.querySelectorAll("[class*=carouselImg]")
-    // console.log(slides);
+  
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
     }

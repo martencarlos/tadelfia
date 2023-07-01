@@ -7,11 +7,11 @@ import Link from 'next/link'
 import { signOut,useSession } from "next-auth/react";
 
 function Sidebar() {
-    console.log("sidebar")
+  
     const {data} = useSession()
     
     function toggleSidebar() {
-        console.log("toggle")
+    
         const sidebar = document.getElementById("sidebarPanel")
         const sidebarButton = document.getElementById("sidebarButton")
         if(sidebar.style.display === "flex"){
