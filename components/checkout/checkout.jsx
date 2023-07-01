@@ -89,11 +89,13 @@ export default function Checkout({ trigger, updatingIntent, price,setProcessing}
   return (
     <div id="payment-form">
       <PaymentElement id="payment-element" options={paymentElementOptions} />
-      
       <br />
-      {(isLoading || !stripe || !elements) ? "Processing payment..." : ""}
+      
       {/* Show any error or success messages */}
       {message && <div className={styles.paymentMessage} id="payment-message">{message}</div>}
+      {(isLoading || !stripe || !elements) ? 
+        <div className={styles.paymentMessage}>{ "Processing payment..."}</div>
+        : ""}
       {!isNaN(price) &&
         price !== null &&
         price !== 0 &&

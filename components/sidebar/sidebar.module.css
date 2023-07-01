@@ -61,7 +61,7 @@
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    height: calc(100vh - 60px);
     width: 200px;
     position: absolute;
     background-color: #fff;
@@ -71,7 +71,6 @@
     /* padding: 10px 0px; */
 
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-
     animation: animateleft 0.4s
 }
 
@@ -95,20 +94,17 @@
     width: 100%;
     display: block;
     padding: 16px 16px;
-    text-align: left;
     border: none;
     white-space: normal;
     float: none;
     outline: 0;
-    border: none;
-    vertical-align: middle;
     overflow: hidden;
     text-decoration: none;
     color: inherit;
     background-color: inherit;
     text-align: center;
     cursor: pointer;
-    white-space: nowrap;
+    
 }
 .sidebarLink:hover {
     color: #000 !important;
@@ -122,6 +118,7 @@
 }
 
 .sidebarPanelBottom{
+    display: flex;
 
 }
 
