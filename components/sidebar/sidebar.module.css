@@ -1,8 +1,14 @@
 @media (min-width:500px) {
     .sidebarPanel{
         display: flex !important;
+        transform: translateY(-60px) !important;
+        height: calc(100vh) !important;
+        padding-top: 60px !important;
     }
     .sidebarButtonInline{
+        display: none !important;
+    }
+    .sidebarButton{
         display: none !important;
     }
 }
@@ -12,13 +18,17 @@
         display: none;
         width: 100% !important;
     }
+    /* .sidebarButton{
+        display: block !important ;
+    } */
 }
 
 .sidebarButton{
+    display: block;
     position: absolute;
     margin: 10px 0px;
     border: none;
-    display: inline-block;
+    
     padding: 8px 16px;
     vertical-align: middle;
     overflow: hidden;
@@ -48,34 +58,49 @@
 }
 
 .sidebarPanel{
+    display: none;
     flex-direction: column;
     justify-content: space-between;
-    height: 90%;
+    height: 100%;
     width: 200px;
     position: absolute;
     background-color: #fff;
     position: fixed !important;
     z-index: 1;
     overflow: auto;
-    padding: 10px 0px;
+    /* padding: 10px 0px; */
 
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 
     animation: animateleft 0.4s
 }
 
+.sidebarTitle{
+    width: 100%;
+    display: block;
+    padding: 16px 16px;
+    border: none;
+    white-space: normal;
+    float: none;
+    outline: 0;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+
+    font-size: larger;
+    font-weight: bold;
+}
+
 .sidebarLink{
     width: 100%;
     display: block;
-    padding: 8px 16px;
+    padding: 16px 16px;
     text-align: left;
     border: none;
     white-space: normal;
     float: none;
     outline: 0;
     border: none;
-    display: inline-block;
-    padding: 8px 16px;
     vertical-align: middle;
     overflow: hidden;
     text-decoration: none;
@@ -93,6 +118,7 @@
 .sidebarPanelTop{
     display: flex;
     flex-direction: column;
+    margin: 10px 0px;
 }
 
 .sidebarPanelBottom{

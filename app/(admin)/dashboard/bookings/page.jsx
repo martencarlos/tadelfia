@@ -5,14 +5,60 @@ import { serverGetAllBookings } from '@/lib/booking'
 async function Bookings() {
 
     const allBookings = await serverGetAllBookings()
-
+    console.log(allBookings[0].payment)
     return (
     <div className={styles.bookings}>
-        <h1>Bookings</h1>
+        <div className={styles.header}>
+            <h1>Bookings</h1>
+        </div>
         <div className={styles.bookingsList}>
             {allBookings.map((booking) => (
                 <div key={booking._id} className={styles.booking}>
-                    {booking.contact.firstName}
+                    <div className={styles.section}>
+                        <div className={styles.sectionTitle}>
+                            <h3>Contact</h3>
+                        </div>
+                        <div className={styles.sectionContent}>
+                            <div>{booking.contact.firstName}</div>
+                            <div>{booking.contact.lastName}</div>
+                            <div className={styles.elipsis}>{booking.contact.email}</div>
+                        </div>
+                    </div>
+
+                    <div className={styles.section}>
+                        <div className={styles.sectionTitle}>
+                            <h3>Address</h3>
+                        </div>
+                        <div className={styles.sectionContent}>
+                            <div>{booking.address.towncity}</div>
+                            <div>{booking.address.country}</div>
+                        </div>
+                    </div>
+
+                    <div className={styles.section}>
+                        <div className={styles.sectionTitle}>
+                            <h3>Accomodation</h3>
+                        </div>
+                        <div className={styles.sectionContent}>
+                            <div>{booking.accomodation.villa}</div>
+                            <div>{new Date(booking.accomodation.checkin).toLocaleDateString()}</div>
+                            <div>{new Date (booking.accomodation.checkout).toLocaleDateString()}</div>
+                            <div>{booking.accomodation.nights+ " nights"}</div>
+                            <div>{booking.accomodation.guests+ " guests"}</div>
+                        </div>
+                    </div>
+
+                    <div className={styles.section}>
+                        <div className={styles.sectionTitle}>
+                            <h3>Payment</h3>
+                        </div>
+                        <div className={styles.sectionContent}>
+                            <div className={styles.elipsis}>{booking.payment.id}</div>
+                            <div>{new Date(booking.createdAt).toLocaleDateString()}</div>
+                            <div>{booking.payment.currency+" "+booking.payment.amount}</div>
+               
+                        </div>
+                    </div>
                 </div>
             ))}
         </div>

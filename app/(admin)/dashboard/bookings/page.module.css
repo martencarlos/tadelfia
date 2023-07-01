@@ -1,25 +1,78 @@
 
 @media (min-width:500px) {
     .bookings{
-      margin-left: 200px ;
+      margin: 30px 0px 30px 200px ;
+    }
+  }
+
+  @media (max-width:500px) {
+    .bookings{
+      margin: 60px 0px 30px 0px ;
     }
   }
 
 .bookings{
     display: flex;
+    
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
     width: 100%;
+}
+
+.header{
+  display: flex;
+  justify-content: flex-start;
+  width: 80%;
+  margin: 20px 0px;
 }
 
 .bookingsList{
   display: flex;
   flex-direction: column;
   margin: 20px 0px;
+  width: 80%;
 
   justify-content: center;
   gap: 10px;
+
+}
+
+.booking{
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 10px;
+ 
+  flex-wrap: wrap;
+}
+
+.section{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px 10px;
+  width: 160px;
+}
+
+.sectionTitle{
+
+}
+
+.sectionContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 10px;
+  height: 100%;
+  margin:10px 0px;
+}
+
+.elipsis{
+  overflow: hidden;
+  width: 140px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
 }
