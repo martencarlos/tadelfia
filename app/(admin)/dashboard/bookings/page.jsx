@@ -17,9 +17,12 @@ async function Bookings() {
     <div className={styles.bookings}>
         <div className={styles.header}>
             <h1>Bookings</h1>
+            {allBookings.length === 0 &&<div>
+                No bookings yet
+            </div>}
         </div>
         <div className={styles.bookingsList}>
-            {allBookings.map((booking) => (
+            { allBookings.map((booking) => (
                 <Link href={"/dashboard/bookings/"+booking._id} key={booking._id} className={styles.booking}>
                     <div className={styles.section}>
                         <div className={styles.sectionTitle}>
