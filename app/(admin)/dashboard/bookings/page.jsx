@@ -1,9 +1,9 @@
+"use client"
 import React from 'react'
 import styles from './page.module.css'
 // import { serverGetAllBookings } from '@/lib/booking'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-
+// import { useRouter } from 'next/navigation'
 
 
 async function serverGetAllBookings() {
@@ -19,7 +19,7 @@ async function serverGetAllBookings() {
 
 
 async function Bookings() {
-    useRouter().refresh()
+    // useRouter().refresh()
     const allBookings = await serverGetAllBookings()
    
     return (
