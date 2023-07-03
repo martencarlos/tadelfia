@@ -36,3 +36,7 @@
     height: 40px;
     width: 206px;
 }
+
+.rmdp-range.start, .rmdp-range, .rmdp-range.end{
+    color: white !important;
+}
