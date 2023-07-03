@@ -1,82 +1,82 @@
-import React from 'react'
-import styles from './page.module.css'
-import dbConnect from '@/lib/dbConnect'
-import Booking from '@/models/Booking'
+import React from "react";
+import styles from "./page.module.css";
+import dbConnect from "@/lib/dbConnect";
+import Booking from "@/models/Booking";
 
-async function saveBooking (booking,data) {
-
+async function saveBooking(booking, data) {
   await dbConnect();
-  //add payment info to the booking
-  booking.payment ={
-    id: data.id,
-    amount: data.amount,
-    currency: data.currency
+  //check if booking already exists
+  const existingBooking = await Booking.findOne({ "payment.id": data.id });
+
+  if (!existingBooking) {
+    //add payment info to the booking
+    booking.payment = {
+      id: data.id,
+      amount: data.amount,
+      currency: data.currency,
+    };
+    //save booking to db
+    const newBooking = new Booking(booking);
+    await newBooking.save();
   }
-  //save booking to db
-  const newBooking = new Booking(booking);
-  await newBooking.save();
-  
-
-
-
 }
 
-async function Success ({searchParams, params}) {
-    
-    const res = await fetch ("https://api.stripe.com/v1/payment_intents/"+searchParams.payment_intent,
+async function Success({ searchParams, params }) {
+  //get payment intent booking info
+  const res = await fetch(
+    "https://api.stripe.com/v1/payment_intents/" + searchParams.payment_intent,
     {
       method: "GET",
       headers: {
-        authorization: "Bearer "+process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY
-      }
-    })
-    const data = await res.json();
-    const booking = JSON.parse(data.metadata.booking);
-    
-    await saveBooking(booking,data);
-   
-    
+        authorization: "Bearer " + process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY,
+      },
+    }
+  );
+  const data = await res.json();
+  const booking = JSON.parse(data.metadata.booking);
+
+  await saveBooking(booking, data);
+
   return (
     <div className={styles.success}>
-    <h1>Booking Details</h1>
+      <h1>Booking Details</h1>
       <div className={styles.bookingInfo}>
-        
-        <br/>
+        <br />
         <div className={styles.section}>
           <h3>Contact</h3>
-          <br/>
+          <br />
           <p>{booking.contact.firstName}</p>
           <p>{booking.contact.lastName}</p>
           <p>{booking.contact.email}</p>
           <p>{booking.contact.phone}</p>
         </div>
-        <br/>
+        <br />
         <div className={styles.section}>
-        <h3>Address</h3>
-        <br/>
-        <p>{booking.address.street}</p>
-        <p>{booking.address.postal}</p>
-        <p>{booking.address.towncity}</p>
-        <p>{booking.address.country}</p>
+          <h3>Address</h3>
+          <br />
+          <p>{booking.address.street}</p>
+          <p>{booking.address.postal}</p>
+          <p>{booking.address.towncity}</p>
+          <p>{booking.address.country}</p>
         </div>
-        <br/>
+        <br />
         <div className={styles.section}>
-        <h3>Accomodation</h3>
-        <br/>
-        <p>{booking.accomodation.villa}</p>
-        <p>{booking.accomodation.MessageToHost}</p>
-        <p>{booking.accomodation.checkin}</p>
-        <p>{booking.accomodation.checkout}</p>
-        <p>{"Nights: "+booking.accomodation.nights}</p>
-        <p>{"Guests: "+booking.accomodation.guests}</p>
-        <br/>
+          <h3>Accomodation</h3>
+          <br />
+          <p>{booking.accomodation.villa}</p>
+          <p>{booking.accomodation.MessageToHost}</p>
+          <p>{booking.accomodation.checkin}</p>
+          <p>{booking.accomodation.checkout}</p>
+          <p>{"Nights: " + booking.accomodation.nights}</p>
+          <p>{"Guests: " + booking.accomodation.guests}</p>
+          <br />
         </div>
         <div className={styles.section}>
-        <h3>Payment</h3>
-        <br/>
-        <p>{"id: "+data.id}</p>
-        <p>{data.amount+" "+ data.currency}</p>
-        <p>{data.status}</p>
+          <h3>Payment</h3>
+          <br />
+          <p>{"id: " + data.id}</p>
+          <p>{data.amount + " " + data.currency}</p>
+          <p>{data.status}</p>
         </div>
       </div>
       {/* <div className={styles.paymentContainer}>
@@ -85,7 +85,7 @@ async function Success ({searchParams, params}) {
       </div>
       */}
     </div>
-  )
+  );
 }
 
-export default Success
+export default Success;

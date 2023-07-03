@@ -1,7 +1,13 @@
 import React from 'react'
 import styles from './page.module.css'
-import { serverGetAllBookings } from '@/lib/booking'
+// import { serverGetAllBookings } from '@/lib/booking'
 import Link from 'next/link'
+
+
+async function serverGetAllBookings() {
+    return fetch(process.env.NEXT_PUBLIC_HOST+"/api/bookings", 
+        { next: { revalidate: 5 } }).then((res) => res.json());
+}
 
 async function Bookings() {
 
