@@ -1,7 +1,43 @@
+
+@media screen and (max-width: 680px) {
+    
+    .apartmentImage{
+        width: 100% !important;
+    }
+    .apartmentInfo{
+        width: 100% !important;
+        margin: 15px 0px !important;
+    }
+
+    .apartmentList{
+        width: 95% !important;
+    }
+
+    .apartment{
+        flex-direction: column !important;
+    }
+
+    .amenities{
+        width: 100% !important;
+    }
+    .apartmentButtonSection{
+        flex-direction: row !important;
+        justify-content: flex-end !important;
+        min-height: unset !important;
+        margin: 0px 5px !important;
+        /* width: 100% !important; */
+    }
+
+}
+
+
+
+
 .success{
     display: flex;
     flex:1;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     width: 100%;
     /* gap: 30px; */
@@ -9,14 +45,23 @@
     /* align-items: center; */
     min-height: calc(100vh - 60px);
     
-    padding: 60px 20px;
+    padding: 40px 20px;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 5px;
 }
 
 
 .bookingInfo{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
+    box-shadow: 0px 0px 5px 0px #9b9b9b;
     /* gap: 30px; */
 
 }
@@ -41,3 +86,99 @@
     white-space: pre-wrap;
     overflow-x: scroll;
 } */
+
+
+.apartment{
+    display:flex;
+    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+   
+    min-height: 150px;
+    padding: 10px;
+    /* border: 1px solid #9b9b9b; */
+    
+}
+
+.apartmentImage{
+    display:flex;
+    align-items: center;
+    width: 200px;
+    min-height: 150px;
+    position: relative;
+    
+}
+
+.img{
+    object-fit: cover;
+}
+
+.apartmentInfo{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin:0px 20px;
+    flex:1;
+}
+
+.title{
+    
+}
+
+.subTitle{
+    margin:10px 0px;
+    color: #717171;
+}
+
+.amenities{
+    display:flex;
+
+    flex-wrap: wrap;
+}
+
+.amenity{
+    display:flex;
+    flex-direction: column;
+    padding: 10px 15px;
+}
+
+.amenityTitle{
+    margin: 10px 0px;
+    color: #5a5a5a;
+}
+
+.apartmentButtonSection{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 176px;
+    margin: 0px 20px;
+}
+
+.priceWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px;
+    gap: 5px;
+}
+
+.priceLabel{
+    font-size: x-small;
+    color: #5a5a5a;
+}
+
+.AdditionalInfo{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+}
+
+.bookkedby{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0px 10px
+}

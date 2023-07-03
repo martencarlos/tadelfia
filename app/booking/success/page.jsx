@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./page.module.css";
 import dbConnect from "@/lib/dbConnect";
 import Booking from "@/models/Booking";
+import Image from "next/image";
+import villasJson from "/app/villas/[id]/data.json";
 
 async function saveBooking(booking, data) {
   await dbConnect();
@@ -35,49 +37,112 @@ async function Success({ searchParams, params }) {
   const data = await res.json();
   const booking = JSON.parse(data.metadata.booking);
 
+  console.log(villasJson[0].villa)
+  console.log(booking.accomodation.villa)
+  console.log(villasJson.find(item => item.villa === booking.accomodation.villa))
+  
   await saveBooking(booking, data);
+
 
   return (
     <div className={styles.success}>
-      <h1>Booking Details</h1>
+      <div className={styles.header}>
+        <Image
+          src="/booking/success/checkmark.webp"
+          alt="Booking Success"
+          width={70}
+          priority
+          height={70}
+        />
+        <h1>Booking confirmed !</h1>
+        <p>Thank you for your booking.</p>
+      </div>
+      <br />
       <div className={styles.bookingInfo}>
         <br />
-        <div className={styles.section}>
-          <h3>Contact</h3>
-          <br />
-          <p>{booking.contact.firstName}</p>
-          <p>{booking.contact.lastName}</p>
-          <p>{booking.contact.email}</p>
-          <p>{booking.contact.phone}</p>
+        
+        <div className={styles.apartment}>
+                <div className={styles.apartmentImage}>
+                    <Image src={"/maingallery/"+villasJson.find(item => item.villa === booking.accomodation.villa).img +".webp" }
+                        alt="apartment" 
+                        fill
+                        priority
+                        className={styles.img}
+                    />
+                </div>
+                <div className={styles.apartmentInfo}>
+                    <div className={styles.title}>
+                        <h3>{booking.accomodation.villa + " apartment"}</h3>
+                    </div>
+                    <div className={styles.subTitle}>
+                        <p>{villasJson.find(item => item.villa === booking.accomodation.villa).subTitle}</p>
+                    </div>
+                    <div className={styles.amenities}>
+                    <div className={styles.amenity}>
+                            <div className={styles.amenityTitle}>
+                                <h4>Booking Ref.</h4>
+                            </div>
+                            <div className={styles.amenityContent}>
+                                <p>{"# " + data.id.slice(-6)}</p>
+                            </div>
+                        </div>
+                        <div className={styles.amenity}>
+                            <div className={styles.amenityTitle}>
+                                <h4>Check-in</h4>
+                            </div>
+                            <div className={styles.amenityContent}>
+                                <p>{new Date (booking.accomodation.checkin).toLocaleDateString()}</p>
+                            </div>
+                        </div>
+                        <div className={styles.amenity}>
+                            <div className={styles.amenityTitle}>
+                                <h4>Checkout</h4>
+                            </div>
+                            <div className={styles.amenityContent}>
+                                <p>{new Date (booking.accomodation.checkout).toLocaleDateString()}</p>
+                            </div>
+                        </div>
+                        <div className={styles.amenity}>
+                            <div className={styles.amenityTitle}>
+                                <h4>Nights</h4>
+                            </div>
+                            <div className={styles.amenityContent}>
+                                <p>{booking.accomodation.nights}</p>
+                            </div>
+                        </div>
+                        <div className={styles.amenity}>
+                            <div className={styles.amenityTitle}>
+                                <h4>Guests</h4>
+                            </div>
+                            <div className={styles.amenityContent}>
+                                <p>{booking.accomodation.guests+ " adults"}</p>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+                <div className={styles.apartmentButtonSection}>
+                    <div className={styles.priceWrapper}> 
+                        <p className={styles.priceLabel}>{booking.accomodation.nights}{" night(s)"}</p>
+                        <h4> {"€ "+data.amount}</h4>
+                    </div>
+                  
+                </div>
+            </div>
+            <br />
+       
+        <div className={styles.AdditionalInfo}>
+          <h3>Booked by</h3>
+          <div className={styles.bookkedby}>
+            <p><b>{"Full Name: "}</b>{booking.contact.firstName+" "+booking.contact.lastName}</p>
+            <p><b>{"Email: "}</b>{booking.contact.email}</p>
+            <p><b>{"Phone "}</b>{booking.contact.phone}</p>
+          </div>
         </div>
+     
         <br />
-        <div className={styles.section}>
-          <h3>Address</h3>
-          <br />
-          <p>{booking.address.street}</p>
-          <p>{booking.address.postal}</p>
-          <p>{booking.address.towncity}</p>
-          <p>{booking.address.country}</p>
-        </div>
-        <br />
-        <div className={styles.section}>
-          <h3>Accomodation</h3>
-          <br />
-          <p>{booking.accomodation.villa}</p>
-          <p>{booking.accomodation.MessageToHost}</p>
-          <p>{booking.accomodation.checkin}</p>
-          <p>{booking.accomodation.checkout}</p>
-          <p>{"Nights: " + booking.accomodation.nights}</p>
-          <p>{"Guests: " + booking.accomodation.guests}</p>
-          <br />
-        </div>
-        <div className={styles.section}>
-          <h3>Payment</h3>
-          <br />
-          <p>{"id: " + data.id}</p>
-          <p>{data.amount + " " + data.currency}</p>
-          <p>{data.status}</p>
-        </div>
+        
+        
       </div>
       {/* <div className={styles.paymentContainer}>
         <h1>Payment full Details </h1>
