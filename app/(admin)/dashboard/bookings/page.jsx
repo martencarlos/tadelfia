@@ -19,9 +19,9 @@ async function serverGetAllBookings() {
 
 
 async function Bookings() {
-    useRouter().refresh()
+    
     const allBookings = await serverGetAllBookings()
-   
+    useRouter().refresh()
     return (
     <div className={styles.bookings}>
         <div className={styles.header}>
