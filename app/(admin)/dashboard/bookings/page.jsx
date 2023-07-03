@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 
 async function serverGetAllBookings() {
-    const res = fetch(process.env.NEXT_PUBLIC_HOST+"/api/bookings", 
+    const res = await fetch(process.env.NEXT_PUBLIC_HOST+"/api/bookings", 
         { next: { revalidate: 0 } })
     if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -15,6 +15,7 @@ async function serverGetAllBookings() {
   return res.json()
     
 }
+
 
 async function Bookings() {
 
