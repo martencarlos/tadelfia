@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 async function serverGetAllBookings() {
     const res = await fetch(process.env.NEXT_PUBLIC_HOST+"/api/bookings", 
-        { next: { revalidate: 0 } })
+     { cache: 'no-store' })
     if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')
