@@ -2,11 +2,12 @@ import React from 'react'
 import styles from './page.module.css'
 // import { serverGetAllBookings } from '@/lib/booking'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+
 
 
 async function serverGetAllBookings() {
-    const res = await fetch(process.env.NEXT_PUBLIC_HOST+"/api/bookings", 
-     { cache: 'no-cache' })
+    const res = await fetch(process.env.NEXT_PUBLIC_HOST+"/api/bookings")
     if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')
@@ -18,7 +19,7 @@ async function serverGetAllBookings() {
 
 
 async function Bookings() {
-
+    useRouter().refresh()
     const allBookings = await serverGetAllBookings()
    
     return (
