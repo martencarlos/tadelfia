@@ -9,14 +9,15 @@ export default async function Bookings() {
     let allBookings = []
     try {
         const res = await fetch(process.env.NEXT_PUBLIC_HOST+"/api/bookings",{
-            cache: 'no-store',
-        } )
+            next: { revalidate: 10},
+        })
         allBookings = await res.json()
      
     } catch (error) {
         console.log(error)
     }
-   
+    console.log("rendering all bookings:")
+    console.log(allBookings.length)
     return (
     <div className={styles.bookings}>
         <div className={styles.header}>
