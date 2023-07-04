@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       
+      {/*} 
       <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-NLD045G618"/>
       <Script
         id='google-analytics'
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
           `,
           }}
       />
+      */}
      
       <body className={inter.className}>
         <Navbar/>

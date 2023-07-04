@@ -1,14 +1,37 @@
 "use client";
-import React from "react";
+import {useState} from "react";
 import styles from "./page.module.css";
 import TextField from "@mui/material/TextField";
 
 function Contact() {
+  const [sendingEmail, setSendingEmail] = useState(false);
 
   function sendForm(e){
     e.preventDefault()
+    setSendingEmail(true)
     const form = e.target
-    form.reset()
+    const formInfo = {
+      firstName: form.firstName.value,
+      lastName: form.lastName.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      messageToHost: form.messageToHost.value
+    }
+
+    fetch("/api/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        form.reset()
+        setSendingEmail(false)
+      })
+    
   }
 
   return (
@@ -99,7 +122,7 @@ function Contact() {
             />
             </div>
             <button className={styles.button} type="submit">
-              Send
+              {sendingEmail? "Sending..." : "Send"}
             </button>
           </form>
         </div>
