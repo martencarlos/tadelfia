@@ -38,7 +38,6 @@ const Login = ({ url }) => {
       email,
       password,
     }).then((res) => {
-      console.log(res);
       if (res.error) {
         setError(res.error);
         setLoggingIn(false);

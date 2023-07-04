@@ -36,10 +36,6 @@ async function Success({ searchParams, params }) {
   );
   const data = await res.json();
   const booking = JSON.parse(data.metadata.booking);
-
-  console.log(villasJson[0].villa)
-  console.log(booking.accomodation.villa)
-  console.log(villasJson.find(item => item.villa === booking.accomodation.villa))
   
   await saveBooking(booking, data);
 

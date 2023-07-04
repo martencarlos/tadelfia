@@ -7,7 +7,6 @@ function Contact() {
 
   function sendForm(e){
     e.preventDefault()
-    console.log("form sent")
     const form = e.target
     form.reset()
   }

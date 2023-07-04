@@ -1,15 +1,12 @@
-"use client"
+
 
 import styles from './page.module.css'
 // import { serverGetAllBookings } from '@/lib/booking'
 import Link from 'next/link'
 
-
-
-
 async function serverGetAllBookings() {
     const res = await fetch(process.env.NEXT_PUBLIC_HOST+"/api/bookings",{
-        next: {revalidate: 1}
+        next: {revalidate: 0}
     })
     if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -17,13 +14,13 @@ async function serverGetAllBookings() {
   }
 
 
-  return res.data
+  return res.json()
 }
 
 
-
-
 async function Bookings() {
+
+    const allBookings = await serverGetAllBookings()
    
     return (
     <div className={styles.bookings}>
