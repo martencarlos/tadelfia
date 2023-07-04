@@ -5,6 +5,9 @@ import Booking from "@/models/Booking";
 import Image from "next/image";
 import villasJson from "/app/villas/[id]/data.json";
 
+import { sendHtmlMail } from "@/lib/emailService";
+
+
 async function saveBooking(booking, data) {
   await dbConnect();
   //check if booking already exists
@@ -20,6 +23,16 @@ async function saveBooking(booking, data) {
     //save booking to db
     const newBooking = new Booking(booking);
     await newBooking.save();
+
+    //send email to customer
+    sendHtmlMail(booking.contact.email, "Tadelfia - Booking Confirmation", `
+      <h1>Booking confirmed !</h1>
+      <p>Thank you for your booking.</p>
+      <br />
+      Hello  ${booking.contact.firstName},
+      this is a confirmation of your booking at Tadelfia.
+    `
+    );
   }
 }
 
