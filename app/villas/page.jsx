@@ -16,6 +16,7 @@ function Villas() {
                         alt="apartment" 
                         fill
                         priority
+                        placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                         className={styles.img}
                     />
                 </div>
@@ -66,7 +67,7 @@ function Villas() {
                         <p className={styles.priceLabel}>1 night</p>
                         <h4> {"€ "+item.pricePerNight}</h4>
                     </div>
-                    <Link className={styles.button} href={"/villas/"+item.villa}  > Book now </Link>
+                    <Link className={styles.button} href={"/villas/"+item.villa} > Book now </Link>
                 </div>
             </div>
         ))}
