@@ -6,7 +6,9 @@ export const GET = async (request) => {
 
     await dbConnect();
     const allBookings = await Booking.find({});
-  
+
+    console.log("getting bookings from db:")
+    console.log(allBookings.length)
 
     return new NextResponse(JSON.stringify(allBookings), { status: 200 });
 }

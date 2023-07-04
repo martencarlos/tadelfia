@@ -4,23 +4,18 @@ import styles from './page.module.css'
 // import { serverGetAllBookings } from '@/lib/booking'
 import Link from 'next/link'
 
-async function serverGetAllBookings() {
-    const res = await fetch(process.env.NEXT_PUBLIC_HOST+"/api/bookings",{
-        next: {revalidate: 0}
-    })
-    if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
-  }
 
-
-  return res.json()
-}
-
-
-async function Bookings() {
-
-    const allBookings = await serverGetAllBookings()
+export default async function Bookings() {
+    let allBookings = []
+    try {
+        const res = await fetch(process.env.NEXT_PUBLIC_HOST+"/api/bookings",{
+            cache: 'no-store',
+        } )
+        allBookings = await res.json()
+     
+    } catch (error) {
+        console.log(error)
+    }
    
     return (
     <div className={styles.bookings}>
@@ -87,4 +82,3 @@ async function Bookings() {
     )
 }
 
-export default Bookings
