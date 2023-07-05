@@ -1,0 +1,50 @@
+
+
+@media screen and (max-width: 680px) {
+    .rdrCalendarWrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px !important;
+    }
+    
+    .rdrMonthAndYearWrapper{
+        width: 332px;
+    }
+
+}
+
+[class^="smallAvailability"]  .rdrMonthPicker select{
+    font-size: 12px;
+}
+[class^="smallAvailability"]  .rdrYearPicker select{
+    font-size: 12px;
+}
+[class^="smallAvailability"] .rdrMonthAndYearWrapper{
+    padding: 0px;
+    height: unset;
+}
+[class^="smallAvailability"] .rdrMonthAndYearWrapper button{
+    margin: 0px;
+}
+[class^="smallAvailability"] .rdrMonth{
+    padding: 0px;
+}
+
+[class^="smallAvailability"] .rdrCalendarWrapper{
+    font-size: 8px;
+    opacity: 1;
+    
+    border-radius: 10px;
+}
+
+
+
+
+
+.rdrMonths {
+    /* flex-wrap: wrap; */
+    justify-content: center;
+}
+
+

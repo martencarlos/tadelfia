@@ -3,6 +3,8 @@ import styles from './page.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import data from "./[id]/data.json";
+import Availability from '@/components/availability/availability';
+import SmallAvailability from '@/components/smallAvailability/smallAvailability';
 
 function Villas() {
 
@@ -20,6 +22,7 @@ function Villas() {
                         className={styles.img}
                     />
                 </div>
+                <SmallAvailability villa={item.villa} />
                 <div className={styles.apartmentInfo}>
                     <div className={styles.title}>
                         <h3>{item.villa + " apartment"}</h3>
