@@ -7,10 +7,10 @@ export const dynamic = 'force-dynamic'
 // export const revalidate = 10 
 
 export const GET = async (req) => {
-    console.log("api/bookings called")
+    console.log("api/bookings/ranges called")
 
     await dbConnect();
-    const allBookings = await Booking.find({});
+    const allBookings = await Booking.find({},'accomodation.checkin accomodation.checkout');
 
     return new NextResponse(JSON.stringify(allBookings), { status: 200 });
 }
