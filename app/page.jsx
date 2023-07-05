@@ -4,6 +4,7 @@ import styles from './page.module.css'
 import LandingPage from '@/components/landing/landingPage/landingPage'
 import OurStory from '@/components/landing/ourStory/ourStory'
 import Welcome from '@/components/landing/welcome/welcome'
+import FullAvailability from '@/components/landing/fullAvailability/fullAvailability'
 
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       
       <LandingPage />
       <Welcome />
+      <FullAvailability />
       <Gallery />
       <OurStory />
     
