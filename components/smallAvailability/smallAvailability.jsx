@@ -7,8 +7,23 @@ import { DateRange } from "react-date-range";
 
 import styles from "./smallAvailability.module.css";
 import "./component.css";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { getYearBookingsFromVilla, getAllBookingRanges } from "@/lib/booking";
+
+
+const mouseClickEvents = ['mousedown', 'click', 'mouseup'];
+function simulateMouseClick(element){
+  mouseClickEvents.forEach(mouseEventType =>
+    element.dispatchEvent(
+      new MouseEvent(mouseEventType, {
+          view: window,
+          bubbles: true,
+          cancelable: true,
+          buttons: 1
+      })
+    )
+  );
+}
 
 function SmallAvailability({ villa }) {
   // const size = useWindowSize();
@@ -66,6 +81,20 @@ function SmallAvailability({ villa }) {
     }
   }, []);
  
+  useEffect(() => {
+    const calendar = document.getElementsByClassName("rdrDays");
+    
+    console.log(calendar)
+    setTimeout(() => {
+      if(calendar){
+        for (let i = 0; i < calendar.length; i++) {
+          simulateMouseClick(calendar[i]);
+        }
+        
+      }
+    }, 1000);
+    
+  }, [ranges]);
  
   return ( 
     <div className={styles.availability} >
@@ -77,7 +106,7 @@ function SmallAvailability({ villa }) {
         shownDate={new Date()}
         editableDateInputs={false}
         showPreview={false}
-        
+        autofocus={true}
         showDateDisplay={false}
         dragSelectionEnabled={false}
         months={1}
