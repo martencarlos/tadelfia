@@ -7,7 +7,7 @@ import "./component.css"
 
 import DatePicker from "react-multi-date-picker"
 import { BsFillCalendarWeekFill } from "react-icons/bs";
-import { getYearBookingsFromVilla } from "@/lib/booking";
+import { getYearBookingsFromVilla,getAllBookingRanges } from "@/lib/booking";
 import "react-multi-date-picker/styles/layouts/mobile.css"
 // import { useWindowSize } from "@/hooks/windowSize"
 
@@ -19,27 +19,61 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
   
 
   function isReserved(strDate) {
-    return bookedRanges.some(([start, end]) => strDate >= (new Date(start)) && strDate <= (new Date(end)));
+    let returnValue = false;
+    
+    if(bookedRanges.length>0){
+      for (let i = 0; i < bookedRanges.length; i++) {
+        // console.log("select date "+strDate.setHours(0,0,0,0))
+        // console.log("start date "+new Date(bookedRanges[i][0]).setHours(0,0,0,0))
+        // console.log("end date "+new Date(bookedRanges[i][1]).setHours(0,0,0,0))
+        if(strDate >= (new Date(bookedRanges[i][0]).setHours(0,0,0,0)) && strDate<= (new Date(bookedRanges[i][1]).setHours(0,0,0,0))){
+          return true;
+        }
+      };
+    }
+    return returnValue
   }
 
   useEffect(() => {
-    getYearBookingsFromVilla(new Date().getFullYear(), villa).then((data) => {
-      const newRanges = [];
-      if (data.length > 0) {
-        const newBookedRanges = data.map((booking) => {
-          return [booking.accomodation.checkin,booking.accomodation.checkout]
-        // {
-        //     startDate: new Date(booking.accomodation.checkin),
-        //     endDate: new Date(booking.accomodation.checkout),
-        //     color: "#d11a2a",
-        //     key: booking._id,
-        //   };
-        });
-        newRanges.push(...newBookedRanges);
-        setBookedRanges(newRanges);
+    const newRanges = [];
+    if(villa !== "Villa"){
+      getYearBookingsFromVilla(new Date().getFullYear(), "Villa").then((data) => {
         
-      }
-    });
+        if (data.length > 0) {
+          const newBookedRanges = data.map((booking) => {
+            return [booking.accomodation.checkin,booking.accomodation.checkout]
+          });
+          newRanges.push(...newBookedRanges);
+        }
+      });
+
+      getYearBookingsFromVilla(new Date().getFullYear(), villa).then((data) => {
+        if (data.length > 0) {
+          const newBookedRanges = data.map((booking) => {
+            return [booking.accomodation.checkin,booking.accomodation.checkout]
+          // {
+          //     startDate: new Date(booking.accomodation.checkin),
+          //     endDate: new Date(booking.accomodation.checkout),
+          //     color: "#d11a2a",
+          //     key: booking._id,
+          //   };
+          });
+          newRanges.push(...newBookedRanges);
+          setBookedRanges(newRanges);
+        }
+      });
+    }else{
+      getAllBookingRanges(new Date().getFullYear()).then((data) => {
+        if (data.length > 0) {
+          const newBookedRanges = data.map((booking) => {
+            return [booking.accomodation.checkin,booking.accomodation.checkout]
+          });
+          newRanges.push(...newBookedRanges);
+          setBookedRanges(newRanges);
+        }
+      });
+    }
+    
   }, [villa]);
 
     return (
@@ -55,9 +89,9 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                 multiple
                 currentDate={rangeDates?rangeDates[0]:new Date()}
                 onChange={(ranges) => {
-                  
+                    
                     const bookingRangeIndex = bookedRanges.length
-                    if(ranges.length== bookingRangeIndex)
+                    if(ranges.length<= bookingRangeIndex)
                       return false
                     
                     if(ranges.length>(bookingRangeIndex+1)){
@@ -67,28 +101,31 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                         ranges.splice(bookingRangeIndex,1)
                       // return false
                     }
-                      
-
-                    const startDate= (new Date(ranges[bookingRangeIndex][0]))
-                    const endDate= (new Date(ranges[bookingRangeIndex][bookingRangeIndex]))
-
-                    // setValues(ranges) //update use state
-                    if (isReserved(startDate) || isReserved(endDate)) 
+                 
+                    const startDate= (new Date(ranges[bookingRangeIndex][0]).setHours(0,0,0,0))
+                    const endDate= (new Date(ranges[bookingRangeIndex][bookingRangeIndex]).setHours(0,0,0,0))
+                    
+            
+                    if (isReserved(startDate)) 
+                      return false;
+                   
+                    if ( isReserved(endDate)) 
                       return false;
 
-                      if(ranges.length<=(bookingRangeIndex+1))
+                    
+                    if(ranges.length<=(bookingRangeIndex+1))
                       setRangeDates(ranges[bookingRangeIndex]) //update prop
                 
                   }}
                 //style the reserved dates red
                 mapDays={({date}) => {
                     let className;
-                    const strDate = new Date(date)//date.format();
+                    const strDate = (new Date(date).setHours(0,0,0,0))//date.format();
                     if (isReserved(strDate)) className = "reserved";
                     if (className) return { className };
                   }}
+
                 range
-                
                 weekStartDayIndex={1}
                 value={bookedRanges} //only first time
                 editable = {false}

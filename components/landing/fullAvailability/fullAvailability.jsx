@@ -15,48 +15,67 @@ function FullAvailability() {
   const [ranges, setRanges] = useState([]); // Booked ranges
   // const [loading, setLoading] = useState(true);
 
+  // useEffect(() => {
+  //   const newRanges = [];
+  //   getAllBookingRanges(new Date().getFullYear()).then((data) => {
+  //     const minDate = new Date();
+  //     let maxDate = new Date();
+  //     let loopDate = new Date();
+     
+
+  //     data.map((booking) => {
+  //       if (new Date(booking.accomodation.checkout) > maxDate) {
+  //         maxDate = new Date(booking.accomodation.checkout);
+  //       }
+  //     });
+
+  //     while (loopDate < maxDate) {
+  //       // while (loopDate < (minDate.getDate() + 3)) {
+
+  //       let bookedRanges = [];
+  //       for (let i = 0; i < data.length; i++) {
+  //         if (
+  //           new Date(data[i].accomodation.checkin).toLocaleDateString() <=
+  //             loopDate.toLocaleDateString() &&
+  //           new Date(data[i].accomodation.checkout).toLocaleDateString() >=
+  //             loopDate.toLocaleDateString()
+  //         ) {
+  //           bookedRanges.push({
+  //             startDate: new Date(loopDate),
+  //             endDate: new Date(loopDate),
+  //             color: "#d11a2a",
+  //             key: data[i]._id,
+  //           });
+  //         }
+  //       }
+
+  //       if (bookedRanges.length === 8) 
+  //         newRanges.push(bookedRanges[0]);
+
+  //       loopDate.setDate(loopDate.getDate() + 1);
+  //     }
+  //     console.log("newRanges");
+  //     console.log(newRanges);
+  //     setRanges(newRanges);
+  //   });
+  // }, []);
+
+
   useEffect(() => {
     const newRanges = [];
     getAllBookingRanges(new Date().getFullYear()).then((data) => {
-      const minDate = new Date();
-      let maxDate = new Date();
-      let loopDate = new Date();
-     
-
-      data.map((booking) => {
-        if (new Date(booking.accomodation.checkout) > maxDate) {
-          maxDate = new Date(booking.accomodation.checkout);
-        }
-      });
-
-      while (loopDate < maxDate) {
-        // while (loopDate < (minDate.getDate() + 3)) {
-
-        let bookedRanges = [];
-        for (let i = 0; i < data.length; i++) {
-          if (
-            new Date(data[i].accomodation.checkin).toLocaleDateString() <=
-              loopDate.toLocaleDateString() &&
-            new Date(data[i].accomodation.checkout).toLocaleDateString() >=
-              loopDate.toLocaleDateString()
-          ) {
-            bookedRanges.push({
-              startDate: new Date(loopDate),
-              endDate: new Date(loopDate),
-              color: "#d11a2a",
-              key: data[i]._id,
-            });
-          }
-        }
-
-        if (bookedRanges.length === 8) 
-          newRanges.push(bookedRanges[0]);
-
-        loopDate.setDate(loopDate.getDate() + 1);
+      if (data.length > 0) {
+        const bookedRanges = data.map((booking) => {
+          return {
+            startDate: new Date(booking.accomodation.checkin),
+            endDate: new Date(booking.accomodation.checkout),
+            color: "#d11a2a",
+            key: booking._id,
+          };
+        });
+        newRanges.push(...bookedRanges);
+        setRanges(newRanges);
       }
-      console.log("newRanges");
-      console.log(newRanges);
-      setRanges(newRanges);
     });
   }, []);
 
