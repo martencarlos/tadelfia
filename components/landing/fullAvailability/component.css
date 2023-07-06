@@ -40,8 +40,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #d1d1d194;
     height: 80%;
     width: 40px
+}
+[class^="fullAvailability"] .rdrMonthAndYearWrapper button:hover{
+    background-color: #d1d1d1;
 }
 
 [class^="fullAvailability"] .rdrMonthAndYearWrapper button i{

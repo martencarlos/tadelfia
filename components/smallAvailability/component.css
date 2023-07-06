@@ -30,6 +30,9 @@
 [class^="smallAvailability"] .rdrMonth{
     padding: 0px;
 }
+[class^="smallAvailability"] .rdrMonthName {
+    display:none;
+}
 
 [class^="smallAvailability"] .rdrCalendarWrapper{
     font-size: 8px;
