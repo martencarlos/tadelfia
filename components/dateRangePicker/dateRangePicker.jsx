@@ -7,7 +7,7 @@ import "./component.css"
 
 import DatePicker from "react-multi-date-picker"
 import { BsFillCalendarWeekFill } from "react-icons/bs";
-import { getYearBookingsFromVilla,getAllBookingRanges } from "@/lib/booking";
+import { getAllBookings,getAllBookingRanges } from "@/lib/booking";
 import "react-multi-date-picker/styles/layouts/mobile.css"
 // import { useWindowSize } from "@/hooks/windowSize"
 
@@ -37,29 +37,16 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
   useEffect(() => {
     const newRanges = [];
     if(villa !== "Villa"){
-      getYearBookingsFromVilla(new Date().getFullYear(), "Villa").then((data) => {
+      getAllBookings().then((data) => {
         
         if (data.length > 0) {
           const newBookedRanges = data.map((booking) => {
-            return [booking.accomodation.checkin,booking.accomodation.checkout]
+            if(booking.accomodation.villa === villa || booking.accomodation.villa === "Villa"){
+              return [booking.accomodation.checkin,booking.accomodation.checkout]
+            }
           });
-          newRanges.push(...newBookedRanges);
-        }
-      });
-
-      getYearBookingsFromVilla(new Date().getFullYear(), villa).then((data) => {
-        if (data.length > 0) {
-          const newBookedRanges = data.map((booking) => {
-            return [booking.accomodation.checkin,booking.accomodation.checkout]
-          // {
-          //     startDate: new Date(booking.accomodation.checkin),
-          //     endDate: new Date(booking.accomodation.checkout),
-          //     color: "#d11a2a",
-          //     key: booking._id,
-          //   };
-          });
-          newRanges.push(...newBookedRanges);
-          setBookedRanges(newRanges);
+        
+          setBookedRanges(...bookedRanges, newBookedRanges.filter((range) => range !== undefined));
         }
       });
     }else{

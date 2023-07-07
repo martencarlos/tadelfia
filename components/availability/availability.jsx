@@ -8,7 +8,7 @@ import { useWindowSize } from "@/hooks/windowSize";
 import styles from "./availability.module.css";
 import "./component.css";
 import { useEffect, useState } from "react";
-import { getYearBookingsFromVilla, getAllBookingRanges } from "@/lib/booking";
+import { getAllBookings, getAllBookingRanges } from "@/lib/booking";
 
 function Availability({ villa }) {
   const size = useWindowSize();
@@ -19,35 +19,25 @@ function Availability({ villa }) {
     const newRanges = [];
     //get all bookings from "Villa" (whole property) 
     if(villa !== "Villa"){
-      getYearBookingsFromVilla(new Date().getFullYear(), "Villa").then((data) => {
+      getAllBookings().then((data) => {
+        
         if (data.length > 0) {
           const bookedRanges = data.map((booking) => {
-            return {
-              startDate: new Date(booking.accomodation.checkin),
-              endDate: new Date(booking.accomodation.checkout),
-              color: "#d11a2a",
-              key: booking._id,
-            };
+            if(booking.accomodation.villa === villa || booking.accomodation.villa === "Villa"){
+              
+              return {
+                startDate: new Date(booking.accomodation.checkin),
+                endDate: new Date(booking.accomodation.checkout),
+                color: "#d11a2a",
+                key: booking._id,
+              };
+            }
           });
-          newRanges.push(...bookedRanges);
+        
+          setRanges(...ranges, bookedRanges.filter((range) => range !== undefined));
         }
       });
 
-      //get all bookings from specific Apartment
-      getYearBookingsFromVilla(new Date().getFullYear(), villa).then((data) => {
-        if (data.length > 0) {
-          const bookedRanges = data.map((booking) => {
-            return {
-              startDate: new Date(booking.accomodation.checkin),
-              endDate: new Date(booking.accomodation.checkout),
-              color: "#d11a2a",
-              key: booking._id,
-            };
-          });
-          newRanges.push(...bookedRanges);
-          setRanges(newRanges);
-        }
-      });
     }else{
       getAllBookingRanges(new Date().getFullYear()).then((data) => {
         if (data.length > 0) {
