@@ -5,6 +5,9 @@
         width: 100%;
         max-width: 100% !important;
     }
+    .loadingCalendar{
+        width: 100% !important;
+    }
 
 }
 
@@ -29,4 +32,16 @@
     padding: 10px 20px;
     margin: 30px 20px;
     border-radius: 2px;
+}
+
+.loadingCalendar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 290px;
+    width: 250px;
+   
+}
+.circle{
+    color: pink !important
 }

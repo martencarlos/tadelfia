@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { getAllBookings, getAllBookingRanges } from "@/lib/booking";
 import "react-calendar/dist/Calendar.css";
 import Calendar from "react-calendar";
+import { CircularProgress } from "@mui/material";
+import { pink } from "@mui/material/colors";
 
 
 function SmallAvailability({ villa }) {
@@ -32,7 +34,7 @@ function SmallAvailability({ villa }) {
               ];
             }
           });
-          console.log(bookedRanges)
+        
           setRanges(...ranges, bookedRanges);
         }
       });
@@ -63,11 +65,11 @@ function SmallAvailability({ villa }) {
     }
   }, []);
 
-  // console.log(ranges)
+ 
   return (
     <div className={styles.availability}>
       {/*} <h1 className={styles.h1}>Availability</h1>*/}
-      {ranges.length > 0 && (
+      {ranges.length > 0 ? (
         <Calendar
           minDate={new Date()}
           showFixedNumberOfWeeks={true}
@@ -85,7 +87,13 @@ function SmallAvailability({ villa }) {
             }
           }}
         />
-      )}
+      ):
+        <div className={styles.loadingCalendar}>
+          <CircularProgress
+          className={styles.circle}
+          />
+        </div>
+      }
     </div>
   );
 }
