@@ -28,7 +28,7 @@ function Availability({ villa }) {
               return {
                 startDate: new Date(booking.accomodation.checkin),
                 endDate: new Date(booking.accomodation.checkout),
-                color: "#d11a2a",
+                color: "#ffc0cb",
                 key: booking._id,
               };
             }
@@ -45,7 +45,7 @@ function Availability({ villa }) {
             return {
               startDate: new Date(booking.accomodation.checkin),
               endDate: new Date(booking.accomodation.checkout),
-              color: "#d11a2a",
+              color: "#ffc0cb",
               key: booking._id,
             };
           });

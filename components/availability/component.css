@@ -52,3 +52,13 @@
     margin: 0px;
 }
 
+[class^="availability"] .rdrEndEdge {
+    border-top-right-radius: unset ;
+    /* border-bottom-right-radius:  unset ; */
+}
+
+
+[class^="availability"] .rdrStartEdge {
+    /* border-top-left-radius: unset; */
+    border-bottom-left-radius: unset;
+}

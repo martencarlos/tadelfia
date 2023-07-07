@@ -43,7 +43,7 @@ function FullAvailability() {
   //           bookedRanges.push({
   //             startDate: new Date(loopDate),
   //             endDate: new Date(loopDate),
-  //             color: "#d11a2a",
+  //             color: "#ffc0cb",
   //             key: data[i]._id,
   //           });
   //         }
@@ -69,7 +69,7 @@ function FullAvailability() {
           return {
             startDate: new Date(booking.accomodation.checkin),
             endDate: new Date(booking.accomodation.checkout),
-            color: "#d11a2a",
+            color: "#ffc0cb",
             key: booking._id,
           };
         });

@@ -52,4 +52,15 @@
     margin: 0px;
 }
 
+[class^="fullAvailability"] .rdrEndEdge {
+    border-top-right-radius: unset ;
+    /* border-bottom-right-radius:  unset ; */
+}
+
+
+[class^="fullAvailability"] .rdrStartEdge {
+    /* border-top-left-radius: unset; */
+    border-bottom-left-radius: unset;
+}
+
 

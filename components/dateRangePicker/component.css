@@ -28,7 +28,7 @@
 }
 
 .rmdp-range:has(.reserved) {
-    background-color: #cc1f2c;
+    background-color: #ffc0cb;
   }
 
   .rmdp-container{
@@ -40,3 +40,11 @@
 .rmdp-range.start, .rmdp-range, .rmdp-range.end{
     color: white !important;
 }
+
+.rmdp-range.start, .rmdp-range.end {
+    border-bottom-left-radius: unset  !important; 
+    border-top-left-radius: unset  !important; 
+    border-bottom-right-radius: unset  !important; 
+    border-top-right-radius: unset  !important; 
+}
+
