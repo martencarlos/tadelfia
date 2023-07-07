@@ -16,8 +16,7 @@ export default async function Bookings() {
     } catch (error) {
         console.log(error)
     }
-    console.log("rendering all bookings:")
-    console.log(allBookings.length)
+   
     return (
     <div className={styles.bookings}>
         <div className={styles.header}>

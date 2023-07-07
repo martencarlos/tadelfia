@@ -127,7 +127,7 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
 
                 range
                 weekStartDayIndex={1}
-                value={bookedRanges} //only first time
+                value={bookedRanges.length>0?bookedRanges:[]} //only first time
                 editable = {false}
                 rangeHover
                 minDate={new Date()}

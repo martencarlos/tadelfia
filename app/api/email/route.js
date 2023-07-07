@@ -5,7 +5,7 @@ import { sendTextMail } from "@/lib/emailService";
 
 export const POST = async ( req ) => {
     const data = await req.json();
-    console.log(data)
+   
 
     await sendTextMail(
         "martencarlos@gmail.com",
