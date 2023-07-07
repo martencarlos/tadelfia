@@ -1,53 +1,39 @@
 
 
 @media screen and (max-width: 680px) {
-    .rdrCalendarWrapper{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 12px !important;
-    }
-    
-    .rdrMonthAndYearWrapper{
-        width: 332px;
+    .react-calendar {
+
+        border: none !important;
+        width: 90% !important;
     }
 
 }
 
-[class^="smallAvailability"]  .rdrMonthPicker select{
-    font-size: 12px;
-}
-[class^="smallAvailability"]  .rdrYearPicker select{
-    font-size: 12px;
-}
-[class^="smallAvailability"] .rdrMonthAndYearWrapper{
-    padding: 0px;
-    height: unset;
-}
-[class^="smallAvailability"] .rdrMonthAndYearWrapper button{
-    margin: 0px;
-}
-[class^="smallAvailability"] .rdrMonth{
-    padding: 0px;
-}
-[class^="smallAvailability"] .rdrMonthName {
-    display:none;
+.highlight {
+  background-color: pink !important;
 }
 
-[class^="smallAvailability"] .rdrCalendarWrapper{
-    font-size: 8px;
-    opacity: 1;
-    
-    border-radius: 10px;
+.react-calendar {
+
+    border: none !important;
 }
 
-
-
-
-
-.rdrMonths {
-    /* flex-wrap: wrap; */
-    justify-content: center;
+.react-calendar__tile--active:not(.highlight) {
+    /* background-color: unset !important; */
+    color: unset !important;
+    background-color: unset !important;
 }
 
+.react-calendar__month-view__days__day--weekend {
+    color: rgb(92, 92, 92) !important;
+}
+.react-calendar__navigation {
+    margin-bottom: 0px !important;
+}
+
+.react-calendar__tile--now {
+    background: rgb(230, 230, 230) !important;
+    color: black !important;
+    /* border-radius: 50% !important; */
+}
 

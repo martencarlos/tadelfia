@@ -1,29 +1,12 @@
 "use client";
 
-import "react-date-range/dist/styles.css"; // main css file
-import "react-date-range/dist/theme/default.css"; // theme css file
-import { DateRange } from "react-date-range";
-// import { useWindowSize } from "@/hooks/windowSize";
 
 import styles from "./smallAvailability.module.css";
 import "./component.css";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getYearBookingsFromVilla, getAllBookingRanges } from "@/lib/booking";
-
-
-const mouseClickEvents = ['mousedown', 'click', 'mouseup'];
-function simulateMouseClick(element){
-  mouseClickEvents.forEach(mouseEventType =>
-    element.dispatchEvent(
-      new MouseEvent(mouseEventType, {
-          view: window,
-          bubbles: true,
-          // cancelable: true,
-          buttons: 1
-      })
-    )
-  );
-}
+import "react-calendar/dist/Calendar.css";
+import Calendar from "react-calendar";
 
 function SmallAvailability({ villa }) {
   // const size = useWindowSize();
@@ -31,95 +14,102 @@ function SmallAvailability({ villa }) {
 
   useEffect(() => {
     const newRanges = [];
-    if(villa !== "Villa"){
-      getYearBookingsFromVilla(new Date().getFullYear(), "Villa").then((data) => {
-        
-        if (data.length > 0) {
-          const bookedRanges = data.map((booking) => {
-            return {
-              startDate: new Date(booking.accomodation.checkin),
-              endDate: new Date(booking.accomodation.checkout),
-              color: "#d11a2a",
-              key: booking._id,
-            };
-          });
-          newRanges.push(...bookedRanges);
+    if (villa !== "Villa") {
+      getYearBookingsFromVilla(new Date().getFullYear(), "Villa").then(
+        (data) => {
+          if (data.length > 0) {
+            const bookedRanges = data.map((booking) => {
+              const checkin = new Date(booking.accomodation.checkin);
+              const checkout = new Date(booking.accomodation.checkout);
+              return [
+                new Date(
+                  checkin.getFullYear(),
+                  checkin.getMonth(),
+                  checkin.getDate()
+                ),
+                new Date(
+                  checkout.getFullYear(),
+                  checkout.getMonth(),
+                  checkout.getDate()
+                ),
+              ];
+            });
+            setRanges(...ranges, bookedRanges);
+            // newRanges.push(...bookedRanges);
+          }
         }
-      });
+      );
 
       getYearBookingsFromVilla(new Date().getFullYear(), villa).then((data) => {
-        
         if (data.length > 0) {
           const bookedRanges = data.map((booking) => {
-            return {
-              startDate: new Date(booking.accomodation.checkin),
-              endDate: new Date(booking.accomodation.checkout),
-              color: "#d11a2a",
-              key: booking._id,
-            };
+            const checkin = new Date(booking.accomodation.checkin);
+            const checkout = new Date(booking.accomodation.checkout);
+            return [
+              new Date(
+                checkin.getFullYear(),
+                checkin.getMonth(),
+                checkin.getDate()
+              ),
+              new Date(
+                checkout.getFullYear(),
+                checkout.getMonth(),
+                checkout.getDate()
+              ),
+            ];
           });
-          newRanges.push(...bookedRanges);
-          setRanges(newRanges);
+          setRanges(...ranges, bookedRanges);
         }
       });
-    }else{
+    } else {
       getAllBookingRanges(new Date().getFullYear()).then((data) => {
-        
         if (data.length > 0) {
           const bookedRanges = data.map((booking) => {
-            return {
-              startDate: new Date(booking.accomodation.checkin),
-              endDate: new Date(booking.accomodation.checkout),
-              color: "#d11a2a",
-              key: booking._id,
-            };
+            const checkin = new Date(booking.accomodation.checkin);
+            const checkout = new Date(booking.accomodation.checkout);
+            return [
+              new Date(
+                checkin.getFullYear(),
+                checkin.getMonth(),
+                checkin.getDate()
+              ),
+              new Date(
+                checkout.getFullYear(),
+                checkout.getMonth(),
+                checkout.getDate()
+              ),
+            ];
           });
-          newRanges.push(...bookedRanges);
-          setRanges(newRanges);
+          setRanges(...ranges, bookedRanges);
         }
       });
     }
   }, []);
- 
-  useEffect(() => {
-    const calendar = document.getElementsByClassName("rdrDays");
-    
-    setTimeout(() => {
-      if(calendar){
-        for (let i = 0; i < calendar.length; i++) {
-          simulateMouseClick(calendar[i]);
-        }
-        
-      }
-    }, 1000);
-    
-  }, [ranges]);
- 
 
-  return ( 
-    <div className={styles.availability} >
+  return (
+    <div className={styles.availability}>
       {/*} <h1 className={styles.h1}>Availability</h1>*/}
-      {ranges.length >0 && <DateRange
-        onChange={(calendar) => {console.log("change")}}
-        moveRangeOnFirstSelection={false}
-        fixedHeight={true}
-        shownDate={new Date()}
-        editableDateInputs={false}
-        showPreview={false}
-        autofocus={true}
-        
-        showDateDisplay={false}
-        dragSelectionEnabled={false}
-        months={1}
-        direction="horizontal"
-        ranges={ranges}
-        weekStartsOn={1}
-        minDate={new Date()}
-      />}
+      {ranges.length > 0 && (
+        <Calendar
+          minDate={new Date()}
+          showFixedNumberOfWeeks={true}
+          tileClassName={({ date, view }) => {
+            if (view === "month") {
+              if (
+                ranges.find(
+                  (x) =>
+                    x[0].setHours(0, 0, 0, 0) <= date.setHours(0, 0, 0, 0) &&
+                    x[1].setHours(0, 0, 0, 0) >= date.setHours(0, 0, 0, 0)
+                )
+              ) {
+                return "highlight";
+              }
+            }
+          }}
+        />
+      )}
     </div>
-
   );
 }
 
 export default SmallAvailability;
-
