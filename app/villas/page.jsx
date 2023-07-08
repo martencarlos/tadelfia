@@ -24,11 +24,13 @@ function Villas() {
                 </div>
                 <SmallAvailability villa={item.villa} />
                 <div className={styles.apartmentInfo}>
+                    <div className={styles.titleSection}>
                     <div className={styles.title}>
                         <h3>{item.villa === "Villa"? item.villa + " - Book the whole property" : item.villa + " apartment"}</h3>
                     </div>
                     <div className={styles.subTitle}>
                         <p>{item.subTitle}</p>
+                    </div>
                     </div>
                     <div className={styles.amenities}>
                         <div className={styles.amenity}>

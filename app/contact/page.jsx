@@ -1,22 +1,22 @@
 "use client";
-import {useState} from "react";
+import { useState } from "react";
 import styles from "./page.module.css";
 import TextField from "@mui/material/TextField";
 
 function Contact() {
   const [sendingEmail, setSendingEmail] = useState(false);
 
-  function sendForm(e){
-    e.preventDefault()
-    setSendingEmail(true)
-    const form = e.target
+  function sendForm(e) {
+    e.preventDefault();
+    setSendingEmail(true);
+    const form = e.target;
     const formInfo = {
       firstName: form.firstName.value,
       lastName: form.lastName.value,
       email: form.email.value,
       phone: form.phone.value,
-      messageToHost: form.messageToHost.value
-    }
+      messageToHost: form.messageToHost.value,
+    };
 
     fetch("/api/email", {
       method: "POST",
@@ -27,11 +27,9 @@ function Contact() {
     })
       .then((res) => res.json())
       .then((data) => {
-   
-        form.reset()
-        setSendingEmail(false)
-      })
-    
+        form.reset();
+        setSendingEmail(false);
+      });
   }
 
   return (
@@ -46,7 +44,18 @@ function Contact() {
             <p className={styles.p}>{"tadelfiacorfu@gmail.com"}</p>
             <p className={styles.p}>{"+49 (0) 151 681 187 10"}</p>
           </div>
+
           <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53529.55012991015!2d19.878696859655616!3d39.741323140837494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135b43328627b151%3A0x92b81cb34a272148!2sT&#39;adelfia%20Holiday%20Appartments%20Corfu!5e0!3m2!1sen!2ses!4v1688806092332!5m2!1sen!2ses"
+            width="600"
+            height="450"
+            style={{ border: "0" }}
+            allowfullscreen=""
+            className={styles.map}
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          {/*} <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1534.014240168926!2d19.9268685!3d39.7390111!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135b43328627b151%3A0x92b81cb34a272148!2sT&#39;adelfia%20Holiday%20Appartments%20Corfu!5e0!3m2!1ses!2sde!4v1687638128432!5m2!1ses!2sde"
             width="600"
             height="450"
@@ -55,7 +64,7 @@ function Contact() {
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+  ></iframe>*/}
         </div>
       </div>
       {/* Contact Form section */}
@@ -88,7 +97,6 @@ function Contact() {
                 size="small"
                 className={styles.flexItem}
               />
-              
             </div>
             <div className={styles.formGroup}>
               {/* email*/}
@@ -112,17 +120,22 @@ function Contact() {
               />
             </div>
             <div className={styles.formGroup}>
-            {/*Comment to host*/}
+              {/*Comment to host*/}
               <textarea
-              style={{ minHeight:"100px", fontSize: "16px", padding: "8.5px 14px", width: "100%" }}
-              // minRows={3}
-              id="messageToHost"
-              className={styles.textarea}
-              placeholder="Message for the host"
-            />
+                style={{
+                  minHeight: "100px",
+                  fontSize: "16px",
+                  padding: "8.5px 14px",
+                  width: "100%",
+                }}
+                // minRows={3}
+                id="messageToHost"
+                className={styles.textarea}
+                placeholder="Message for the host"
+              />
             </div>
             <button className={styles.button} type="submit">
-              {sendingEmail? "Sending..." : "Send"}
+              {sendingEmail ? "Sending..." : "Send"}
             </button>
           </form>
         </div>

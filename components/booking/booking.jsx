@@ -123,12 +123,16 @@ function Booking({ villa }) {
         {/* Contact Section */}
         <h3 className={styles.h2}>Contact</h3>
         <div className={styles.section}>
+         <div className={styles.row}>
           {/* firstname*/}
-          <TextField label="First Name" id="firstName" required size="small" />
+          <TextField className={styles.input} label="First Name" id="firstName" required size="small" />
           {/* lastname*/}
-          <TextField label="Last Name" id="lastName" required size="small" />
+          <TextField className={styles.input} label="Last Name" id="lastName" required size="small" />
+          </div>
+          <div className={styles.row}>
           {/* email*/}
           <TextField
+          className={styles.input}
             label="Email"
             type="email"
             id="email"
@@ -137,6 +141,7 @@ function Booking({ villa }) {
           />
           {/* phone*/}
           <TextField
+          className={styles.input}
             label="Phone"
             type="tel"
             id="phone"
@@ -144,11 +149,14 @@ function Booking({ villa }) {
             required
             size="small"
           />
+          </div>
 
           {/* Address Section */}
           <h5 className={styles.h2}>Address</h5>
           <div className={styles.subSection}>
+          <div className={styles.row}>
             <TextField
+            className={styles.input}
               label="Street / Number"
               id="street"
               type="text"
@@ -156,13 +164,18 @@ function Booking({ villa }) {
               size="small"
             />
             <TextField
+            className={styles.input}
               label="Postal Code"
               id="postal"
               type="number"
               required
               size="small"
             />
+            </div>
+          <div className={styles.row}>
+            
             <TextField
+            className={styles.input}
               label="Town / City"
               type="text"
               id="towncity"
@@ -170,12 +183,15 @@ function Booking({ villa }) {
               size="small"
             />
             <TextField
+            className={styles.input}
               label="Country"
               type="text"
               id="country"
               required
               size="small"
             />
+            </div>
+
           </div>
         </div>
 

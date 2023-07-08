@@ -29,6 +29,7 @@
 
 .rmdp-range:has(.reserved) {
     background-color: #ffc0cb;
+    box-shadow: 0 0 3px #cd949e;
   }
 
   .rmdp-container{

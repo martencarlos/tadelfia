@@ -31,6 +31,7 @@
 }
 
 
+
 .villasFullPage{
     display: flex;
     flex-direction: column;
@@ -82,9 +83,15 @@
 .apartmentInfo{
     display:flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     margin:0px 5px;
     flex:1;
+}
+
+.titleSection{
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
 }
 
 .title{
@@ -98,7 +105,7 @@
 
 .amenities{
     display:flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
@@ -107,6 +114,9 @@
     flex-direction: column;
     padding: 10px;
 }
+/* .amenity p{
+    text-align: center;
+} */
 
 .amenityTitle{
     margin: 10px 0px;

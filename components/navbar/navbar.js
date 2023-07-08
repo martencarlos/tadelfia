@@ -71,7 +71,7 @@ function Navbar() {
           <div id="villasMenu" className={styles.villasMenu}>
             <ul className={styles.menuLinks}>
               <Link href="/villas" className={styles.menuLink}>
-                <li>Apartments</li>
+                <li>Overview</li>
               </Link>
               <div className={styles.separator}></div>
               <Link href="/villas/Villa" className={styles.menuLink}>
@@ -146,7 +146,7 @@ function Navbar() {
           </button>
           <div className={styles.panel}>
             <Link href="/villas" className={styles.hambMenuLink}>
-              <li>Apartments</li>
+              <li>Overview</li>
             </Link>
             <div className={styles.separator1}></div>
             <Link href="/villas/Villa" className={styles.hambMenuLink}>
