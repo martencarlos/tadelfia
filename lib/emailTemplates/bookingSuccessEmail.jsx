@@ -69,11 +69,11 @@ export const BookingSuccessEmail = ({ booking }) => {
 
               <Text style={paragraph}>
               <b>Check-in: </b>
-              {booking.accomodation.checkIn} 
+              {new Date(booking.accomodation.checkin).toLocaleDateString()} 
               </Text>
               <Text style={paragraph}>
               <b>Check-out: </b>
-              {booking.accomodation.checkOut}
+              {new Date(booking.accomodation.checkout).toLocaleDateString()}
               </Text>
               <Text style={paragraph}>
               <b>Nights: </b>
