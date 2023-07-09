@@ -15,14 +15,16 @@ import {
 } from '@react-email/components';
 
 
-export const ContactFormEmail = ({ info }) => {
+export const BookingSuccessEmail = ({ booking }) => {
 
-  // const formInfo = {
-  //   firstName: form.firstName.value,
-  //   lastName: form.lastName.value,
-  //   email: form.email.value,
-  //   phone: form.phone.value,
-  //   messageToHost: form.messageToHost.value,
+  // booking.contact
+  // booking.address
+  // booking.accomodation
+  
+  // booking.payment = {
+  //   id: 
+  //   amount
+  //   currency
   // };
 
   return (
@@ -41,42 +43,67 @@ export const ContactFormEmail = ({ info }) => {
           </Section>
           <Section>
             <Img
-              src={`https://tadelfia.webframe.one/_next/image?url=%2Flogo.webp&w=640&q=75`}
-              width="200"
-              height="200"
+              src={`	https://tadelfia.webframe.one/_next/image?url=%2Fbooking%2Fsuccess%2Fcheckmark.webp&w=256&q=75`}
+              width="150"
+              height="150"
               alt={"Checkmark"}
               style={userImage}
             />
           </Section>
           <Section style={{ paddingBottom: '20px' }}>
             <Row>
-              <Text style={heading}>Here’s what {info.firstName+ " "+ info.lastName} wrote</Text>
-              <Text style={review}>{info.messageToHost}</Text>
-
-              <Text style={{ ...paragraph, paddingBottom: '16px' }}>
-                This message was sent to you by {info.firstName+ " "+ info.lastName} using Tadelfia’s contact form.
-              </Text>
+              <Text style={heading}>Booking confirmed ! </Text>
+              
 
               <Text style={{ ...paragraph, fontWeight: '700' }}>
-                Contact details:
+                Booking details:
               </Text>
+              <Text style={paragraph}>
+              <b>Booking Reference nº </b>
+              {"# " + booking.payment.id.slice(-6)}
+              </Text>
+              <Text style={paragraph}>
+              <b>Apartment: </b>
+              {booking.accomodation.villa} 
+              </Text>
+
+              <Text style={paragraph}>
+              <b>Check-in: </b>
+              {booking.accomodation.checkIn} 
+              </Text>
+              <Text style={paragraph}>
+              <b>Check-out: </b>
+              {booking.accomodation.checkOut}
+              </Text>
+              <Text style={paragraph}>
+              <b>Nights: </b>
+              {booking.accomodation.nights}
+              </Text>
+              <Text style={paragraph}>
+              <b>Guests: </b>
+              {booking.accomodation.guests+ " adults"}
+              </Text>
+              <Text style={paragraph}>
+              <b>Amount </b>
+              {booking.payment.amount + " €"}
+              </Text>
+
 
               <Text style={paragraph}>
               <b>Full Name: </b>
-              {info.firstName+ " "+ info.lastName} 
+              {booking.contact.firstName + " "+ booking.contact.lastName} 
               </Text>
-              
               <Text style={paragraph}>
               <b>Email: </b>
-              {info.email}
+              {booking.contact.email}
               </Text>
               <Text style={{ ...paragraph, paddingBottom: '16px' }}>
                 <b>Phone: </b>
-                {info.phone}
+                {booking.contact.phone}
               </Text>
 
-              <Button pY={19} style={button} href="https://tadelfia.webframe.one/dashboard/bookings">
-                Review all bookings
+              <Button pY={19} style={button} href="https://tadelfia.webframe.one/contact">
+                Have a question? Contact us 
               </Button>
             </Row>
           </Section>
@@ -141,6 +168,7 @@ const userImage = {
 const heading = {
   fontSize: '32px',
   lineHeight: '1.3',
+  textAlign: 'center',
   fontWeight: '700',
   color: '#484848',
 };

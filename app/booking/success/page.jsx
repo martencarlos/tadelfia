@@ -5,8 +5,7 @@ import Booking from "@/models/Booking";
 import Image from "next/image";
 import villasJson from "/app/villas/[id]/data.json";
 
-import { sendHtmlMail } from "@/lib/emailService";
-
+import { sendBookingSuccess } from "@/lib/emailService";
 
 async function saveBooking(booking, data) {
   await dbConnect();
@@ -25,13 +24,10 @@ async function saveBooking(booking, data) {
     await newBooking.save();
 
     //send email to customer
-    sendHtmlMail(booking.contact.email, "Tadelfia - Booking Confirmation", `
-      <h1>Booking confirmed !</h1>
-      <p>Thank you for your booking.</p>
-      <br />
-      Hello  ${booking.contact.firstName},
-      this is a confirmation of your booking at Tadelfia.
-    `
+    sendBookingSuccess(booking.contact.email, "Tadelfia - Booking Confirmation", booking).then((res) => {
+      console.log("email sent to customer");
+      console.log(res);
+    }
     );
   }
 }
@@ -49,12 +45,13 @@ async function Success({ searchParams, params }) {
   );
   const data = await res.json();
   const booking = JSON.parse(data.metadata.booking);
-  
-  await saveBooking(booking, data);
+
+  if(booking)
+    await saveBooking(booking, data);
 
 
   return (
-    <div className={styles.success}>
+    booking &&<div className={styles.success}>
       <div className={styles.header}>
         <Image
           src="/booking/success/checkmark.webp"

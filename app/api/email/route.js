@@ -1,13 +1,12 @@
 
 import { NextResponse } from "next/server";
-import { sendHtmlMail } from "@/lib/emailService";
+import { sendContactForm } from "@/lib/emailService";
 
 
 export const POST = async ( req ) => {
     const data = await req.json();
-   
-
-    await sendHtmlMail(
+    
+    await sendContactForm(
         "martencarlos@gmail.com",
         "Tadelfia - Contact Form", //subject
         JSON.stringify(data)//content
