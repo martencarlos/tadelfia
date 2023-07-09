@@ -3,6 +3,7 @@ import { useState } from "react";
 import styles from "./page.module.css";
 import TextField from "@mui/material/TextField";
 
+
 function Contact() {
   const [sendingEmail, setSendingEmail] = useState(false);
 
@@ -25,10 +26,14 @@ function Contact() {
       },
       body: JSON.stringify(formInfo),
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then((res) =>  {
+        if (res.status === 200) {
         form.reset();
         setSendingEmail(false);
+        }else
+        {
+          alert("Something went wrong. Please try again later.")
+        }
       });
   }
 
@@ -50,10 +55,10 @@ function Contact() {
             width="600"
             height="450"
             style={{ border: "0" }}
-            allowfullscreen=""
+            allowFullScreen=""
             className={styles.map}
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
           {/*} <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1534.014240168926!2d19.9268685!3d39.7390111!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135b43328627b151%3A0x92b81cb34a272148!2sT&#39;adelfia%20Holiday%20Appartments%20Corfu!5e0!3m2!1ses!2sde!4v1687638128432!5m2!1ses!2sde"
@@ -122,13 +127,7 @@ function Contact() {
             <div className={styles.formGroup}>
               {/*Comment to host*/}
               <textarea
-                style={{
-                  minHeight: "100px",
-                  fontSize: "16px",
-                  padding: "8.5px 14px",
-                  width: "100%",
-                }}
-                // minRows={3}
+                name="messageToHost"
                 id="messageToHost"
                 className={styles.textarea}
                 placeholder="Message for the host"
