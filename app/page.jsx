@@ -12,8 +12,9 @@ export default function Home() {
     <div className={styles.homePage}>
       
       <LandingPage />
-      <FullAvailability />
+      
       <Welcome />
+      <FullAvailability />
       
       <Gallery />
       <OurStory />

@@ -4,9 +4,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    /* background-image: url("/bghotelicons.jpg");
+    background-repeat: repeat;
+    background-size: contain; */
 
     width: 100%;
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 180px);
 }
 
 .h1{

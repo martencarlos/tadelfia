@@ -1,9 +1,23 @@
+
+@media screen and (max-width: 680px) {
+    
+    .hero{
+        flex-direction: column;
+    }
+    .imgContainer{
+        width: 100% !important;
+        min-height: 200px !important;
+    }
+    
+}
+
 .ourStory{
     display: flex;
     flex: 1;
-    flex-direction: column;
+    position: relative;
     justify-content: center;
     align-items: center;
+    width: 100%;
     /* padding: 80px; */
     min-height: calc(100vh - 60px);
 }
@@ -11,6 +25,7 @@
 .h1{
     color: #6e6e6e;
     margin: 30px 20px;
+    font-size: xxx-large;
     
 }
 
@@ -20,4 +35,37 @@
     margin: 20px 20px;
     line-height: 1.7;
     font-style: italic;
+}
+
+.hero{
+    display: flex;
+    /* padding: 20px; */
+    height: 100%;
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    justify-content: center;
+    align-items: center;
+}
+
+.txtContainer{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+}
+
+.imgContainer{
+    display: flex;
+    
+    flex: 1;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 100%;
+    min-height: calc(100vh - 60px);
+}
+
+.image{
+    object-fit: cover;
 }

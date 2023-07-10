@@ -20,9 +20,9 @@ function About() {
             />
             <h3 className={styles.title}>Alexandros</h3>
             <p className={styles.description}>
-              We have dedicated a whole year designing and renovating our family
+            &quot; We have dedicated a whole year designing and renovating our family
               property with the single purpose of offering a genuine experience
-              of Corfiot hospitality to our guests. Enjoy yourselves!
+              of Corfiot hospitality to our guests. Enjoy yourselves! &quot;
             </p>
           </div>
 
@@ -36,9 +36,9 @@ function About() {
             />
             <h3 className={styles.title}>Katerina</h3>
             <p className={styles.description}>
-              {
-                "I have lived on this beautiful island for 15 years and know it inside out. I will advise you on the most beautiful sights, the best authentic restaurants and experiences. I'll do my best to make your stay pleasant, relaxing and interesting. Looking forward to meet you! "
-              }
+            &quot;{
+                " I have lived on this beautiful island for 15 years and know it inside out. I will advise you on the most beautiful sights, the best authentic restaurants and experiences. I'll do my best to make your stay pleasant, relaxing and interesting. Looking forward to meet you! "
+              }&quot;
             </p>
           </div>
 
@@ -52,9 +52,10 @@ function About() {
             />
             <h3 className={styles.title}>Samy</h3>
             <p className={styles.description}>
-              {
-                "We are thrilled by the support and positive feedbacks we've received so far! We will continue working to offer an authentic experience in one of the most beautiful places on the island. Welcome!"
-              }
+            
+            &quot;{
+                " We are thrilled by the support and positive feedbacks we've received so far! We will continue working to offer an authentic experience in one of the most beautiful places on the island. Welcome! "
+              } &quot;
             </p>
           </div>
         </div>

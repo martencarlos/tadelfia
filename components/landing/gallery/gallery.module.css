@@ -22,17 +22,19 @@
 
 
 .gallery{
-    min-height: 100vh;
+    min-height: calc(100vh - 60px);
     width: 90%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin: 40px 0px 100px 0px;
 }
 
 .h1{
     color: #6e6e6e;
     margin: 50px 20px;
+    font-size: xxx-large;
     
 }
 
