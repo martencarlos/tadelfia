@@ -19,12 +19,16 @@
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   .navbar {
     justify-content: space-between !important;
   }
 
   .links {
+    display: none !important;
+  }
+
+  .logoDesktop{
     display: none !important;
   }
 
@@ -42,6 +46,12 @@
   flex: 1;
   font-size: large;
   height: 60px;
+}
+
+.logoDesktop{
+  position: absolute;
+  font-size: larger;
+  left: 60px;
 }
 
 /* LINKS SECTION */
@@ -66,7 +76,7 @@
 }
 
 .link:hover {
-  border-bottom: 3px solid #508143 !important;
+  border-bottom: 3px solid var(--primary-color) !important;
 }
 
 
@@ -82,7 +92,7 @@
 }
 
 .dropdownLink:hover {
-  border-bottom: 3px solid #508143 !important;
+  border-bottom: 3px solid var(--primary-color) !important;
 }
 
 .icon {
@@ -96,7 +106,7 @@
   display: none;
   flex-direction: column;
   position: absolute;
-  top: 50px;
+  top: 60px;
   left: 0px;
   z-index: 1;
 
@@ -124,7 +134,7 @@
 }
 
 .menuLink:hover {
-  background-color: #e8e8e8;
+  background-color: var(--primary-color-hover);
 }
 
 

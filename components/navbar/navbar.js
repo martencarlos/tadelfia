@@ -49,6 +49,9 @@ function Navbar() {
 
   return (
     <nav className={styles.navbar}>
+      <div className={styles.logoDesktop}>
+        <Link href="/">{"Τ'αδελφια"}</Link>
+      </div>
       <ul className={styles.links}>
         <Link
           style={{ fontWeight: activeSegment === null ? "bolder" : "normal",
@@ -77,7 +80,7 @@ function Navbar() {
               </Link>
               <div className={styles.separator}></div>
               <Link href="/villas/Villa" className={styles.menuLink}>
-                Villa
+                The Villa
               </Link>
               <Link href="/villas/Eros" className={styles.menuLink}>
                 <li>Eros</li>
