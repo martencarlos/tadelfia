@@ -45,9 +45,10 @@ function Contact() {
   <br />*/}
         <div className={styles.contactDetails}>
           <div className={styles.contactText}>
-            <h3 className={styles.h3}>{"Contact details"}</h3>
-            <p className={styles.p}>{"tadelfiacorfu@gmail.com"}</p>
-            <p className={styles.p}>{"+49 (0) 151 681 187 10"}</p>
+            <h1 className={styles.h1}>{"Contact"}</h1>
+            <br />
+            <h2 className={styles.h2}>{"tadelfiacorfu@gmail.com"}</h2>
+            <h2 className={styles.h2}>{"+49 (0) 151 681 187 10"}</h2>
           </div>
 
           <iframe
@@ -76,7 +77,7 @@ function Contact() {
       <div className={styles.contactFormSection}>
         <div className={styles.contactFormCard}>
           <div className={styles.contactFormHeader}>
-            <h2 className={styles.h3}>{"Get in touch"}</h2>
+            <h1 className={styles.h1}>{"Get in touch"}</h1>
             <p className={styles.p}>
               When would you like to visit Corfu and what are your needs? We’d
               love to hear from you!{" "}

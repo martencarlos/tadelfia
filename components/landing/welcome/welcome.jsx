@@ -39,7 +39,7 @@ function Welcome() {
     <div className={styles.welcome}>
       <div className={styles.hero}>
         <div className={styles.txtContainer}>
-          <h1 className={styles.h1}>{"Welcome to T'Adelfias"}</h1>
+          <h1 className={styles.h1}>{"Welcome to T'Adelfia"}</h1>
           <p
             className={styles.p}
           >{`Curiosity and the desire to spend an unforgettable holiday in a dreamy setting has inevitably led you here, to our establishment of apartments “T'adelfia”. Welcome!`}</p>

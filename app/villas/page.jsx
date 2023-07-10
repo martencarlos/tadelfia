@@ -10,6 +10,9 @@ function Villas() {
 
   return (
     <div className={styles.villasFullPage}>
+        <div className={styles.villasHeader}>
+            <h1 className={styles.villasHeaderTitle}> {" - T'Adelfia Apartments - "} </h1>
+        </div>
         <div className={styles.apartmentList}>
         {data.map((item, index) => (
             <div key={index} className={styles.apartment}>
