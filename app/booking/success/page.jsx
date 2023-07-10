@@ -25,8 +25,10 @@ async function saveBooking(booking, data) {
 
     //send email to customer
     sendBookingSuccess(booking.contact.email, "Tadelfia - Booking Confirmation", booking).then((res) => {
-      console.log("email sent to customer");
-      console.log(res);
+      if(res)
+        console.log("email sent to customer")
+      else
+        console.log("Email failed to send to customer");
     }
     );
   }

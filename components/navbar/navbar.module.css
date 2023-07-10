@@ -60,14 +60,13 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
+  border-bottom: 3px solid white ;
   cursor: pointer;
 }
 
 .link:hover {
-  transform: scale(1.02);
-  transition: transform 0.2s ease-in-out;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-bottom: 3px solid #508143 !important;
 }
 
 
@@ -76,14 +75,14 @@
   display: flex;
   align-items: center;
   position: relative;
+  border-bottom: 3px solid white;
   padding: 10px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   cursor: pointer;
 }
 
 .dropdownLink:hover {
-  transition: transform 0.2s ease-in-out;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-bottom: 3px solid #508143 !important;
 }
 
 .icon {
@@ -101,10 +100,10 @@
   left: 0px;
   z-index: 1;
 
-  min-width: 135px;
+  min-width: 153px;
   background-color: white;
   border-radius: 5px;
-  box-shadow: rgb(0 0 0 / 64%) 0px 4px 12px;
+  box-shadow: rgba(146, 146, 146, 0.64) 0px 4px 12px;
 }
 
 .menuLinks {
@@ -120,6 +119,7 @@
 .menuLink {
   padding: 10px 5px;
   width: 100%;
+  font-weight: normal;
   text-align: center;
 }
 

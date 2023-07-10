@@ -75,6 +75,7 @@ function Gallery() {
           
         </div>
         <div className={styles.column}>
+            
             <Image
                 id='1'
                 src="/maingallery/1.webp"
@@ -84,6 +85,7 @@ function Gallery() {
                 width={144}
                 height={104}
             />
+         
             <Image
                 id='5'
                 src="/maingallery/5.webp"

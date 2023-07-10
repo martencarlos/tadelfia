@@ -51,20 +51,22 @@ function Navbar() {
     <nav className={styles.navbar}>
       <ul className={styles.links}>
         <Link
-          style={{ fontWeight: activeSegment === null ? "bolder" : "normal" }}
+          style={{ fontWeight: activeSegment === null ? "bolder" : "normal",
+          borderBottom: activeSegment === null ? "3px solid #508143" : "3px solid transparent"
+        }}
           className={styles.link}
           href="/"
         >
           <li>Home</li>
         </Link>
-        <li className={styles.dropdownLink} onClick={villasDropdownButtonClick}>
-          <div
-            style={{
-              fontWeight: activeSegment === "villas" ? "bolder" : "normal",
-            }}
-          >
+        <li className={styles.dropdownLink} onClick={villasDropdownButtonClick}
+        style={{
+          fontWeight: activeSegment === "villas" ? "bolder" : "normal",
+          borderBottom: activeSegment === "villas" ? "3px solid #508143" : "3px solid transparent"
+        }}>
+          {/*<div>*/}
             Apartments
-          </div>
+          {/*</div>*/}
           <BsArrowDownShort className={styles.icon} />
 
           {/*Villas Menu - hidden*/}
@@ -104,6 +106,7 @@ function Navbar() {
         <Link
           style={{
             fontWeight: activeSegment === "about" ? "bolder" : "normal",
+            borderBottom: activeSegment === "about" ? "3px solid #508143" : "3px solid transparent"
           }}
           className={styles.link}
           href="/about"
@@ -113,6 +116,7 @@ function Navbar() {
         <Link
           style={{
             fontWeight: activeSegment === "contact" ? "bolder" : "normal",
+            borderBottom: activeSegment === "contact" ? "3px solid #508143" : "3px solid transparent"
           }}
           className={styles.link}
           href="/contact"
