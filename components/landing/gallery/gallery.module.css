@@ -22,18 +22,19 @@
 
 
 .gallery{
-    min-height: calc(100vh - 60px);
+    /* min-height: calc(100vh - 60px); */
     width: 90%;
+    
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin: 40px 0px 100px 0px;
+    /* margin: 40px 0px 100px 0px; */
 }
 
 .h1{
     color: var(--primary-text);
-    margin: 50px 20px;
+    margin-bottom: 50px;
     font-size: xxx-large;
     
 }
@@ -51,6 +52,7 @@
     position: relative;
     justify-content: center;
     align-items: center;
+    max-height: 415px;
     width: 100%;
 }
 
@@ -64,7 +66,7 @@
 
 .galleryImage{
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     object-fit: cover;
     
     max-height: 200px;

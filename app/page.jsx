@@ -14,8 +14,10 @@ export default function Home() {
       <LandingPage />
       <Welcome />
 
+      <div className={styles.hero}>
       <FullAvailability />
       <Gallery />
+      </div>
 
       <OurStory />
     </div>

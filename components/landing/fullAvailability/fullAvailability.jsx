@@ -83,6 +83,9 @@ function FullAvailability() {
     // !loading ?
     <div className={styles.availability}>
       <h1 className={styles.h1}>Availability of all apartments</h1>
+      <br />
+
+      <br />
       <DateRange
         onChange={(item) => {}}
         moveRangeOnFirstSelection={false}
