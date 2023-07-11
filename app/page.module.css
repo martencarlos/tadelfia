@@ -2,6 +2,7 @@
 @media (max-width: 1450px) {
     .hero{
         flex-direction: column;
+        width: 100% !important;
     }
 }
 
@@ -18,7 +19,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    min-height: calc(100vh - 60px);
+    width: 80%;
     margin-bottom: 80px;
-    gap: 20px;
+    gap: 50px;
 }
