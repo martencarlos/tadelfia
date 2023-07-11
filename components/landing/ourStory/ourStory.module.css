@@ -23,7 +23,7 @@
 }
 
 .h1{
-    color: #6e6e6e;
+    color: var(--primary-text);
     margin: 30px 20px;
     font-size: xxx-large;
     
@@ -33,6 +33,7 @@
     color: #6e6e6e;
     max-width: 700px;    
     margin: 20px 20px;
+    font-size: large;
     line-height: 1.7;
     font-style: italic;
 }

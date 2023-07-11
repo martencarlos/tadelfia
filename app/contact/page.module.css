@@ -36,7 +36,7 @@
     background-repeat: repeat;
     background-size: contain;
     justify-content: center;
-    margin-top: 30px;
+    /* margin-top: 30px; */
     
     /* max-height: 450px; */
 }
@@ -46,10 +46,12 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background-color: white;
+    
+    background-color: var(--primary-color);
+    max-width: 1000px;
     width: 80%;
     border: 1px solid rgb(177, 177, 177);
-    box-shadow: 0px 0px 10px 0px rgb(177, 177, 177);
+    box-shadow: 0px 0px 40px 0px #9b9ea1;
 }
 
 .p{
@@ -60,12 +62,25 @@
     padding: 0px;
 }
 
+.contactCardH1{
+     color: white;
+    /* color: var(--primary-text); */
+    font-size: xx-large;
+ }
+ .contactCardH2{
+    color:  #e3e3e3;
+     /* color: var(--primary-text); */
+     font-style: italic;
+ }
+
 .h1{
-   color:  #6e6e6e;
+   /* color:  #6e6e6e; */
+   color: var(--primary-text);
    font-size: xx-large;
 }
 .h2{
-    color:  #6e6e6e;
+    /* color:  #6e6e6e; */
+    color: var(--primary-text);
     font-style: italic;
 }
 
@@ -78,7 +93,7 @@
     flex: 1;
     gap: 15px;
     padding: 20px;
-    margin: 30px 0px;
+    /* margin: 30px 0px; */
 }
 
 .map{
@@ -98,14 +113,16 @@
     width: 100%;
     
     background-image: url("/contact/contactus.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .contactFormCard{
     display: flex;
     flex-direction: column;
     background-color: white;
-    padding: 30px;
-    box-shadow: 0px 0px 10px 0px rgb(177, 177, 177);
+    padding: 40px;
+    box-shadow: 0px 0px 40px 0px #9b9ea1;
    
 }
 

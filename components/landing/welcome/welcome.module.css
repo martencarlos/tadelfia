@@ -36,12 +36,12 @@
 }
 
 .h1{
-    color: #6e6e6e;
+    color: var(--primary-text);
     margin: 30px 20px;
     font-size: xxx-large;
 }
 .h2{
-    color: #6e6e6e;
+    color: var(--primary-text);
     margin: 30px 20px;
     font-size: xx-large;
 }
@@ -50,6 +50,7 @@
     color: #6e6e6e;
     max-width: 700px;    
     margin: 10px 20px;
+    font-size: large;
     line-height: 1.5;
     font-style: italic;
 }
@@ -126,7 +127,7 @@
     position:relative;
     flex-direction: column;
     justify-content: center;
-    background: radial-gradient(#dae4d1, #d0e2c1);
+    background: radial-gradient(#e8f0e5, #e4eddf);
     border-radius: 12px;
     align-items: center;
     padding: 40px;

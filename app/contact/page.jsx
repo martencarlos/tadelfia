@@ -45,10 +45,10 @@ function Contact() {
   <br />*/}
         <div className={styles.contactDetails}>
           <div className={styles.contactText}>
-            <h1 className={styles.h1}>{"Contact"}</h1>
+            <h1 className={styles.contactCardH1}>{"Contact"}</h1>
             <br />
-            <h2 className={styles.h2}>{"tadelfiacorfu@gmail.com"}</h2>
-            <h2 className={styles.h2}>{"+49 (0) 151 681 187 10"}</h2>
+            <h2 className={styles.contactCardH2}>{"tadelfiacorfu@gmail.com"}</h2>
+            <h2 className={styles.contactCardH2}>{"+49 (0) 151 681 187 10"}</h2>
           </div>
 
           <iframe

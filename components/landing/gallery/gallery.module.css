@@ -32,7 +32,7 @@
 }
 
 .h1{
-    color: #6e6e6e;
+    color: var(--primary-text);
     margin: 50px 20px;
     font-size: xxx-large;
     

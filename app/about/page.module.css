@@ -22,7 +22,7 @@
 .teamTitle{
     font-size: 2rem;
     font-weight: 600;
-    color: #6e6e6e;
+    color: var(--primary-text);
     font-size: xxx-large;
     margin: 20px 0;
 }
@@ -58,6 +58,7 @@
 .title{
     font-size: 1.5rem;
     font-weight: 600;
+    color: #727272;
     margin: 15px 0;
 }
 
