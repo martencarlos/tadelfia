@@ -28,29 +28,35 @@ function Sidebar() {
 
   return (
     <div className={styles.sidebar}>
+        {/* hidden on desktop */}
         <button className={styles.sidebarButton} id='sidebarButton' onClick={toggleSidebar}>&#9776;</button>
+
         <div className={styles.sidebarPanel} id="sidebarPanel">
             <div className={styles.sidebarPanelTop}>
+                {/* hidden on desktop */}
                 <button className={styles.sidebarButtonInline} onClick={toggleSidebar}>&#9776;</button>
+
                 <div className={styles.sidebarTitle}>{data.user.name}</div>
-                <Link
+                
+                <Link onClick={toggleSidebar} className={styles.sidebarLink} href="/dashboard"
                     style={{ 
                         fontWeight: activeSegment === null ? "bolder" : "normal",
                         backgroundColor: activeSegment === null ? "rgb(240 240 240)" : "white" 
-                    }} 
-                    onClick={toggleSidebar} className={styles.sidebarLink} href="/dashboard">Dashboard</Link>
+                    }}
+                >
+                    Dashboard
+                </Link>
                 <Link 
                     style={{ 
                         fontWeight: activeSegment === "bookings" ? "bolder" : "normal" ,
                         backgroundColor: activeSegment === "bookings" ? "rgb(240 240 240)" : "white" 
                     }}
                     onClick={toggleSidebar} className={styles.sidebarLink} href="/dashboard/bookings">Bookings</Link>
-                <Link 
-                    onClick={toggleSidebar} className={styles.sidebarLink} href="#">CMS</Link>
-                <Link onClick={toggleSidebar} className={styles.sidebarLink} href="#">Settings</Link>
+                {/*<Link onClick={toggleSidebar} className={styles.sidebarLink} href="#">CMS</Link>
+                <Link onClick={toggleSidebar} className={styles.sidebarLink} href="#">Settings</Link>*/}
             </div>
             <div className={styles.sidebarPanelBottom}>
-                <div onClick={signOut} className={styles.sidebarLink} >Logout</div>
+                <div onClick={signOut} className={styles.sidebarLink}>Logout</div>
             </div>
         </div>
 

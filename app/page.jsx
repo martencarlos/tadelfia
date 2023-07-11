@@ -12,13 +12,12 @@ export default function Home() {
     <div className={styles.homePage}>
       
       <LandingPage />
-      
       <Welcome />
+
       <FullAvailability />
-      
       <Gallery />
+
       <OurStory />
-    
     </div>
   )
 }
