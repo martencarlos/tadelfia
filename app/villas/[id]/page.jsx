@@ -5,6 +5,7 @@ import Image from "next/image";
 import Availability from "@/components/availability/availability";
 import Booking from "@/components/booking/booking";
 import Carousel from "@/components/carousel/carousel";
+import Facilities from "@/components/facilities/facilities";
 
 
 // async function filter(arr, callback) {
@@ -36,10 +37,14 @@ import Carousel from "@/components/carousel/carousel";
           <h1 className={styles.h1}>{villaJsonInfo.title }</h1>
           <p className={styles.p}>{villaJsonInfo.p1}</p>
           <p className={styles.p}>{villaJsonInfo.p2}</p>
-          <p className={styles.p}>{villaJsonInfo.p3}</p>
+          {villaJsonInfo.p3 && (
+            <p className={styles.p}>{villaJsonInfo.p3}</p>
+          )}
           {villaJsonInfo.p4 && (
             <p className={styles.p}>{villaJsonInfo.p4}</p>
           )}
+
+          <Facilities />
         </div>
          <Carousel />
       </div>
