@@ -45,6 +45,9 @@
   --primary-text: #848460;
   --primary-color-selected: #5c6c3f;
   --primary-color-hover: #dbe6cd;
+
+  --mobile-h1: 34px;
+  --mobile-h2: 28px;
 }
 
 /* @media (prefers-color-scheme: dark) {

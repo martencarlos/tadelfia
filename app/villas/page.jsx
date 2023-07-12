@@ -29,7 +29,7 @@ function Villas() {
                 <div className={styles.apartmentInfo}>
                     <div className={styles.titleSection}>
                     <div className={styles.title}>
-                        <h3>{item.villa === "Villa"? item.villa + " - Book the whole property" : item.villa + " apartment"}</h3>
+                        <h2 className={styles.h2}>{item.villa === "Villa"? item.villa + " - Book the whole property" : item.villa + " apartment"}</h2>
                     </div>
                     <div className={styles.subTitle}>
                         <p>{item.subTitle}</p>
@@ -62,7 +62,7 @@ function Villas() {
                         </div>
                         <div className={styles.amenity}>
                             <div className={styles.amenityTitle}>
-                                <h4>Wheelchair Acc.</h4>
+                                <h4>Wheelchair</h4>
                             </div>
                             <div className={styles.amenityContent}>
                                 <p>{item.wheelchairAccessible}</p>

@@ -1,5 +1,10 @@
 
+@media screen and (max-width: 570px) {
+    .teamTitle{
+        font-size: var(--mobile-h1) !important;
+    }
 
+}
 
 .about{
     display: flex;

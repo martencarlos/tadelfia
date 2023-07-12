@@ -1,4 +1,14 @@
 
+@media screen and (max-width: 880px) {
+
+    .h1{
+        font-size: var(--mobile-h1) !important;
+    }
+
+
+}
+
+
 .availability{
     display: flex;
     flex-direction: column;

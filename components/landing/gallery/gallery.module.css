@@ -17,6 +17,9 @@
     .closeButton{
         right: 20px !important;
     }
+    .h1{
+        font-size: var(--mobile-h1) !important;
+    }
     
 }
 

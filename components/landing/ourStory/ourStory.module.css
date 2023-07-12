@@ -8,6 +8,9 @@
         width: 100% !important;
         min-height: 200px !important;
     }
+    .h1{
+        font-size: var(--mobile-h1) !important;
+    }
     
 }
 

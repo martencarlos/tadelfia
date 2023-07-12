@@ -1,6 +1,10 @@
 
 @media screen and (max-width: 680px) {
     
+    .villasHeaderTitle{
+        font-size: var(--mobile-h1) !important;
+    }
+
     .apartmentImage{
         width: 100% !important;
     }
@@ -26,6 +30,9 @@
         min-height: unset !important;
         margin: 0px 5px !important;
         /* width: 100% !important; */
+    }
+    .h2{
+        font-size: var(--mobile-h2) !important;
     }
 
 }

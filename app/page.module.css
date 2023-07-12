@@ -3,6 +3,7 @@
     .hero{
         flex-direction: column;
         width: 100% !important;
+        margin-bottom: 130px !important;
     }
 }
 

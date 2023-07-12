@@ -12,10 +12,25 @@
     .rightSideContainer{
         width: 100% !important;
         min-height: unset !important;
+        margin-bottom:60px !important;
     }
 
     .imgContainer{
         width: 100% !important;
+    }
+
+    .image{
+        width: 150px !important;
+    }
+
+    .h1{
+        font-size: var(--mobile-h1) !important;
+    }
+    .h2{
+        font-size: var(--mobile-h2) !important;
+    }
+    .reviewContainer{
+        width: 90% !important;
     }
 
     
@@ -80,7 +95,7 @@
     position: relative;
     justify-content: center;
     flex-direction: column;
-   
+    gap: 20px;
     /* flex-direction: column; */
     align-items: center;
     width: 300px;
