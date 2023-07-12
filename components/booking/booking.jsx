@@ -11,6 +11,9 @@ import { useEffect, useState } from "react";
 import PaymentProvider from "../paymentProvider/paymentProvider";
 import GuestPicker from "../guestPicker/guestPicker";
 import CircularProgress from '@mui/material/CircularProgress';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from "next/link";
 
 
 function Booking({ villa }) {
@@ -208,6 +211,16 @@ function Booking({ villa }) {
             price={price}
           />
         </div>
+        
+        {/* Terms & conditions */}
+        
+        <div className={styles.termsContainer}>
+          <Checkbox color="success" required />
+          <p className={styles.terms}>* I agree to the <Link className={styles.termsLink} href={"/policy"}>Terms & Conditions</Link></p>
+        </div>
+        
+
+        {/* Submit button */}
         {processing ? <div className={styles.button} >
           <CircularProgress className={styles.progress}/> 
           </div>

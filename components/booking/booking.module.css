@@ -19,7 +19,7 @@
 }
 
 .h1{
-    color: #585858;
+    color: var(--primary-color);
     margin: 30px 20px;
 }
 
@@ -99,6 +99,19 @@
 
 .arrivalAndDepartureDates{
     width: 247px;
+}
+
+
+.termsContainer{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.termsLink{
+    color: var(--primary-color);
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .progress{

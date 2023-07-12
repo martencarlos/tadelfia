@@ -1,0 +1,37 @@
+
+/* Policy */
+
+@media (max-width: 800px) {
+    div.policy{
+        width:90% !important;
+     }
+     .policy h1 {
+        font-size: var(--mobile-h1) !important;
+    }
+}
+
+.policy {
+    display: flex;
+    margin: 60px 0px;
+    flex-direction: column;
+    width:60%;
+    max-width: 1000px;
+    gap: 20px;
+}
+
+.policy h1 {
+    font-size: xxx-large;
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+.policy h2 {
+    font-size: xx-large;
+    display: flex;
+    /* justify-content: center; */
+    font-weight: 600;
+    color: rgb(95, 95, 95);
+}

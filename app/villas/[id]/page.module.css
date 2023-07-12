@@ -41,7 +41,7 @@
 }
 
 .h1{
-    color: #6e6e6e;
+    color: var(--primary-color);
     margin: 30px 20px;
 }
 
