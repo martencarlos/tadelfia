@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import  Navbar from '@/components/navbar/navbar'
+import  Footer from '@/components/footer/footer'
 import styles from './layout.module.css'
 import AuthProvider from "@/components/authProvider/authProvider";
 import Script from 'next/script';
@@ -11,7 +12,6 @@ export const metadata = {
   title: 'Tadelfia',
   description: 'Villas in Tadelfia',
 }
-
 
 
 export default function RootLayout({ children }) {
@@ -50,6 +50,7 @@ export default function RootLayout({ children }) {
           {children}
           </main>
         </AuthProvider>
+        <Footer/>
       </body>
     </html>
   )
