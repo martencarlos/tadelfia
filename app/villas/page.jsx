@@ -75,7 +75,7 @@ function Villas() {
                         <p className={styles.priceLabel}>1 night</p>
                         <h4> {"€ "+item.pricePerNight}</h4>
                     </div>
-                    <Link className={styles.button} href={"/villas/"+item.villa} > Book now </Link>
+                    <Link className={styles.button} href={"/villas/"+item.villa+"#top"} > Book now </Link>
                 </div>
             </div>
         ))}

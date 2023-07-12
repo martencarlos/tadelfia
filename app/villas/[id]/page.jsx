@@ -7,10 +7,10 @@ import Booking from "@/components/booking/booking";
 import Carousel from "@/components/carousel/carousel";
 
 
-async function filter(arr, callback) {
-  const fail = Symbol()
-  return (await Promise.all(arr.map(async item => (await callback(item)) ? item : fail))).filter(i=>i!==fail)
-}
+// async function filter(arr, callback) {
+//   const fail = Symbol()
+//   return (await Promise.all(arr.map(async item => (await callback(item)) ? item : fail))).filter(i=>i!==fail)
+// }
 
   function Villa({ params }) {
     // //sync filter function
