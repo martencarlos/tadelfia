@@ -29,7 +29,7 @@
 
 
 .rmdp-range:not(.reserved){
-    background-color: var(--primary-color) ;
+    background-color: rgb(58, 155, 97) ;
 }
 
 .rmdp-range:has(.reserved) {
@@ -73,7 +73,7 @@
 }
 
 .rmdp-arrow-container:hover {
-    background-color: var(--primary-color) !important;
+    background-color:var(--primary-color)  !important;
     
 }
 
@@ -85,7 +85,7 @@
 }
 
 .rmdp-day:not(.rmdp-disabled):not(.rmdp-day-hidden) span:hover {
-    background-color: var(--primary-color) !important;
+    background-color: rgb(58, 155, 97) !important;
     color: white !important;
 }
 
