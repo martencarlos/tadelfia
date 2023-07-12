@@ -2,7 +2,7 @@
 @media screen and (max-width: 680px) {
     
     .villasHeaderTitle{
-        font-size: var(--mobile-h1) !important;
+        font-size: var(--mobile-h2) !important;
     }
 
     .apartmentImage{
