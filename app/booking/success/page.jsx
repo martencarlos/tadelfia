@@ -23,6 +23,8 @@ async function saveBooking(booking, data) {
     const newBooking = new Booking(booking);
     await newBooking.save();
 
+    console.log("pre->sending email to merchant")
+
     //send email to customer
     sendBookingSuccess(booking.contact.email, "Tadelfia - Booking Confirmation", booking).then((res) => {
       if(res)

@@ -54,7 +54,8 @@ export const BookingSuccessEmail = ({ booking }) => {
             <Row>
               <Text style={heading}>Booking confirmed ! </Text>
               
-
+              <br />
+              <br />
               <Text style={{ ...paragraph, fontWeight: '700' }}>
                 Booking details:
               </Text>
