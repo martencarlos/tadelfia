@@ -155,7 +155,7 @@ function Booking({ villa }) {
           </div>
 
           {/* Address Section */}
-          <h5 className={styles.h2}>Address</h5>
+          <h4 className={styles.h2}>Address</h4>
           <div className={styles.subSection}>
           <div className={styles.row}>
             <TextField

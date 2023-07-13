@@ -58,7 +58,8 @@ function Contact() {
             style={{ border: "0" }}
             allowFullScreen=""
             className={styles.map}
-            loading="lazy"
+            // loading="lazy"
+            loading="eager"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
           {/*} <iframe

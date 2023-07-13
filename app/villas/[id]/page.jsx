@@ -34,17 +34,19 @@ import Facilities from "@/components/facilities/facilities";
         
         {/* Text Section */}
         <div className={styles.textContainer}>
-          <h1 className={styles.h1}>{villaJsonInfo.title }</h1>
-          <p className={styles.p}>{villaJsonInfo.p1}</p>
-          <p className={styles.p}>{villaJsonInfo.p2}</p>
-          {villaJsonInfo.p3 && (
-            <p className={styles.p}>{villaJsonInfo.p3}</p>
-          )}
-          {villaJsonInfo.p4 && (
-            <p className={styles.p}>{villaJsonInfo.p4}</p>
-          )}
+          <div className={styles.text}>
+            <h1 className={styles.h1}>{villaJsonInfo.title }</h1>
+            <p className={styles.p}>{villaJsonInfo.p1}</p>
+            <p className={styles.p}>{villaJsonInfo.p2}</p>
+            {villaJsonInfo.p3 && (
+              <p className={styles.p}>{villaJsonInfo.p3}</p>
+            )}
+            {villaJsonInfo.p4 && (
+              <p className={styles.p}>{villaJsonInfo.p4}</p>
+            )}
 
-          <Facilities />
+            <Facilities facilities = {villaJsonInfo} />
+          </div>
         </div>
          <Carousel />
       </div>

@@ -2,13 +2,16 @@
 import styles from "./facilities.module.css"
 import {BiSolidParking} from "react-icons/bi"
 import {FaWifi} from "react-icons/fa"
-import {MdOutlineKitchen} from "react-icons/md"
+import {FaPeopleGroup,FaWheelchairMove} from "react-icons/fa6"
+import {MdOutlineKitchen,MdPool} from "react-icons/md"
 import {BsHouseDoor,BsXLg} from "react-icons/bs"
 import {CgMoreO} from "react-icons/cg"
 import {FcCheckmark} from "react-icons/fc"
+import {IoBedSharp} from "react-icons/io5"
 
 
-function Facilities() {
+
+function Facilities({facilities}) {
 
   function openModal() {
     const modal = document.getElementById("facilitesModal")
@@ -25,6 +28,32 @@ function Facilities() {
 
   return (
     <div className={styles.facilities}>
+      {facilities && <div className={styles.villaSpecificFacilities}>
+        <div className={styles.facility}>
+            <div className={styles.iconWrapper}>
+              <IoBedSharp className={styles.icon} />
+            </div>
+            {facilities.bedrooms} bedrooms
+        </div>
+        <div className={styles.facility}>
+            <div className={styles.iconWrapper}>
+              <FaPeopleGroup className={styles.icon} />
+            </div>
+            {facilities.guestCapacity} guests
+        </div>
+        <div className={styles.facility}>
+            <div className={styles.iconWrapper}>
+              <MdPool className={styles.icon} />
+            </div>
+            {facilities.pool} pool
+        </div>
+        <div className={styles.facility}>
+            <div className={styles.iconWrapper}>
+              <FaWheelchairMove className={styles.icon} />
+            </div>
+            {facilities.wheelchairAccessible} 
+        </div>
+      </div>}
     <div className={styles.facility}>
           <div className={styles.iconWrapper}>
             <BsHouseDoor className={styles.icon} />
@@ -106,7 +135,7 @@ function Facilities() {
           <div className={styles.iconWrapper}>
             <FcCheckmark className={styles.icon} />
           </div>
-          Heating
+          Air conditioning
           </div>
           <div className={styles.facility}>
           <div className={styles.iconWrapper}>
@@ -120,7 +149,6 @@ function Facilities() {
           </div>
           Bed linens
           </div>
-     
           </div>
           <div className={styles.facilitiesColumn}>
           <div className={styles.facility}>
@@ -133,13 +161,13 @@ function Facilities() {
           <div className={styles.iconWrapper}>
             <FcCheckmark className={styles.icon} />
           </div>
-          Shampoo
+          Security box
           </div>
           <div className={styles.facility}>
           <div className={styles.iconWrapper}>
             <FcCheckmark className={styles.icon} />
           </div>
-          Hangers
+          Shower
           </div>
           <div className={styles.facility}>
           <div className={styles.iconWrapper}>

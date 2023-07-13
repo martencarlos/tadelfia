@@ -75,6 +75,7 @@
  }
  .contactCardH2{
     color:  #e3e3e3;
+    font-size: large;
      /* color: var(--primary-text); */
      font-style: italic;
  }

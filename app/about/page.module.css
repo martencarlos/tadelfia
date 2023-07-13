@@ -21,7 +21,7 @@
     align-items: center;
     justify-content: center;
     min-height: calc(100vh - 60px);
-    margin: 80px 0px;
+    margin: 20px 0px 10px 0px;
 }
 
 .teamTitle{

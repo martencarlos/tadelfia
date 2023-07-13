@@ -5,6 +5,7 @@ import Link from 'next/link'
 import data from "./[id]/data.json";
 
 import SmallAvailability from '@/components/smallAvailability/smallAvailability';
+import Facilities from '@/components/facilities/facilities';
 
 function Villas() {
 
@@ -35,40 +36,10 @@ function Villas() {
                         <p>{item.subTitle}</p>
                     </div>
                     </div>
-                    <div className={styles.amenities}>
-                        <div className={styles.amenity}>
-                            <div className={styles.amenityTitle}>
-                                <h4>Bedrooms</h4>
-                            </div>
-                            <div className={styles.amenityContent}>
-                                <p>{item.bedrooms}</p>
-                            </div>
-                        </div>
-                        <div className={styles.amenity}>
-                            <div className={styles.amenityTitle}>
-                                <h4>Guests</h4>
-                            </div>
-                            <div className={styles.amenityContent}>
-                                <p>{item.guestCapacity}</p>
-                            </div>
-                        </div>
-                        <div className={styles.amenity}>
-                            <div className={styles.amenityTitle}>
-                                <h4>Pool</h4>
-                            </div>
-                            <div className={styles.amenityContent}>
-                                <p>{item.pool}</p>
-                            </div>
-                        </div>
-                        <div className={styles.amenity}>
-                            <div className={styles.amenityTitle}>
-                                <h4>Wheelchair</h4>
-                            </div>
-                            <div className={styles.amenityContent}>
-                                <p>{item.wheelchairAccessible}</p>
-                            </div>
-                        </div>
-                    </div>
+                    
+                    <Facilities facilities= {item}/>
+                   
+                    
                 </div>
                 <div className={styles.apartmentButtonSection}>
                     <div className={styles.priceWrapper}> 

@@ -31,7 +31,7 @@
     }
     .reviewContainer{
         width: 90% !important;
-        height: unset !important;
+        
     }
 
     
@@ -148,7 +148,7 @@
     align-items: center;
     padding: 40px;
     width: 400px;
-    height: 280px;
+    min-height: 300px;
     box-shadow:    0 0 10px rgba(0,0,0,0.2),
                 0 0 40px rgba(0,0,0,0.1);
 }
