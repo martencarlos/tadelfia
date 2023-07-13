@@ -5,8 +5,6 @@ import Booking from "@/models/Booking";
 import Image from "next/image";
 import villasJson from "/app/villas/[id]/data.json";
 
-import { sendBookingSuccess } from "@/lib/emailService";
-
 async function saveBooking(booking, data) {
   await dbConnect();
   //check if booking already exists
@@ -26,13 +24,21 @@ async function saveBooking(booking, data) {
     console.log("pre->sending email to merchant")
 
     //send email to customer
-    sendBookingSuccess(booking.contact.email, "Tadelfia - Booking Confirmation", booking).then((res) => {
-      if(res)
-        console.log("email sent to customer")
-      else
-        console.log("Email failed to send to customer");
-    }
-    );
+    fetch(process.env.NEXT_PUBLIC_HOST+"/api/emailsuccess", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(booking),
+    })
+      .then((res) =>  {
+        if (res.status === 200) {
+          console.log("email sent to merchant")
+          return true
+        }else{
+        console.log("Something went wrong! email not sent to merchant")
+        return false}
+      });
   }
 }
 
