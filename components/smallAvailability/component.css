@@ -8,7 +8,8 @@
     }
 
     .react-calendar__tile {
-        line-height: 4px !important;
+        line-height: 10px !important;
+        
     }
 
 }
@@ -52,6 +53,6 @@
 }
 
 .react-calendar__tile {
-
+    padding: 5px 6.6667px !important;
     /* padding: 3px 3px !important; */
 }
