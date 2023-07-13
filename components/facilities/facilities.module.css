@@ -13,7 +13,7 @@
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
-    margin: 20px 0px;
+    /* margin: 20px 0px; */
     padding:0px 10px;
     margin-left: -5px;
 }
