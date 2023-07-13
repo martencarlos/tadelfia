@@ -56,7 +56,7 @@ export const BookingSuccessEmail = ({ booking }) => {
               
               <br />
               <br />
-              <Text style={{ ...paragraph, fontWeight: '700' }}>
+              <Text style={{ ...paragraph, textDecoration:"underline" , fontWeight: '700' }}>
                 Booking details:
               </Text>
               <Text style={paragraph}>

@@ -221,7 +221,8 @@ function Booking({ villa }) {
 
         {/* Submit button */}
         {processing ? <div className={styles.button} >
-          <CircularProgress className={styles.progress}/> 
+          <div className={styles.buttonText}>Processing payment</div>
+          <CircularProgress size={25} className={styles.progress}/> 
           </div>
           :<input className={styles.button} type="submit" value= "Available - Book Now!" />
            

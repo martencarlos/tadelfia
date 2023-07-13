@@ -7,7 +7,7 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 
-export default function Checkout({ trigger, updatingIntent, price,setProcessing}) {
+export default function Checkout({ trigger, updatingIntent, price, setProcessing}) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -93,9 +93,12 @@ export default function Checkout({ trigger, updatingIntent, price,setProcessing}
       
       {/* Show any error or success messages */}
       {message && <div className={styles.paymentMessage} id="payment-message">{message}</div>}
+
+      {/* Processing payment message 
       {(isLoading || !stripe || !elements) ? 
         <div className={styles.paymentMessage}>{ "Processing payment..."}</div>
-        : ""}
+        : ""}*/}
+      {/* Show price info when dates are selected */}
       {!isNaN(price) &&
         price !== null &&
         price !== 0 &&
