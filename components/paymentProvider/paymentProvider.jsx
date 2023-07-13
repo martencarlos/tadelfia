@@ -3,7 +3,7 @@
 import getStripe from "@/lib/getStripe";
 import { Elements } from "@stripe/react-stripe-js";
 import Checkout from "../checkout/checkout";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const stripePromise = getStripe();
 let updated = false;
@@ -11,7 +11,7 @@ let updated = false;
 function PaymentProvider({trigger, booking, price, setProcessing}) {
   const [clientSecret, setClientSecret] = useState(null);
 
-  const [copmponentBooking, setComponentBooking] = useState(null);
+  const [componentBooking, setComponentBooking] = useState(null);
 
   useEffect(() => {
     // Create first intent to load payment form once
@@ -34,7 +34,8 @@ function PaymentProvider({trigger, booking, price, setProcessing}) {
 
   // check if booking has changed. If so, wait for booking useEffect before enforcing checkout trigger
   updated = false;
-  if(JSON.stringify(booking) !== JSON.stringify(copmponentBooking)){
+
+  if(JSON.stringify(booking) !== JSON.stringify(componentBooking)){
     updated = true;
   }
   

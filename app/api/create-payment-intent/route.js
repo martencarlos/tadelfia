@@ -20,7 +20,6 @@ const calculateOrderAmount = (booking) => {
 export const POST = async (req) => {
   
   const {booking,clientSecret}  = await req.json();
-
   if(!clientSecret){
     // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
@@ -36,7 +35,7 @@ export const POST = async (req) => {
   return new NextResponse(JSON.stringify({ clientSecret: paymentIntent.client_secret }), { status: 200 });
   // update payment intent metadata
   } else if(clientSecret){
-    
+  
      await stripe.paymentIntents.update(
       clientSecret.substring(0, clientSecret.indexOf("_secret_")),
       {

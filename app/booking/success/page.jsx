@@ -46,7 +46,9 @@ async function Success({ searchParams, params }) {
     }
   );
   const data = await res.json();
+  
   const booking = JSON.parse(data.metadata.booking);
+  
 
   if(booking)
     await saveBooking(booking, data);

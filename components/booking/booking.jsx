@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 import PaymentProvider from "../paymentProvider/paymentProvider";
 import GuestPicker from "../guestPicker/guestPicker";
 import CircularProgress from '@mui/material/CircularProgress';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from "next/link";
 

@@ -5,10 +5,7 @@ import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 
 export default function Footer(){
-    console.log("Rendering Footer")
-    
     const activeSegment = useSelectedLayoutSegment();
-    console.log("activeSegment: ", activeSegment)
     
     const year= new Date().getFullYear()
 
