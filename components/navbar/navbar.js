@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import styles from "./navbar.module.css";
 import "./navbar.css";
 import Link from "next/link";
-import { BsArrowDownShort } from "react-icons/bs";
+import { BsChevronDown } from "react-icons/bs";
 import { useSelectedLayoutSegment } from "next/navigation";
 
 function Navbar() {
@@ -70,7 +70,7 @@ function Navbar() {
           {/*<div>*/}
             Apartments
           {/*</div>*/}
-          <BsArrowDownShort className={styles.icon} />
+          <BsChevronDown className={styles.icon} />
 
           {/*Villas Menu - hidden*/}
           <div id="villasMenu" className={styles.villasMenu}>
