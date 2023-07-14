@@ -154,7 +154,8 @@ const paragraph = {
 const review = {
   ...paragraph,
   padding: '24px',
-  backgroundColor: '#c3c4c4',
+  whiteSpace: 'pre-wrap',
+  backgroundColor: '#e2e0e0',
   borderRadius: '4px',
 };
 
