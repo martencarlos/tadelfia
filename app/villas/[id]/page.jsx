@@ -13,6 +13,12 @@ import Facilities from "@/components/facilities/facilities";
 //   return (await Promise.all(arr.map(async item => (await callback(item)) ? item : fail))).filter(i=>i!==fail)
 // }
 
+// Dynamic metadata
+export async function generateMetadata({ params, searchParams }) {
+  const villaJsonInfo = data.filter((item) => item.villa === params.id)[0]
+  return { title: params.id, description: villaJsonInfo.subTitle };
+}
+
   function Villa({ params }) {
     // //sync filter function
     // function filterData(item) {

@@ -6,11 +6,15 @@ import styles from './layout.module.css'
 import AuthProvider from "@/components/authProvider/authProvider";
 import Script from 'next/script';
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Tadelfia',
-  description: 'Villas in Tadelfia',
+  title: {
+    default: 'tadelfia',
+    template: `%s | tadelfia`
+},
+  description: 'corfu apartment beach hotel',
 }
 
 
