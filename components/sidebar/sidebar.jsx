@@ -51,7 +51,19 @@ function Sidebar() {
                         fontWeight: activeSegment === "bookings" ? "bolder" : "normal" ,
                         backgroundColor: activeSegment === "bookings" ? "rgb(240 240 240)" : "white" 
                     }}
-                    onClick={toggleSidebar} className={styles.sidebarLink} href="/dashboard/bookings">Bookings</Link>
+                    onClick={toggleSidebar} className={styles.sidebarLink} href="/dashboard/bookings">
+                    Bookings
+                </Link>
+
+                <Link 
+                    style={{ 
+                        fontWeight: activeSegment === "blog" ? "bolder" : "normal" ,
+                        backgroundColor: activeSegment === "blog" ? "rgb(240 240 240)" : "white" 
+                    }}
+                    onClick={toggleSidebar} className={styles.sidebarLink} href="/dashboard/blog">
+                    CMS
+                </Link>
+
                 {/*<Link onClick={toggleSidebar} className={styles.sidebarLink} href="#">CMS</Link>
                 <Link onClick={toggleSidebar} className={styles.sidebarLink} href="#">Settings</Link>*/}
             </div>
