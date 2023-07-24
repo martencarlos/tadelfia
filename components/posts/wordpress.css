@@ -1,0 +1,23 @@
+
+
+
+
+[class*="posts_posts"] h2{
+    margin-bottom: 20px;
+}
+
+[class*="posts_posts"] hr{
+    margin: 40px 200px;
+    border: 1.5px solid;
+   
+}
+
+[class*="posts_posts"] ul{
+    padding: 10px 15px
+}
+
+[class*="posts_posts"] img{
+    object-fit: contain;
+    width: 100%;
+    height: fit-content;
+}
