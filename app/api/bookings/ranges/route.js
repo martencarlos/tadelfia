@@ -15,7 +15,7 @@ export const GET = async (req) => {
     // const res = await fetch("https://login.smoobu.com/api/reservations?pageSize=100", {
     //     method: "GET",
     //     headers: {
-    //         "Api-Key": "KBgyVtO8RcZLzGzyK_OXwGevIuUvOHKX",
+    //         "Api-Key": process.env.SMOOBU_API_KEY,
     //         "Cache-Control": "no-cache"
     //     },
     //   });
