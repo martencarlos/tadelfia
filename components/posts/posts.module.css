@@ -1,17 +1,17 @@
 
 @media (min-width:500px) {
-    .blog{
-      margin: 30px 0px 30px 200px ;
+    .posts{
+     
     }
   }
 
   @media (max-width:500px) {
-    .blog{
-      margin: 60px 0px 30px 0px ;
+    .posts{
+     
     }
   }
 
-.blog{
+.posts{
     display: flex;
     
     flex-direction: column;
@@ -19,5 +19,14 @@
     position: relative;
     justify-content: center;
     min-height: calc(100vh - 120px);
-    width: 100%;
+    width: 600px;
+    
+    padding: 30px;
+    
+}
+
+.post{
+  position:relative;
+  width: 100%;
+  margin: 40px 0px;
 }

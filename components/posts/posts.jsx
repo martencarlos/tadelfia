@@ -1,20 +1,26 @@
-"use client"
 
 import React from 'react'
-import { getAllPublishedPosts } from '@/lib/wordpressApi'
+import { serverGetAllPosts } from '@/lib/posts'
+import styles from "./posts.module.css"
+
+
 
 async function Posts() {
 
-    const {edges} = await getAllPublishedPosts()
+    const {edges} =  await serverGetAllPosts()
+    // const {edges} = await getAllPublishedPosts()
     const AllPosts = edges.map(({node}) => node)
-    console.log(AllPosts)
+    // console.log(AllPosts)
   return (
-    <div>
-    All posts
-        {edges && AllPosts.map((post) => (
-            <div key={post.postId}>
+    <div className={styles.posts}>
+      
+        <h1>All posts</h1>
+      
+
+        {AllPosts && AllPosts.map((post) => (
+            <div className={styles.post} key={post.postId}>
                 <h2>{post.title}</h2>
-                <p dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+                <p dangerouslySetInnerHTML={{ __html: post.content }} />
             </div>
         ))}
     </div>

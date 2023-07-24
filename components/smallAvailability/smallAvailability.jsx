@@ -20,7 +20,7 @@ function SmallAvailability({ villa }) {
     
     if (villa !== "Villa") {
 
-      getAllBookings().then((data) => {
+      getAllBookingRanges().then((data) => {
         
         if (data.length > 0) {
           const bookedRanges = data.map((booking) => {

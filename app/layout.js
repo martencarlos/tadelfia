@@ -7,6 +7,8 @@ import AuthProvider from "@/components/authProvider/authProvider";
 import Script from 'next/script';
 
 
+
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {

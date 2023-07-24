@@ -19,7 +19,7 @@ function Availability({ villa }) {
     const newRanges = [];
     //get all bookings from "Villa" (whole property) 
     if(villa !== "Villa"){
-      getAllBookings().then((data) => {
+      getAllBookingRanges().then((data) => {
         
         if (data.length > 0) {
           const bookedRanges = data.map((booking) => {
