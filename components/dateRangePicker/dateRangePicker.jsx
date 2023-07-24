@@ -37,12 +37,12 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
   useEffect(() => {
     const newRanges = [];
     if(villa !== "Villa"){
-      getAllBookings().then((data) => {
+      getAllBookingRanges().then((data) => {
         
         if (data.length > 0) {
           const newBookedRanges = data.map((booking) => {
             if(booking.accomodation.villa === villa || booking.accomodation.villa === "Villa"){
-              return [booking.accomodation.checkin,booking.accomodation.checkout]
+              return [new Date(booking.accomodation.checkin),new Date(booking.accomodation.checkout)]
             }
           });
         
@@ -50,10 +50,11 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
         }
       });
     }else{
-      getAllBookingRanges(new Date().getFullYear()).then((data) => {
+      getAllBookingRanges().then((data) => {
         if (data.length > 0) {
           const newBookedRanges = data.map((booking) => {
-            return [booking.accomodation.checkin,booking.accomodation.checkout]
+            console.log(booking)
+            return [new Date(booking.accomodation.checkin),new Date(booking.accomodation.checkout)]
           });
           newRanges.push(...newBookedRanges);
           setBookedRanges(newRanges);
