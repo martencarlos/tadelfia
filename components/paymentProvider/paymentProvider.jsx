@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 const stripePromise = getStripe();
 let updated = false;
 
-function PaymentProvider({trigger, booking, price, setProcessing}) {
+function PaymentProvider({trigger, booking, price, paymentIntentSecret, setProcessing}) {
   const [clientSecret, setClientSecret] = useState(null);
 
   const [componentBooking, setComponentBooking] = useState(null);
@@ -19,16 +19,32 @@ function PaymentProvider({trigger, booking, price, setProcessing}) {
     fetch("/api/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({booking: booking, clientSecret: clientSecret}),
+      body: JSON.stringify({cancel: false, booking: booking, clientSecret: clientSecret}),
     })
-      .then((res) => res.json())
-      .then((data) => {
-        setComponentBooking(booking)
-        if(data.clientSecret !== "updated")
-          setClientSecret(data.clientSecret)
+    .then((res) => res.json())
+    .then((data) => {
+      setComponentBooking(booking)
+      if(data.clientSecret !== "updated"){
+        setClientSecret(data.clientSecret)
+        paymentIntentSecret.current = data.clientSecret;
+      }
         
-         
     });
+
+    // return () => {
+    //   fetch("/api/create-payment-intent", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({cancel: true, clientSecret: clientSecret}),
+    //   })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data)
+    //     setClientSecret(null)
+    //     setComponentBooking(null)
+    //   }
+    //   );
+    // }
 
 }, [booking]);
 

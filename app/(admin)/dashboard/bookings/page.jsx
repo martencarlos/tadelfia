@@ -120,8 +120,8 @@ export default async function Bookings() {
                 <div>{new Date(booking.createdAt).toLocaleDateString()}</div>
                 <div>
                   {booking.payment.currency === "eur"
-                    ? "€ " + booking.payment.amount
-                    : booking.payment.currency + " " + booking.payment.amount}
+                    ? "€ " + booking.payment.amount/100
+                    : booking.payment.currency + " " + booking.payment.amount/100}
                 </div>
               </div>
             </div>

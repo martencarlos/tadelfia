@@ -142,7 +142,7 @@ async function Success({ searchParams, params }) {
                 <div className={styles.apartmentButtonSection}>
                     <div className={styles.priceWrapper}> 
                         <p className={styles.priceLabel}>{booking.accomodation.nights}{" night(s)"}</p>
-                        <h4> {"€ "+data.amount}</h4>
+                        <h4> {"€ "+booking.accomodation.price}</h4>
                     </div>
                   
                 </div>

@@ -55,7 +55,7 @@ async function BookingPage({ searchParams, params }) {
           <h3>Payment</h3>
           <br />
           <p>{booking.payment.id}</p>
-          <p>{booking.payment.currency+" "+booking.payment.amount}</p>
+          <p>{booking.payment.currency+" "+booking.payment.amount/100}</p>
       
           <p>{new Date(booking.createdAt).toLocaleDateString()}</p>
           <br />

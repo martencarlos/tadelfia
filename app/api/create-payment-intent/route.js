@@ -9,18 +9,26 @@ const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
   // people from directly manipulating the amount on the client
 const calculateOrderAmount = (booking) => {
 
-  let price = 50;
+  let price = 100;
   if (booking) {
-    price = booking.accomodation.price;
+    price = booking.accomodation.price*100
   }
   
   return price;
 };
 
 export const POST = async (req) => {
-  
-  const {booking,clientSecret}  = await req.json();
-  if(!clientSecret){
+  console.log("api/create-payment-intent called")
+  const {cancel, booking, clientSecret}  = await req.json();
+  console.log("cancel: ", cancel)
+  // cancel if booking component is unmounted
+  if(cancel && clientSecret){
+    await stripe.paymentIntents.cancel(
+      clientSecret.substring(0, clientSecret.indexOf("_secret_")))
+    
+    return new NextResponse(JSON.stringify({ clientSecret: "cancelled" }), { status: 200 });
+
+  }else if(!clientSecret){
     // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
     amount: calculateOrderAmount(booking),
