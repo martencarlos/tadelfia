@@ -8,9 +8,9 @@ import { useRouter, useSearchParams } from "next/navigation"
 import Loading from "@/components/loading/loading"
 
 // Static metadata (only working on Server Components)
-export const metadata = {
-  title: "Bookings", description: "Tadelfia full list of bookings" 
-}
+// export const metadata = {
+//   title: "Bookings", description: "Tadelfia full list of bookings" 
+// }
 
 const Login = ({ url }) => {
   const session = useSession();
