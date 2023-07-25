@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // reactStrictMode: true,
+    // reactStrictMode: true, // if ON, all compoennts are rendered twice in dev mode
     images: {
         remotePatterns: [
           {

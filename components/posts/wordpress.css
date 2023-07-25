@@ -7,8 +7,10 @@
 }
 
 [class*="posts_posts"] hr{
-    margin: 40px 200px;
+    width: 20%;
+    margin: 40px auto;
     border: 1.5px solid;
+
    
 }
 
