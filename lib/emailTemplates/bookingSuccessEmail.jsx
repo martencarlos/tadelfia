@@ -30,7 +30,7 @@ export const BookingSuccessEmail = ({ booking }) => {
   return (
     <Html lang="en">
     <Head />
-    <Preview>{"previewText"}</Preview>
+    <Preview>{"Τ'αδελφια - Booking confirmed!"}</Preview>
 
     <Body style={main}>
       <Section style={main}>

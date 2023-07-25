@@ -39,13 +39,14 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
     if(villa !== "Villa"){
       getAllBookingRanges().then((data) => {
         
+        
         if (data.length > 0) {
           const newBookedRanges = data.map((booking) => {
             if(booking.accomodation.villa === villa || booking.accomodation.villa === "Villa"){
               return [new Date(booking.accomodation.checkin),new Date(booking.accomodation.checkout)]
             }
           });
-        
+         
           setBookedRanges(...bookedRanges, newBookedRanges.filter((range) => range !== undefined));
         }
       });
@@ -53,7 +54,6 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
       getAllBookingRanges().then((data) => {
         if (data.length > 0) {
           const newBookedRanges = data.map((booking) => {
-            console.log(booking)
             return [new Date(booking.accomodation.checkin),new Date(booking.accomodation.checkout)]
           });
           newRanges.push(...newBookedRanges);
@@ -63,6 +63,7 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
     }
     
   }, [villa]);
+
 
     return (
         <div className={styles.dateRangePicker}>
@@ -79,6 +80,7 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                 onChange={(ranges) => {
                     
                     const bookingRangeIndex = bookedRanges.length
+                  
                     if(ranges.length<= bookingRangeIndex)
                       return false
                     
@@ -93,17 +95,20 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                     const startDate= (new Date(ranges[bookingRangeIndex][0]).setHours(0,0,0,0))
                     const endDate= (new Date(ranges[bookingRangeIndex][bookingRangeIndex]).setHours(0,0,0,0))
                     
-            
+                 
                     if (isReserved(startDate)) 
                       return false;
+                    
+                    
                    
                     if ( isReserved(endDate)) 
                       return false;
 
+                   
                     
                     if(ranges.length<=(bookingRangeIndex+1))
                       setRangeDates(ranges[bookingRangeIndex]) //update prop
-                
+                  
                   }}
                 //style the reserved dates red
                 mapDays={({date}) => {
@@ -115,7 +120,7 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
 
                 range
                 weekStartDayIndex={1}
-                value={bookedRanges.length>0?bookedRanges:[]} //only first time
+                value={bookedRanges} //only first time
                 editable = {false}
                 rangeHover
                 minDate={new Date()}

@@ -2,6 +2,7 @@
 
 [
    {
+    "apartmentId": "1802336",
     "villa": "Villa",
     "pricePerNight": 1152,
     "title": "Villa - Book the whole property",
@@ -16,6 +17,7 @@
   
   },
    {
+    "apartmentId": "1793036",
     "villa":"Eros",
     "pricePerNight": 140,
     "title": "Welcome to EROS, the lovers' suite!",
@@ -31,6 +33,7 @@
   },
 
    {
+    "apartmentId": "1802339",
     "villa":"Galini",
     "pricePerNight": 139,
     "title": "Welcome to GALINI !",
@@ -46,6 +49,7 @@
    
   },
    {
+    "apartmentId": "1802345",
     "villa": "Iris",
     "pricePerNight": 132,
     "title": "Welcome to Iris !",
@@ -61,6 +65,7 @@
 
   },
    {
+    "apartmentId": "1802348",
     "villa": "Astraia",
     "pricePerNight": 145,
     "title": "Welcome to Astraia !",
@@ -76,6 +81,7 @@
  
   },
   {
+    "apartmentId": "1802351",
     "villa": "Armonia",
     "pricePerNight": 152,
     "title": "Welcome to Armonia !",
@@ -91,6 +97,7 @@
   
   },
   {
+    "apartmentId": "1802354",
     "villa": "Gaia",
     "pricePerNight": 163,
     "title": "Welcome to Gaïa !",
@@ -105,6 +112,7 @@
 
   },
    {
+    "apartmentId": "1802357",
     "villa": "Ermis",
     "pricePerNight": 137,
     "title": "Welcome to Ermis !",
