@@ -1,0 +1,93 @@
+
+@media screen and (max-width: 570px) {
+    
+    .formGroup{
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+
+    .contactFormCard{
+        width: 90% !important;
+        /* padding:20px !important; */
+    }
+    .contactText{
+        padding: 50px 0px !important;
+    }
+   
+
+}
+
+
+.contactFormSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+    width: 100%;
+    
+    background-image: url("/contact/contactus.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contactFormCard{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 40px;
+    box-shadow: 0px 0px 40px 0px #9b9ea1;
+   
+}
+
+.contactFormHeader{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contactForm{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+   /* margin: 30px 0px; */
+   margin-top: 40px;
+
+}
+
+.formGroup{
+    display: flex;
+    gap: 10px;
+}
+
+.flexItem{
+    flex:1;
+}
+
+.textarea{
+    min-height: 100px;
+    font-size: 16px;
+    padding: 8.5px 14px;
+    width: 100%;
+    resize: vertical;
+}
+
+.button{
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+    color: white;
+    font-weight: 600;
+    font-size: large;
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: var(--primary-color-selected);
+    color: #fff;
+    transform: translateY(-2px);
+    transition: all 0.3s ease-in-out;
+}

@@ -7,6 +7,11 @@ import data from "./[id]/data.json";
 import SmallAvailability from '@/components/smallAvailability/smallAvailability';
 import Facilities from '@/components/facilities/facilities';
 
+// Static metadata
+export const metadata = {
+    title: "Villas", description: "Overview of apartments" 
+  }
+
 function Villas() {
 
   return (

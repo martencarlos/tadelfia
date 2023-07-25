@@ -1,12 +1,16 @@
-"use client";
+"use client"
 
-import React, { useEffect, useState } from "react";
-import styles from "./page.module.css";
-import { signIn, useSession } from "next-auth/react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react"
+import styles from "./page.module.css"
+import { signIn, useSession } from "next-auth/react"
+import { useRouter, useSearchParams } from "next/navigation"
 
-import Loading from "@/components/loading/loading";
+import Loading from "@/components/loading/loading"
 
+// Static metadata (only working on Server Components)
+export const metadata = {
+  title: "Bookings", description: "Tadelfia full list of bookings" 
+}
 
 const Login = ({ url }) => {
   const session = useSession();

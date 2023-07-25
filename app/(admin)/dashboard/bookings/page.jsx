@@ -2,6 +2,12 @@ import styles from "./page.module.css";
 // import { serverGetAllBookings } from '@/lib/booking'
 import Link from "next/link";
 
+
+// Static metadata
+export const metadata = {
+  title: "Bookings", description: "Tadelfia full list of bookings" 
+}
+
 export default async function Bookings() {
   let allBookings = [];
   try {

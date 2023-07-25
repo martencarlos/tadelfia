@@ -1,5 +1,11 @@
 import styles from "./policy.module.css";
 
+
+// Static metadata
+export const metadata = {
+  title: "Policy", description: "Tadelfia Policies" 
+}
+
 function policy() {
   return (
     <div className={styles.policy}>

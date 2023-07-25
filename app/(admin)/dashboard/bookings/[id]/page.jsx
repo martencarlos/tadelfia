@@ -5,6 +5,12 @@ import dbConnect from "@/lib/dbConnect";
 import Booking from "@/models/Booking";
 // import { Router } from "next/router";
 
+
+// Dynamic metadata
+export async function generateMetadata({ params }) {
+  return { title: params.id, description: "Apartment full information" };
+}
+
 async function BookingPage({ searchParams, params }) {
 
   dbConnect();

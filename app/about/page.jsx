@@ -4,6 +4,11 @@ import Image from "next/image";
 import OurStory from "@/components/landing/ourStory/ourStory";
 
 
+// Static metadata
+export const metadata = {
+  title: "About", description: "About us" 
+}
+
 function About() {
   return (
     <div className={styles.about}>

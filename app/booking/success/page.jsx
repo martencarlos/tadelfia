@@ -5,6 +5,11 @@ import Booking from "@/models/Booking";
 import Image from "next/image";
 import villasJson from "/app/villas/[id]/data.json";
 
+// Dynamic metadata
+export async function generateMetadata({ params, searchParams }) {
+  return { title: "Booking Successful ", description: "The booking was successfully processed" };
+}
+
 async function saveBooking(booking, data) {
   await dbConnect();
   //check if booking already exists
