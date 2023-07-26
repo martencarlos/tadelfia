@@ -26,6 +26,9 @@ export default function RootLayout({ children }) {
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
   <meta name="viewport" content="width=device-width, initial-scale=1" />*/}
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/icon-512x512.png"></link>
+        <meta name="theme-color" content="#000" />
       </head>
       
       
