@@ -1,5 +1,5 @@
 
-import React from "react";
+
 import styles from "./page.module.css";
 import dbConnect from "@/lib/dbConnect";
 import Booking from "@/models/Booking";

@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+
 import styles from './sidebar.module.css'
 
 import Link from 'next/link'

@@ -1,4 +1,4 @@
-import React from "react";
+
 import styles from "./page.module.css";
 import Image from "next/image";
 import OurStory from "@/components/landing/ourStory/ourStory";

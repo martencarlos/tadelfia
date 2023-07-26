@@ -1,5 +1,5 @@
 
-import React from 'react'
+
 import styles from "./posts.module.css"
 import "./wordpress.css"
 import { getAllPublishedPosts } from '@/lib/wordpressApi'

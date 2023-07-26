@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import styles from './gallery.module.css'
 import Image from 'next/image'
 import { BsXLg } from "react-icons/bs";

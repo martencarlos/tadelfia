@@ -1,7 +1,7 @@
-import React from "react";
+
 import styles from "./page.module.css";
-import dbConnect from "@/lib/dbConnect";
-import Booking from "@/models/Booking";
+// import dbConnect from "@/lib/dbConnect";
+// import Booking from "@/models/Booking";
 import Image from "next/image";
 import villasJson from "/app/villas/[id]/data.json";
 
