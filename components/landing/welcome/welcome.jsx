@@ -4,6 +4,8 @@ import styles from "./welcome.module.css";
 import Image from "next/image";
 import { FaAngleLeft } from "react-icons/fa6";
 import { FaAngleRight } from "react-icons/fa6";
+import airbnbImg from "/public/welcome/airbnb.webp";
+import bookingImg from "/public/welcome/booking.webp";
 
 var slideIndex = 1;
 
@@ -59,18 +61,20 @@ function Welcome() {
             <div className={styles.imgContainer}>
               <Image
                 className={styles.image}
-                src="/welcome/airbnb.webp"
+                src={airbnbImg}
+                placeholder="blur"
                 alt="ourStory"
-                height={200}
-                width={200}
+                // height={200}
+                // width={200}
                 priority
               />
               <Image
                 className={styles.image}
-                src="/welcome/booking.webp"
+                src={bookingImg}
+                placeholder="blur"
                 alt="ourStory"
-                height={200}
-                width={200}
+                // height={200}
+                // width={200}
                 priority
               />
             </div>

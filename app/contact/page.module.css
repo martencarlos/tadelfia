@@ -6,6 +6,9 @@
     .map{
         height: 250px !important;
     }
+    .mapBackground{
+        height: 250px !important;
+    }
     .formGroup{
         flex-direction: column !important;
         width: 100% !important;
@@ -101,6 +104,16 @@
     gap: 15px;
     padding: 20px;
     /* margin: 30px 0px; */
+}
+
+
+.mapBackground{
+    display: flex;
+    background: var(--primary-color) url("/contact/gloader.webp") no-repeat center center;
+    background-size: 50%;
+    background-blend-mode: luminosity;
+    min-width: 300px !important;
+    flex: 1.5;
 }
 
 .map{

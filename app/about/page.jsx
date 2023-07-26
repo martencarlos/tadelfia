@@ -2,7 +2,9 @@ import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import OurStory from "@/components/landing/ourStory/ourStory";
-
+import team1Img from "/public/team/1.webp";
+import team2Img from "/public/team/2.webp";
+import team3Img from "/public/team/3.webp";
 
 // Static metadata
 export const metadata = {
@@ -20,7 +22,8 @@ function About() {
             <Image
               className={styles.avatar}
               alt="person"
-              src="/team/1.webp"
+              src={team1Img}
+              placeholder="blur"
               width={200}
               height={200}
             />
@@ -36,7 +39,8 @@ function About() {
             <Image
               className={styles.avatar}
               alt="person"
-              src="/team/2.webp"
+              src={team2Img}
+              placeholder="blur"
               width={200}
               height={200}
             />
@@ -52,7 +56,8 @@ function About() {
             <Image
               className={styles.avatar}
               alt="person"
-              src="/team/3.webp"
+              src={team3Img}
+              placeholder="blur"
               width={200}
               height={200}
             />

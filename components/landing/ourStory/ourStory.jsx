@@ -1,6 +1,7 @@
-import React from "react";
+
 import styles from "./ourStory.module.css";
 import Image from "next/image";
+import ourStoryImg from "/public/ourstory/ourstory.jpg";
 
 function OurStory() {
   return (
@@ -9,7 +10,7 @@ function OurStory() {
         <div className={styles.imgContainer}>
           <Image
             className={styles.image}
-            src="/ourstory/ourstory.jpg"
+            src={ourStoryImg}
             alt="ourStory"
             fill
             priority
