@@ -11,6 +11,7 @@ function OurStory() {
           <Image
             className={styles.image}
             src={ourStoryImg}
+            placeholder="blur"
             alt="ourStory"
             fill
             priority
