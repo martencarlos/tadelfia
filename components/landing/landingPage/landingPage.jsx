@@ -12,10 +12,10 @@ function LandingPage() {
         alt="Exterior pool view of a villa"
         className={styles.landingImage}
         priority={true}
+        quality={40}
         placeholder="blur"
         // placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
-        // width={1585}
-        // height={891}
+        sizes="100vw"
       />
 
       <div className={styles.logoContainer}>

@@ -84,6 +84,7 @@ function Gallery() {
                 placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                 width={144}
                 height={104}
+                
             />
          
             <Image
