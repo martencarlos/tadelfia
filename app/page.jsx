@@ -15,8 +15,8 @@ export default function Home() {
       <Welcome />
 
       <div className={styles.hero}>
-      <FullAvailability />
-      <Gallery />
+        <FullAvailability />
+        <Gallery />
       </div>
 
       <OurStory />

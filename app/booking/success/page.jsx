@@ -132,7 +132,7 @@ async function Success({ searchParams, params }) {
   if (booking) await saveBooking(booking, data);
 
   return (
-    booking && (
+    booking ? (
       <div className={styles.success}>
         <div className={styles.header}>
           <Image
@@ -266,8 +266,12 @@ async function Success({ searchParams, params }) {
         <pre className={styles.json}>{JSON.stringify(data, null, 2) }</pre> 
       </div>
       */}
+      </div>)
+      :
+      <div className={styles.success}>
+        Processing your booking...
       </div>
-    )
+    
   );
 }
 
