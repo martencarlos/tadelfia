@@ -1,4 +1,5 @@
 
+import Loading from '@/components/loading/loading'
 import styles from './page.module.css'
 
 // Static metadata
@@ -9,7 +10,7 @@ export const metadata = {
 function Dashboard() {
   return (
     <div className={styles.dashboard} >
-        Dashboard
+        <Loading />
     </div>
   )
 }

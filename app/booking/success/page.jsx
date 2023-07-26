@@ -7,13 +7,12 @@ import villasJson from "/app/villas/[id]/data.json";
 
 let id = 0;
 
-// Dynamic metadata
-export async function generateMetadata({ params, searchParams }) {
-  return {
-    title: "Booking Successful ",
-    description: "The booking was successfully processed",
-  };
+// Static metadata
+export const metadata = {
+  title: "Booking Successful", description: "The booking was successfully processed" 
 }
+
+
 
 async function saveBooking(booking, data) {
 

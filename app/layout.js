@@ -6,9 +6,6 @@ import styles from './layout.module.css'
 import AuthProvider from "@/components/authProvider/authProvider";
 import Script from 'next/script';
 
-
-
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -32,10 +29,10 @@ export default function RootLayout({ children }) {
       </head>
       
       
-      <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-NLD045G618"/>
+      <Script strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=G-NLD045G618"/>
       <Script
         id='google-analytics'
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];

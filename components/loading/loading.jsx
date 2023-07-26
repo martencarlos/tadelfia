@@ -1,13 +1,14 @@
 
-import styles from "./loading.module.css";
+import styles from "./loading.module.css"
 
 
-const Loading = (props) => {
+const Loading = ({fallback}) => {
   return (
       <div className={styles.loading}>
-        {props.fallback? props.fallback:"Loading..."}
+        <div className={styles.gifLoader}/>
+        {fallback ? fallback : "Loading..."}
       </div>
-  );
-};
+  )
+}
 
-export default Loading;
+export default Loading
