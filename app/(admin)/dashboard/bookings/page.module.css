@@ -42,7 +42,8 @@
   margin: 20px 0px;
   /* width: 80%; */
   min-height: 200px;
-
+  max-width: 860px;
+  width: 95%;
   justify-content: center;
   gap: 10px;
 
