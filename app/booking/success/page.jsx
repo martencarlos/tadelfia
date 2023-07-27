@@ -1,7 +1,7 @@
 
 import styles from "./page.module.css";
-// import dbConnect from "@/lib/dbConnect";
-// import Booking from "@/models/Booking";
+import dbConnect from "@/lib/dbConnect";
+import Booking from "@/models/Booking";
 import Image from "next/image";
 import villasJson from "/app/villas/[id]/data.json";
 
@@ -57,6 +57,25 @@ async function saveBooking(booking, data) {
   const fetchResultMessage = await res.json();
   id = fetchResultMessage.id;
   console.log(fetchResultMessage);
+
+  // SAVE BOOKING TO MONGODB
+    await dbConnect();
+  //check if booking already exists
+  const existingBooking = await Booking.findOne({ "payment.id": data.id });
+
+  if (!existingBooking) {
+    // //add payment info to the booking
+    // booking.payment = {
+    //   id: data.id,
+    //   amount: data.amount,
+    //   currency: data.currency,
+    // };
+    //save booking to db
+    const newBooking = new Booking(booking);
+    await newBooking.save();
+  }
+
+  booking.id = id
 
   //send email to customer
   fetch(process.env.NEXT_PUBLIC_HOST + "/api/emailsuccess", {
@@ -130,6 +149,10 @@ async function Success({ searchParams, params }) {
 
   if (booking) await saveBooking(booking, data);
 
+  
+  
+  
+
   return (
     booking ? (
       <div className={styles.success}>
@@ -183,7 +206,8 @@ async function Success({ searchParams, params }) {
                     <h4>Booking Ref.</h4>
                   </div>
                   <div className={styles.amenityContent}>
-                    <p>{"# " + data.id.slice(-6)}</p>
+                 <p>{id}</p> 
+                    {/*<p>{"# " + data.id.slice(-6)}</p>*/}
                   </div>
                 </div>
                 <div className={styles.amenity}>

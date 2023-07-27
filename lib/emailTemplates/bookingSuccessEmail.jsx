@@ -61,7 +61,8 @@ export const BookingSuccessEmail = ({ booking }) => {
               </Text>
               <Text style={paragraph}>
               <b>Booking Reference nº </b>
-              {"# " + booking.payment.id.slice(-6)}
+              {/*"# " + booking.payment.id.slice(-6)*/}
+              {"# "+booking.id}
               </Text>
               <Text style={paragraph}>
               <b>Apartment: </b>

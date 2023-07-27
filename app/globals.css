@@ -90,6 +90,7 @@
   font-family: serif;
   
   -webkit-tap-highlight-color: transparent;
+  
 }
 
 html,
@@ -101,8 +102,11 @@ body {
 
 html{
   -webkit-font-smoothing: antialiased;
+
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+
   overflow-y: scroll;
   /* padding:0 !important;MUI shenanigans */
 }

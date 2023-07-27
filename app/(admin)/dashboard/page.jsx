@@ -10,7 +10,7 @@ export const metadata = {
 function Dashboard() {
   return (
     <div className={styles.dashboard} >
-        <Loading />
+        <Loading fallback={"Coming Soon ..."} />
     </div>
   )
 }
