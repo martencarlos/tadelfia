@@ -65,17 +65,40 @@ function FullAvailability() {
     const newRanges = [];
     getAllBookingRanges(new Date().getFullYear()).then((data) => {
       if (data.length > 0) {
-        const bookedRanges = data.map((booking) => {
-          return {
-            startDate: new Date(booking.accomodation.checkin),
-            endDate: new Date(booking.accomodation.checkout),
-            color: "#ffc0cb",
-            key: booking._id,
-          };
+        data.forEach(booking => {
+          const loop = new Date(booking.accomodation.checkin);
+          const end = new Date(booking.accomodation.checkout);
+          while(loop.setHours(0,0,0,0) <= end.setHours(0,0,0,0)){
+          
+          const res=data.filter(o => new Date(o["accomodation"]["checkin"]).setHours(0,0,0,0) <=loop.setHours(0,0,0,0) && new Date(o["accomodation"]["checkout"]).setHours(0,0,0,0)>=loop.setHours(0,0,0,0))
+          if(res.length===7){
+            // console.log(new Date(loop).toLocaleDateString())
+            newRanges.push({
+              startDate: new Date(loop),
+              endDate: new Date(loop),
+              color: "#ffc0cb",
+              key: booking._id+"-"+loop.setHours(0,0,0,0)
+            });
+          }         
+          loop.setDate(loop.getDate() + 1);
+          }
+          
         });
-        newRanges.push(...bookedRanges);
         setRanges(newRanges);
       }
+
+      // if (data.length > 0) {
+      //   const bookedRanges = data.map((booking) => {
+      //     return {
+      //       startDate: new Date(booking.accomodation.checkin),
+      //       endDate: new Date(booking.accomodation.checkout),
+      //       color: "#ffc0cb",
+      //       key: booking._id,
+      //     };
+      //   });
+      //   newRanges.push(...bookedRanges);
+      //   setRanges(newRanges);
+      // }
     });
   }, []);
 
