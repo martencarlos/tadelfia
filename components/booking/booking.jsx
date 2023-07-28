@@ -14,6 +14,10 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Checkbox from "@mui/material/Checkbox";
 import Link from "next/link";
 
+import Tooltip from '@mui/material/Tooltip';
+import Zoom from '@mui/material/Zoom';
+
+
 function Booking({ villa }) {
   const [trigger, setTrigger] = useState(0);
   const [rangeDates, setRangeDates] = useState(null);
@@ -23,60 +27,88 @@ function Booking({ villa }) {
   const [booking, setBooking] = useState(null);
   const [processing, setProcessing] = useState(false);
   const paymentIntentSecret = useRef(null);
+  const [tooltip, setTooltip] = useState(false);
+  const [tooltipText, setTooltipText] = useState("");
+  const [minNights, setMinNights] = useState(2);
 
   // if picked checkin and checkout dates change, update the nights and pricing
   useEffect(() => {
     if (rangeDates) {
-      //remove red border from arrivalAndDepartureDates if there was an error
-      const arrivalAndDepartureDates = document.getElementById(
-        "arrivalAndDepartureDates"
-      );
-      if (arrivalAndDepartureDates.style.border === "1px solid red")
-        arrivalAndDepartureDates.style.border = "none";
+      
+      if(rangeDates[0] && rangeDates[1]){
 
-      const nightsCalc = Math.ceil(
-        (rangeDates[1] - rangeDates[0]) / (1000 * 3600 * 24)
-      );
-      if (nightsCalc !== nights && nightsCalc > 0) {
-        setNights(nightsCalc);
-        setPrice(
-          dataJson.find((item) => item.villa === villa).pricePerNight *
-            nightsCalc
+        //remove red border from arrivalAndDepartureDates if there was an error
+        const arrivalAndDepartureDates = document.getElementById("arrivalAndDepartureDates");
+        if (arrivalAndDepartureDates.style.border === "1px solid red"){
+          arrivalAndDepartureDates.style.border = "none";
+          setTooltip(false);
+        }
+
+        const nightsCalc = Math.ceil(
+          (rangeDates[1] - rangeDates[0]) / (1000 * 3600 * 24)
         );
+
+        // Calculate nights and price (Smoobu)
+        // fetch to API route to get the price and nights
+        fetch("/api/priceAndNights", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            villa: villa,
+            checkin: rangeDates[0],
+            checkout: rangeDates[1],
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // console.log(data);
+            let minNightsCalc= 2;
+            let price = 0;
+            data.forEach((date,index, arr) => {
+              if (index !== arr.length - 1) //if not last element
+                price = price + date[1].price;
+              if (minNightsCalc < date[1].min_length_of_stay){
+                minNightsCalc = date[1].min_length_of_stay;
+              }
+            })
+            setNights(nightsCalc)
+            setMinNights(minNightsCalc);
+            // console.log("calc nights and price")
+            // console.log(price)
+            // console.log(minNightsCalc);
+            // console.log(nightsCalc)
+              if(nightsCalc < minNightsCalc){
+                setTooltipText(`Minimum stay is ${minNightsCalc} nights`);
+                setTooltip(true);
+              }else{
+                setTooltip(false);
+                setPrice(price)
+              }
+              
+          });
       }
+
+      // Calculate nights and price (Local) OLD
+      // const nightsCalc = Math.ceil(
+      //   (rangeDates[1] - rangeDates[0]) / (1000 * 3600 * 24)
+      // );
+      // if (nightsCalc !== nights && nightsCalc > 0) {
+      //   setNights(nightsCalc);
+      //   setPrice(
+      //     dataJson.find((item) => item.villa === villa).pricePerNight *
+      //       nightsCalc
+      //   );
+      // }
     }
   }, [rangeDates, villa]);
 
   // cancel payment intent useEffect
   useEffect(() => {
     //cancel payment intent - triggered when refreshing or closing the browser tab
-    window.addEventListener("beforeunload", (e) => 
-    {  
-        e.preventDefault();
-        if (paymentIntentSecret.current) {
-          fetch("/api/create-payment-intent", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              cancel: true,
-              clientSecret: paymentIntentSecret.current,
-            }),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              console.log(data);
-              paymentIntentSecret.current = null;
-            });
-        }
-        return null;
-        
-    });
-
-    // cancel intent - triggered when unmounting booking component. 
-    // Meaning user has navigated away from booking page but still inside tadelfia website without completing the booking
-    return () => {
-      console.log("unmounting booking")
-      console.log(paymentIntentSecret.current)
+    window.addEventListener("beforeunload", (e) => {
+      e.preventDefault();
       if (paymentIntentSecret.current) {
         fetch("/api/create-payment-intent", {
           method: "POST",
@@ -88,7 +120,30 @@ function Booking({ villa }) {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
+            paymentIntentSecret.current = null;
+          });
+      }
+      return null;
+    });
+
+    // cancel intent - triggered when unmounting booking component.
+    // Meaning user has navigated away from booking page but still inside tadelfia website without completing the booking
+    return () => {
+      // console.log("unmounting booking");
+      // console.log(paymentIntentSecret.current);
+      if (paymentIntentSecret.current) {
+        fetch("/api/create-payment-intent", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            cancel: true,
+            clientSecret: paymentIntentSecret.current,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // console.log(data);
             paymentIntentSecret.current = null;
           });
       }
@@ -99,16 +154,31 @@ function Booking({ villa }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setProcessing(true);
+    // console.log("submitting form");
+    // console.log(nights)
+    // console.log(minNights)
     //check rangeDates
-    if (!rangeDates) {
+    if (!rangeDates || rangeDates && !rangeDates[0] || rangeDates && !rangeDates[1]) {
       const arrivalAndDepartureDates = document.getElementById(
         "arrivalAndDepartureDates"
       );
-
+      setTooltip(true);
+      setTooltipText("Please select arrival and departure dates");
       arrivalAndDepartureDates.style.border = "1px solid red";
       arrivalAndDepartureDates.scrollIntoView();
 
       // alert("Please select arrival and departure dates");
+      setProcessing(false);
+      return;
+    }else if(nights === null || nights < minNights || !price){
+      const arrivalAndDepartureDates = document.getElementById(
+        "arrivalAndDepartureDates"
+      );
+      setTooltip(true);
+      setTooltipText(`Minimum stay is ${minNights} nights`);
+      arrivalAndDepartureDates.style.border = "1px solid red";
+      arrivalAndDepartureDates.scrollIntoView();
+
       setProcessing(false);
       return;
     }
@@ -155,6 +225,18 @@ function Booking({ villa }) {
         <h3 className={styles.h2}>Accommodation</h3>
         <div className={styles.section}>
           {/*Arrival and departure dates*/}
+          <Tooltip open={tooltip}  title={tooltipText} arrow placement="top" TransitionComponent={Zoom} 
+            componentsProps={{
+              tooltip: {
+                sx: {
+                  bgcolor: '#b92f2f',
+                  '& .MuiTooltip-arrow': {
+                    color: '#b92f2f',
+                  },
+                },
+              },
+            }}
+          >
           <div
             className={styles.arrivalAndDepartureDates}
             id="arrivalAndDepartureDates"
@@ -165,6 +247,7 @@ function Booking({ villa }) {
               setRangeDates={setRangeDates}
             />
           </div>
+          </Tooltip>
           {/*Guests*/}
           <GuestPicker setGuests={setGuests} />
 
