@@ -23,11 +23,10 @@ function Villas() {
         {data.map((item, index) => (
             <div key={index} className={styles.apartment}>
                 <div className={styles.apartmentImage}>
-                    <Image src={"/maingallery/"+item.img+".webp" }
+                    <Image src={"/apartments/"+item.villa+"/2.jpg"}
                         alt="apartment" 
                         fill
                         priority
-                        placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
                         className={styles.img}
                     />
                 </div>

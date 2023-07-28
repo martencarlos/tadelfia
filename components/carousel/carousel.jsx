@@ -1,7 +1,7 @@
 
 
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import styles from "./carousel.module.css";
 
 import { BsChevronLeft } from "react-icons/bs";
@@ -48,7 +48,7 @@ function showSlides(n) {
 
 }
 
-function Carousel() {
+function Carousel({ villa}) {
   //start slideshow
   useEffect(() => {
       showSlides()
@@ -61,25 +61,16 @@ function Carousel() {
     <div className={styles.carousel}>
 
         <Image
-          src={"/maingallery/1.webp"}
-          id="carouselImg"
-          alt="gallery"
-          placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
-          className={styles.carouselImg}
-          priority
-          style={{display: "block"}}
-          fill
-        />
-        <Image
-          src={"/maingallery/2.webp"}
+          src={"/apartments/"+villa+"/1.jpg"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
           priority
+          // style={{display: "block"}}
           fill
         />
         <Image
-          src={"/maingallery/4.webp"}
+          src={"/apartments/"+villa+"/2.jpg"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -87,7 +78,7 @@ function Carousel() {
           fill
         />
         <Image
-          src={"/maingallery/5.webp"}
+          src={"/apartments/"+villa+"/4.jpg"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -95,7 +86,7 @@ function Carousel() {
           fill
         />
         <Image
-          src={"/maingallery/6.webp"}
+          src={"/apartments/"+villa+"/5.jpg"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -103,7 +94,7 @@ function Carousel() {
           fill
         />
         <Image
-          src={"/maingallery/7.webp"}
+          src={"/apartments/"+villa+"/6.jpg"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -111,7 +102,7 @@ function Carousel() {
           fill
         />
         <Image
-          src={"/maingallery/8.webp"}
+          src={"/apartments/"+villa+"/7.jpg"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -119,6 +110,14 @@ function Carousel() {
           fill
         />
         <Image
+          src={"/apartments/"+villa+"/8.jpg"}
+          id="carouselImg"
+          alt="gallery"
+          className={styles.carouselImg}
+          priority
+          fill
+        />
+        {/* <Image
           src={"/maingallery/9.webp"}
           id="carouselImg"
           alt="gallery"
@@ -141,7 +140,7 @@ function Carousel() {
           className={styles.carouselImg}
           priority
           fill
-        />
+        />*/}
 
       <div className={styles.previous} onClick={()=>plusSlides(-1)}>
         <BsChevronLeft />
