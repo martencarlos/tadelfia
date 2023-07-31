@@ -41,7 +41,7 @@ function Villas() {
                     </div>
                     </div>
                     
-                    <Facilities facilities= {item}/>
+                    <Facilities facilities= {item} villa={item.villa}/>
                    
                     
                 </div>

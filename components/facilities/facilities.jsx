@@ -9,7 +9,7 @@ import { CgMoreO } from "react-icons/cg";
 import { FcCheckmark } from "react-icons/fc";
 import { IoBedSharp } from "react-icons/io5";
 
-function Facilities({ facilities }) {
+function Facilities({ facilities, villa }) {
   function openModal() {
     const modal = document.getElementById("facilitesModal");
     if (modal.style.display === "none" || modal.style.display === "") {
@@ -86,9 +86,14 @@ function Facilities({ facilities }) {
       <div id="facilitesModal" className={styles.modalBackground}>
       <div  className={styles.facilitiesModal}>
         <h1 className={styles.h1}>{"Facilities"}</h1>
-
         <div className={styles.facilitiesContainer}>
           <div className={styles.facilitiesColumn}>
+            {villa === "Ermis" && <div className={styles.facility}>
+              <div className={styles.iconWrapper}>
+                <FcCheckmark className={styles.icon} />
+              </div>
+              Oven
+            </div>}
             <div className={styles.facility}>
               <div className={styles.iconWrapper}>
                 <FcCheckmark className={styles.icon} />
@@ -123,6 +128,24 @@ function Facilities({ facilities }) {
               <div className={styles.iconWrapper}>
                 <FcCheckmark className={styles.icon} />
               </div>
+              Pots & pans
+            </div>
+            <div className={styles.facility}>
+              <div className={styles.iconWrapper}>
+                <FcCheckmark className={styles.icon} />
+              </div>
+              Dishes & silverware
+            </div>
+            <div className={styles.facility}>
+              <div className={styles.iconWrapper}>
+                <FcCheckmark className={styles.icon} />
+              </div>
+              Bowls, plates & cups
+            </div>
+            <div className={styles.facility}>
+              <div className={styles.iconWrapper}>
+                <FcCheckmark className={styles.icon} />
+              </div>
               Stove
             </div>
             <div className={styles.facility}>
@@ -131,7 +154,10 @@ function Facilities({ facilities }) {
               </div>
               Microwave
             </div>
-            <div className={styles.facility}>
+            
+          </div>
+          <div className={styles.facilitiesColumn}>
+          <div className={styles.facility}>
               <div className={styles.iconWrapper}>
                 <FcCheckmark className={styles.icon} />
               </div>
@@ -149,8 +175,6 @@ function Facilities({ facilities }) {
               </div>
               Shower gel
             </div>
-          </div>
-          <div className={styles.facilitiesColumn}>
             <div className={styles.facility}>
               <div className={styles.iconWrapper}>
                 <FcCheckmark className={styles.icon} />

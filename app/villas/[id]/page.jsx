@@ -51,7 +51,7 @@ export async function generateMetadata({ params, searchParams }) {
               <p className={styles.p}>{villaJsonInfo.p4}</p>
             )}
 
-            <Facilities facilities = {villaJsonInfo} />
+            <Facilities facilities = {villaJsonInfo} villa = {params.id} />
           </div>
         </div>
          <Carousel villa={params.id}/>
