@@ -75,7 +75,7 @@ function Facilities({ facilities }) {
         <div className={styles.iconWrapper}>
           <MdOutlineKitchen className={styles.icon} />
         </div>
-        Kitchen
+        Full Kitchen
       </div>
       <div onClick={openModal} className={styles.facilityMore}>
         <div className={styles.iconWrapper}>
@@ -93,43 +93,7 @@ function Facilities({ facilities }) {
               <div className={styles.iconWrapper}>
                 <FcCheckmark className={styles.icon} />
               </div>
-              Free parking
-            </div>
-            <div className={styles.facility}>
-              <div className={styles.iconWrapper}>
-                <FcCheckmark className={styles.icon} />
-              </div>
-              Entire apartment
-            </div>
-            <div className={styles.facility}>
-              <div className={styles.iconWrapper}>
-                <FcCheckmark className={styles.icon} />
-              </div>
-              Terrace
-            </div>
-            <div className={styles.facility}>
-              <div className={styles.iconWrapper}>
-                <FcCheckmark className={styles.icon} />
-              </div>
-              Wifi
-            </div>
-            <div className={styles.facility}>
-              <div className={styles.iconWrapper}>
-                <FcCheckmark className={styles.icon} />
-              </div>
-              Washing machine
-            </div>
-            <div className={styles.facility}>
-              <div className={styles.iconWrapper}>
-                <FcCheckmark className={styles.icon} />
-              </div>
-              Iron
-            </div>
-            <div className={styles.facility}>
-              <div className={styles.iconWrapper}>
-                <FcCheckmark className={styles.icon} />
-              </div>
-              TV
+              Balcony
             </div>
             <div className={styles.facility}>
               <div className={styles.iconWrapper}>
@@ -141,16 +105,32 @@ function Facilities({ facilities }) {
               <div className={styles.iconWrapper}>
                 <FcCheckmark className={styles.icon} />
               </div>
-              Hot water
+              Smart TV
             </div>
             <div className={styles.facility}>
               <div className={styles.iconWrapper}>
                 <FcCheckmark className={styles.icon} />
               </div>
-              Bed linens
+              Refrigerator
             </div>
-          </div>
-          <div className={styles.facilitiesColumn}>
+            <div className={styles.facility}>
+              <div className={styles.iconWrapper}>
+                <FcCheckmark className={styles.icon} />
+              </div>
+              Coffee maker
+            </div>
+            <div className={styles.facility}>
+              <div className={styles.iconWrapper}>
+                <FcCheckmark className={styles.icon} />
+              </div>
+              Stove
+            </div>
+            <div className={styles.facility}>
+              <div className={styles.iconWrapper}>
+                <FcCheckmark className={styles.icon} />
+              </div>
+              Microwave
+            </div>
             <div className={styles.facility}>
               <div className={styles.iconWrapper}>
                 <FcCheckmark className={styles.icon} />
@@ -161,19 +141,39 @@ function Facilities({ facilities }) {
               <div className={styles.iconWrapper}>
                 <FcCheckmark className={styles.icon} />
               </div>
-              Security box
+              Shampoo
             </div>
             <div className={styles.facility}>
               <div className={styles.iconWrapper}>
                 <FcCheckmark className={styles.icon} />
               </div>
-              Shower
+              Shower gel
+            </div>
+          </div>
+          <div className={styles.facilitiesColumn}>
+            <div className={styles.facility}>
+              <div className={styles.iconWrapper}>
+                <FcCheckmark className={styles.icon} />
+              </div>
+              Towels
             </div>
             <div className={styles.facility}>
               <div className={styles.iconWrapper}>
                 <FcCheckmark className={styles.icon} />
               </div>
-              Fire extinguisher
+              Bed linens
+            </div>
+            <div className={styles.facility}>
+              <div className={styles.iconWrapper}>
+                <FcCheckmark className={styles.icon} />
+              </div>
+              Iron & board
+            </div>
+            <div className={styles.facility}>
+              <div className={styles.iconWrapper}>
+                <FcCheckmark className={styles.icon} />
+              </div>
+               First aid kit
             </div>
             <div className={styles.facility}>
               <div className={styles.iconWrapper}>
@@ -185,13 +185,13 @@ function Facilities({ facilities }) {
               <div className={styles.iconWrapper}>
                 <FcCheckmark className={styles.icon} />
               </div>
-              First aid kit
+              Baby bath
             </div>
             <div className={styles.facility}>
               <div className={styles.iconWrapper}>
                 <FcCheckmark className={styles.icon} />
               </div>
-              Coffee maker
+              Crib
             </div>
           </div>
         </div>
