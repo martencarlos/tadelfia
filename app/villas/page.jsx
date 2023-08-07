@@ -23,7 +23,7 @@ function Villas() {
         {data.map((item, index) => (
             <div key={index} className={styles.apartment}>
                 <div className={styles.apartmentImage}>
-                    <Image src={"/apartments/"+item.villa+"/2.jpg"}
+                    <Image src={"/apartments/"+item.villa+"/1.webp"}
                         alt="apartment" 
                         fill
                         priority

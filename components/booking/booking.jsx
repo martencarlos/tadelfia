@@ -4,7 +4,7 @@ import styles from "./booking.module.css";
 import DateRangePicker from "@/components/dateRangePicker/dateRangePicker";
 import TextField from "@mui/material/TextField";
 // import TextareaAutosize from "@mui/base/TextareaAutosize";
-import dataJson from "@/app/villas/[id]/data.json";
+// import dataJson from "@/app/villas/[id]/data.json";
 import "./booking.css";
 
 import { useEffect, useRef, useState } from "react";
@@ -30,6 +30,7 @@ function Booking({ villa }) {
   const [tooltip, setTooltip] = useState(false);
   const [tooltipText, setTooltipText] = useState("");
   const [minNights, setMinNights] = useState(2);
+  const [error, setError] = useState(null);
 
   // if picked checkin and checkout dates change, update the nights and pricing
   useEffect(() => {
@@ -61,7 +62,15 @@ function Booking({ villa }) {
             checkout: rangeDates[1],
           }),
         })
-          .then((res) => res.json())
+          .then((res) => {
+            if(res.status !== 200){
+              setTooltipText("Internal Server error");
+              setTooltip(true);
+              
+            }
+
+            return res.json()
+          })
           .then((data) => {
             // console.log(data);
             let minNightsCalc= 2;

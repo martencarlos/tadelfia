@@ -61,7 +61,7 @@ function Carousel({ villa}) {
     <div className={styles.carousel}>
 
         <Image
-          src={"/apartments/"+villa+"/1.jpg"}
+          src={"/apartments/"+villa+"/1.webp"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -70,7 +70,7 @@ function Carousel({ villa}) {
           fill
         />
         <Image
-          src={"/apartments/"+villa+"/2.jpg"}
+          src={"/apartments/"+villa+"/2.webp"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -78,7 +78,7 @@ function Carousel({ villa}) {
           fill
         />
         <Image
-          src={"/apartments/"+villa+"/4.jpg"}
+          src={"/apartments/"+villa+"/4.webp"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -86,7 +86,7 @@ function Carousel({ villa}) {
           fill
         />
         <Image
-          src={"/apartments/"+villa+"/5.jpg"}
+          src={"/apartments/"+villa+"/5.webp"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -94,7 +94,7 @@ function Carousel({ villa}) {
           fill
         />
         <Image
-          src={"/apartments/"+villa+"/6.jpg"}
+          src={"/apartments/"+villa+"/6.webp"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -102,7 +102,7 @@ function Carousel({ villa}) {
           fill
         />
         <Image
-          src={"/apartments/"+villa+"/7.jpg"}
+          src={"/apartments/"+villa+"/7.webp"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
@@ -110,7 +110,7 @@ function Carousel({ villa}) {
           fill
         />
         <Image
-          src={"/apartments/"+villa+"/8.jpg"}
+          src={"/apartments/"+villa+"/8.webp"}
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}

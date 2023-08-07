@@ -8,11 +8,12 @@ import { useWindowSize } from "@/hooks/windowSize";
 import styles from "./availability.module.css";
 import "./component.css";
 import { useEffect, useState } from "react";
-import { getAllBookings, getAllBookingRanges } from "@/lib/booking";
+import { getAllBookingRanges } from "@/lib/booking";
 
 function Availability({ villa }) {
   const size = useWindowSize();
   const [ranges, setRanges] = useState([]); // Booked ranges
+  const [error, setError] = useState(null); // Error message
   // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -20,6 +21,7 @@ function Availability({ villa }) {
     //get all bookings from "Villa" (whole property) 
     if(villa !== "Villa"){
       getAllBookingRanges().then((data) => {
+        if (data.error) setError(data.error);
         
         if (data.length > 0) {
           const bookedRanges = data.map((booking) => {
@@ -40,6 +42,7 @@ function Availability({ villa }) {
 
     }else{
       getAllBookingRanges(new Date().getFullYear()).then((data) => {
+        if (data.error) setError(data.error);
         if (data.length > 0) {
           const bookedRanges = data.map((booking) => {
             return {
@@ -63,7 +66,7 @@ function Availability({ villa }) {
   // }, [ranges]);
 
   return ( // !loading ? 
-    <div className={styles.availability}>
+    !error ? <div className={styles.availability}>
       <h1 className={styles.h1}>Availability</h1>
       <DateRange
         onChange={(item) => {}}
@@ -81,6 +84,9 @@ function Availability({ villa }) {
         weekStartsOn={1}
         minDate={new Date()}
       />
+    </div>
+    : <div className={styles.availability}>
+      <h1 className={styles.h1}>{error}</h1>
     </div>
   //  : 
   //   <div className={styles.availability}>
