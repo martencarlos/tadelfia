@@ -65,6 +65,7 @@ function Carousel({ villa}) {
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
+          loader={({ src }) => src}
           priority
           // style={{display: "block"}}
           fill
