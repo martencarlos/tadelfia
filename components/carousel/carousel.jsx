@@ -74,7 +74,7 @@ function Carousel({ villa}) {
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
-          
+          priority
           fill
         />
         <Image
@@ -82,7 +82,7 @@ function Carousel({ villa}) {
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
-          
+          priority
           fill
         />
         <Image
@@ -90,7 +90,7 @@ function Carousel({ villa}) {
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
-          
+          priority
           fill
         />
         <Image
@@ -98,7 +98,7 @@ function Carousel({ villa}) {
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
-          
+          priority
           fill
         />
         <Image
@@ -106,7 +106,7 @@ function Carousel({ villa}) {
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
-          
+          priority
           fill
         />
         <Image
@@ -114,7 +114,7 @@ function Carousel({ villa}) {
           id="carouselImg"
           alt="gallery"
           className={styles.carouselImg}
-          
+          priority
           fill
         />
         {/* <Image
