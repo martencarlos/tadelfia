@@ -70,7 +70,7 @@ export const ContactFormEmail = ({ info }) => {
                 <b>Email: </b>
                 {info.email}
               </Text>
-              <Text style={{ ...paragraph, paddingBottom: '16px' }}>
+              <Text style={paragraph}>
                 <b>Phone: </b>
                 {info.phone}
               </Text>
@@ -78,7 +78,7 @@ export const ContactFormEmail = ({ info }) => {
                 <b>Arrival: </b>
                 {new Date (info.arrivalDate).toLocaleDateString()}
               </Text>
-              <Text style={paragraph}>
+              <Text style={{ ...paragraph, paddingBottom: '16px' }}>
                 <b>Departure: </b>
                 {new Date (info.departureDate).toLocaleDateString()}
               </Text>

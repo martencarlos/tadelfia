@@ -7,9 +7,6 @@ import MuiAlert from '@mui/material/Alert';
 import DatePicker from "react-multi-date-picker"
 import './contactForm.css'
 
-const arrivalDateDefault = new Date().toLocaleDateString();
-const departureDateDefault = new Date().toLocaleDateString();
-
 function ContactForm() {
   const [sendingEmail, setSendingEmail] = useState(false);
   const [openToast, setOpenToast] = useState(false);

@@ -12,6 +12,10 @@ Disallow: /pro-gallery-webapp/v1/galleries/*
 User-agent: PetalBot
 Disallow: /
 
+# Block GPTbot
+User-agent: GPTBot
+Disallow: /
+
 # Crawl delay for overly enthusiastic bots
 User-agent: AhrefsBot
 Crawl-delay: 10
