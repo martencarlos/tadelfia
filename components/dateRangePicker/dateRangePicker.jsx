@@ -7,7 +7,7 @@ import "./component.css"
 
 import DatePicker from "react-multi-date-picker"
 import { BsFillCalendarWeekFill } from "react-icons/bs";
-import { getAllBookings,getAllBookingRanges } from "@/lib/booking";
+import { getAllBookingRanges } from "@/lib/booking";
 import "react-multi-date-picker/styles/layouts/mobile.css"
 // import { useWindowSize } from "@/hooks/windowSize"
 

@@ -4,10 +4,17 @@ import styles from "./contactForm.module.css";
 import TextField from "@mui/material/TextField";
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import DatePicker from "react-multi-date-picker"
+import './contactForm.css'
+
+const arrivalDateDefault = new Date().toLocaleDateString();
+const departureDateDefault = new Date().toLocaleDateString();
 
 function ContactForm() {
   const [sendingEmail, setSendingEmail] = useState(false);
   const [openToast, setOpenToast] = useState(false);
+  const [arrivalDate, setArrivalDate] = useState(null);
+  const [departureDate, setDeparture] = useState(null);
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -25,6 +32,8 @@ function ContactForm() {
       lastName: form.lastName.value,
       email: form.email.value,
       phone: form.phone.value,
+      arrivalDate: arrivalDate,
+      departureDate: departureDate,
       messageToHost: form.messageToHost.value,
     };
 
@@ -99,6 +108,29 @@ function ContactForm() {
                 className={styles.flexItem}
               />
             </div>
+            <div className={styles.formGroup}>
+              {/* Arrival*/}
+              <DatePicker
+                label="Arrival date"
+                title="Arrival date"
+                value={arrivalDate}
+                format="DD/MM/YYYY"
+                placeholder="Arrival date"
+                onChange={(newValue) => setArrivalDate(newValue)}
+                className="datePicker"
+              />
+              {/* Departure*/}
+              <DatePicker
+                label="Departure date"
+                title="Departure date"
+                value={departureDate}
+                format="DD/MM/YYYY"
+                placeholder="Departure date"
+                onChange={(newValue) => setDeparture(newValue)}
+                className="datePicker"
+              />
+            </div>
+            
             <div className={styles.formGroup}>
               {/*Comment to host*/}
               <textarea

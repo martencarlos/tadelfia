@@ -67,13 +67,22 @@ export const ContactFormEmail = ({ info }) => {
               </Text>
               
               <Text style={paragraph}>
-              <b>Email: </b>
-              {info.email}
+                <b>Email: </b>
+                {info.email}
               </Text>
               <Text style={{ ...paragraph, paddingBottom: '16px' }}>
                 <b>Phone: </b>
                 {info.phone}
               </Text>
+              <Text style={paragraph}>
+                <b>Arrival: </b>
+                {new Date (info.arrivalDate).toLocaleDateString()}
+              </Text>
+              <Text style={paragraph}>
+                <b>Departure: </b>
+                {new Date (info.departureDate).toLocaleDateString()}
+              </Text>
+
 
               <Button pY={19} style={button} href="https://tadelfia.webframe.one/dashboard/bookings">
                 Review all bookings
