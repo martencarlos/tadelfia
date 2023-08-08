@@ -17,7 +17,7 @@ import Link from "next/link";
 import Tooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
 
-
+let errConfig = false
 function Booking({ villa, apartmentId }) {
   const [trigger, setTrigger] = useState(0);
   const [rangeDates, setRangeDates] = useState(null);
@@ -37,12 +37,12 @@ function Booking({ villa, apartmentId }) {
     if (rangeDates) {
       
       if(rangeDates[0] && rangeDates[1]){
-
         //remove red border from arrivalAndDepartureDates if there was an error
         const arrivalAndDepartureDates = document.getElementById("arrivalAndDepartureDates");
-        if (arrivalAndDepartureDates.style.border === "1px solid red"){
+        if (arrivalAndDepartureDates.style.border === "1px solid red" || tooltip || errConfig){
           arrivalAndDepartureDates.style.border = "none";
           setTooltip(false);
+          errConfig = false;
         }
 
         const nightsCalc = Math.ceil(
@@ -66,7 +66,6 @@ function Booking({ villa, apartmentId }) {
             if(res.status !== 200){
               setTooltipText("Internal Server error");
               setTooltip(true);
-              
             }
 
             return res.json()
@@ -75,7 +74,11 @@ function Booking({ villa, apartmentId }) {
             // console.log(data);
             let minNightsCalc= 2;
             let price = 0;
+            
             data.forEach((date,index, arr) => {
+              if (date[1].price === null || date[1].min_length_of_stay === null){
+                errConfig = true; //missing price or min_length_of_stay configured in smoobu
+              }
               if (index !== arr.length - 1) //if not last element
                 price = price + date[1].price;
               if (minNightsCalc < date[1].min_length_of_stay){
@@ -85,16 +88,16 @@ function Booking({ villa, apartmentId }) {
             setNights(nightsCalc)
             setMinNights(minNightsCalc);
             // console.log("calc nights and price")
-            // console.log(price)
-            // console.log(minNightsCalc);
-            // console.log(nightsCalc)
-              if(nightsCalc < minNightsCalc){
-                setTooltipText(`Minimum stay is ${minNightsCalc} nights`);
-                setTooltip(true);
-              }else{
-                setTooltip(false);
-                setPrice(price)
-              }
+            if(errConfig){
+              setTooltipText("Missing apartment date configuration, please contact us");
+              setTooltip(true);
+            }else if(nightsCalc < minNightsCalc){
+              setTooltipText(`Minimum stay is ${minNightsCalc} nights`);
+              setTooltip(true);
+            }else{
+              setTooltip(false);
+              setPrice(price)
+            }
               
           });
       }
@@ -177,7 +180,11 @@ function Booking({ villa, apartmentId }) {
       arrivalAndDepartureDates.style.border = "1px solid red";
       arrivalAndDepartureDates.scrollIntoView();
 
-      // alert("Please select arrival and departure dates");
+      setProcessing(false);
+      return;
+    }else if(errConfig){
+      arrivalAndDepartureDates.style.border = "1px solid red";
+      arrivalAndDepartureDates.scrollIntoView();
       setProcessing(false);
       return;
     }else if(nights === null || nights < minNights || !price){
