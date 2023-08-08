@@ -76,7 +76,7 @@ export async function generateMetadata({ params, searchParams }) {
 
       {/* Booking Section */}
       <div className={styles.booking}>
-        <Booking villa={params.id} />
+        <Booking villa={params.id} apartmentId={villaJsonInfo.apartmentId} />
       </div>
     </div>
   );

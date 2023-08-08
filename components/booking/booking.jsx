@@ -18,7 +18,7 @@ import Tooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
 
 
-function Booking({ villa }) {
+function Booking({ villa, apartmentId }) {
   const [trigger, setTrigger] = useState(0);
   const [rangeDates, setRangeDates] = useState(null);
   const [guests, setGuests] = useState(1);
@@ -166,7 +166,8 @@ function Booking({ villa }) {
     // console.log("submitting form");
     // console.log(nights)
     // console.log(minNights)
-    //check rangeDates
+
+    // check rangeDates
     if (!rangeDates || rangeDates && !rangeDates[0] || rangeDates && !rangeDates[1]) {
       const arrivalAndDepartureDates = document.getElementById(
         "arrivalAndDepartureDates"
@@ -191,6 +192,32 @@ function Booking({ villa }) {
       setProcessing(false);
       return;
     }
+
+    // check if dates are still available
+    // get all bookings for the villa and the dates
+    const startDate= new Date(rangeDates[0]).toISOString().split('T')[0]
+    const endDate= new Date(rangeDates[1]).toISOString().split('T')[0]
+    const res = await fetch("/api/bookings/villarange", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        apartmentId: apartmentId,
+        startDate: startDate,
+        endDate: endDate,
+      }),
+    })
+    const data = await res.json();
+    if(data.bookings.length !== 0){
+      setTooltip(true);
+      setTooltipText(`Dates selected are no longer available, please refresh page and try again`);
+      arrivalAndDepartureDates.style.border = "1px solid red";
+      arrivalAndDepartureDates.scrollIntoView();
+      setProcessing(false);
+      return;
+    }
+    
 
     const form = document.getElementById("booking");
     const newBooking = {

@@ -12,8 +12,6 @@ export const metadata = {
   title: "Booking Successful", description: "The booking was successfully processed" 
 }
 
-
-
 async function saveBooking(booking, data) {
 
   if(id !== 0) return
@@ -149,9 +147,6 @@ async function Success({ searchParams, params }) {
 
   if (booking) await saveBooking(booking, data);
 
-  
-  
-  
 
   return (
     booking ? (

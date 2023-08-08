@@ -61,6 +61,8 @@ export default function Checkout({ trigger, updatingIntent, price, setProcessing
       return;
     }
     setIsLoading(true);
+    
+
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
