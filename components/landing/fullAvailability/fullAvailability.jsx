@@ -64,6 +64,7 @@ function FullAvailability() {
   useEffect(() => {
     const newRanges = [];
     getAllBookingRanges(new Date().getFullYear()).then((data) => {
+      
       if (data.length > 0) {
         data.forEach(booking => {
           if(booking.accomodation.villa === "Villa"){

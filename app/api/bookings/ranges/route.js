@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import dbConnect from "@/lib/dbConnect";
-import Booking from "@/models/Booking";
+
 
 //force dynamic call to api instead of only at build time no matter what you put in the fetch as parameter
 export const dynamic = 'force-dynamic' 
@@ -20,7 +19,7 @@ export const GET = async (req) => {
         },
       });
     const data = await res.json();
-
+      console.log(data)
     const dates = data.bookings.map((booking) => {
         // const parts = booking.apartment.name.split(" - ");
         // const apartment = parts[parts.length-1]
