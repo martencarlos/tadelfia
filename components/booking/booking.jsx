@@ -21,11 +21,13 @@ let errConfig = false
 function Booking({ villa, apartmentId }) {
   const [trigger, setTrigger] = useState(0);
   const [rangeDates, setRangeDates] = useState(null);
-  const [guests, setGuests] = useState(1);
+  const [adults, setAdults] = useState(1);
+  const [children, setChildren] = useState(0);
   const [nights, setNights] = useState(null);
   const [price, setPrice] = useState(null);
   const [booking, setBooking] = useState(null);
   const [processing, setProcessing] = useState(false);
+  const [capacityExceeded, setCapacityExceeded] = useState(false); //true if adults+children > capacity
   const paymentIntentSecret = useRef(null);
   const [tooltip, setTooltip] = useState(false);
   const [tooltipText, setTooltipText] = useState("");
@@ -72,8 +74,35 @@ function Booking({ villa, apartmentId }) {
           })
           .then((data) => {
             // console.log(data);
-            let minNightsCalc= 2;
+            let minNightsCalc= data[0][1].min_length_of_stay;
+            console.log("minNightsCalc", minNightsCalc)
+          
             let price = 0;
+            let cleaningFee = 0;
+
+            if(villa === "Villa"){
+              cleaningFee = 150;
+              if(adults>18){
+                let extraGuests = 7-(25-adults);
+                price = 25*extraGuests;
+              }
+            }else if(villa === "Ermis"){
+              cleaningFee = 25
+              if(adults>4){
+                let extraGuests = 2-(6-adults);
+                price = 25*extraGuests;
+              }
+            }else if(villa === "Astraia" || villa === "Eros"){
+              cleaningFee = 25
+            }else{
+              cleaningFee = 25
+              if(adults>2){
+                let extraGuests = 2-(4-adults);
+                price = 25*extraGuests;
+              }
+            }
+              
+           
             
             data.forEach((date,index, arr) => {
               if (date[1].price === null || date[1].min_length_of_stay === null){
@@ -81,9 +110,9 @@ function Booking({ villa, apartmentId }) {
               }
               if (index !== arr.length - 1) //if not last element
                 price = price + date[1].price;
-              if (minNightsCalc < date[1].min_length_of_stay){
-                minNightsCalc = date[1].min_length_of_stay;
-              }
+              // if (minNightsCalc < date[1].min_length_of_stay){
+              //   minNightsCalc = date[1].min_length_of_stay;
+              // }
             })
             setNights(nightsCalc)
             setMinNights(minNightsCalc);
@@ -96,6 +125,7 @@ function Booking({ villa, apartmentId }) {
               setTooltip(true);
             }else{
               setTooltip(false);
+              price= (price + cleaningFee)*0.3; //30% payment now
               setPrice(price)
             }
               
@@ -114,13 +144,15 @@ function Booking({ villa, apartmentId }) {
       //   );
       // }
     }
-  }, [rangeDates, villa]);
+  }, [rangeDates, adults, villa]);
 
   // cancel payment intent useEffect
   useEffect(() => {
     //cancel payment intent - triggered when refreshing or closing the browser tab
     window.addEventListener("beforeunload", (e) => {
+      e.stopImmediatePropagation();
       e.preventDefault();
+      
       if (paymentIntentSecret.current) {
         fetch("/api/create-payment-intent", {
           method: "POST",
@@ -169,6 +201,13 @@ function Booking({ villa, apartmentId }) {
     // console.log("submitting form");
     // console.log(nights)
     // console.log(minNights)
+    
+    //check capacity
+    if (capacityExceeded) {
+      setProcessing(false);
+      arrivalAndDepartureDates.scrollIntoView();
+      return;
+    }
 
     // check rangeDates
     if (!rangeDates || rangeDates && !rangeDates[0] || rangeDates && !rangeDates[1]) {
@@ -224,7 +263,6 @@ function Booking({ villa, apartmentId }) {
       setProcessing(false);
       return;
     }
-    
 
     const form = document.getElementById("booking");
     const newBooking = {
@@ -247,7 +285,9 @@ function Booking({ villa, apartmentId }) {
         checkout: new Date(rangeDates[1]),
         nights: nights,
         price: price ? price : 0,
-        guests: guests,
+        guests: adults+children,
+        adults: adults,
+        children: children,
       },
     };
 
@@ -292,7 +332,12 @@ function Booking({ villa, apartmentId }) {
           </div>
           </Tooltip>
           {/*Guests*/}
-          <GuestPicker setGuests={setGuests} />
+          <GuestPicker 
+            setAdults={setAdults}
+            setChildren={setChildren} 
+            setCapacityExceeded={setCapacityExceeded}
+            villa={villa} 
+          />
 
           {/*Comment to host*/}
           <textarea

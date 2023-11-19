@@ -23,6 +23,15 @@ export const POST = async (req) => {
   console.log("cancel: ", cancel)
   // cancel if booking component is unmounted
   if(cancel && clientSecret){
+    
+    //check if payment intent is succeeded
+    let paymentIntent = stripe.paymentIntents.retrieve(
+      clientSecret.substring(0, clientSecret.indexOf("_secret_"))
+    );
+    console.log("paymentIntent status: ", paymentIntent.status)
+
+    //if not then cancel payment intent
+    if(paymentIntent.status === "succeeded")
     await stripe.paymentIntents.cancel(
       clientSecret.substring(0, clientSecret.indexOf("_secret_")))
     

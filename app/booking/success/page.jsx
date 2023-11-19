@@ -46,7 +46,8 @@ async function saveBooking(booking, data) {
         email: booking.contact.email,
         phone: booking.contact.phone,
         notice: booking.accomodation.messageToHost,
-        adults: booking.accomodation.guests,
+        adults: booking.accomodation.adults,
+        children: booking.accomodation.children,
         price: booking.accomodation.price,
         priceStatus: 1,
       }),
@@ -242,7 +243,8 @@ async function Success({ searchParams, params }) {
                     <h4>Guests</h4>
                   </div>
                   <div className={styles.amenityContent}>
-                    <p>{booking.accomodation.guests + " adults"}</p>
+                    <p>{booking.accomodation.adults + " adults"}</p>
+                    <p>{booking.accomodation.children + " children"}</p>
                   </div>
                 </div>
               </div>

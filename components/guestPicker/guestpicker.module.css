@@ -6,6 +6,11 @@
         padding:0 !important;
     }
 
+    .guestPicker__container{
+        width: 100% ;
+        display: flex;
+        flex-direction: row
+    }
     
 }
     

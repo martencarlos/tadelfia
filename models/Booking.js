@@ -65,6 +65,14 @@ const bookingSchema = new Schema(
         type: String,
         required: true,
       },
+      adults: {
+        type: String,
+        required: true,
+      },
+      children: {
+        type: String,
+        required: true,
+      },
     },
     payment: {
       id: {

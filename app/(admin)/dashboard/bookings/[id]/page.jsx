@@ -55,6 +55,8 @@ async function BookingPage({ searchParams, params }) {
           <p>{new Date(booking.accomodation.checkout).toLocaleDateString()}</p>
           <p>{"Nights: " + booking.accomodation.nights}</p>
           <p>{"Guests: " + booking.accomodation.guests}</p>
+          <p>{"Adults: " + booking.accomodation.adults}</p>
+          <p>{"Children: " + booking.accomodation.children}</p>
           <br />
         </div>
         <div className={styles.section}>

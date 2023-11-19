@@ -38,8 +38,6 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
     const newRanges = [];
     if(villa !== "Villa"){
       getAllBookingRanges().then((data) => {
-        
-        
         if (data.length > 0) {
           const newBookedRanges = data.map((booking) => {
             if(booking.accomodation.villa === villa || booking.accomodation.villa === "Villa"){

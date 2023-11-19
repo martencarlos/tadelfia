@@ -104,7 +104,7 @@ export default function Checkout({ trigger, updatingIntent, price, setProcessing
       {!isNaN(price) &&
         price !== null &&
         price !== 0 &&
-        <div className={styles.price}>{"Total payment: "+ price + "€"}</div>}
+        <div className={styles.price}>{"To pay now: "+ price + "€"}</div>}
     </div>
   );
 }

@@ -115,6 +115,8 @@ export default async function Bookings() {
               <div className={styles.sectionContent}>
                 <div>{booking.accomodation.nights + " nights"}</div>
                 <div>{booking.accomodation.guests + " guests"}</div>
+                <div>{booking.accomodation.adults + " adults"}</div>
+                <div>{booking.accomodation.children + " children"}</div>
               </div>
             </div>
 
