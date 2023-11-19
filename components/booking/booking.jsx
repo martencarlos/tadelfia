@@ -149,8 +149,7 @@ function Booking({ villa, apartmentId }) {
   // cancel payment intent useEffect
   useEffect(() => {
     //cancel payment intent - triggered when refreshing or closing the browser tab
-    window.addEventListener("beforeunload", (e) => {
-      e.stopImmediatePropagation();
+    window.addEventListener("unload", (e) => {
       e.preventDefault();
       
       if (paymentIntentSecret.current) {
@@ -176,6 +175,7 @@ function Booking({ villa, apartmentId }) {
     return () => {
       // console.log("unmounting booking");
       // console.log(paymentIntentSecret.current);
+
       if (paymentIntentSecret.current) {
         fetch("/api/create-payment-intent", {
           method: "POST",
@@ -196,7 +196,9 @@ function Booking({ villa, apartmentId }) {
 
   // submit form function
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
+    
     setProcessing(true);
     // console.log("submitting form");
     // console.log(nights)
