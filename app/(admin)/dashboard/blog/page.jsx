@@ -12,7 +12,7 @@ export default async function Blog() {
   
   return (
     <div className={styles.blog}>
-      <Posts />
+      {/*<Posts />*/}
     </div>
   );
 }
