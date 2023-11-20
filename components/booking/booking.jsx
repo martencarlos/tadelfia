@@ -34,7 +34,7 @@ function Booking({ villa, apartmentId }) {
   const [minNights, setMinNights] = useState(2);
   const [error, setError] = useState(null);
 
-  const capacity = useRef(0);
+  const capacity = useRef(dataJson.find((item) => item.villa === villa).maxGuestCapacity);
   const cleaningFeeRef = useRef(0);
   const nightlyRate = useRef(0);
   const extraGuestsRef = useRef(0);
@@ -159,9 +159,6 @@ function Booking({ villa, apartmentId }) {
   // cancel payment intent useEffect
   useEffect(() => {
 
-    //guest capacity
-    capacity.current= dataJson.find((item) => item.villa === villa).maxGuestCapacity
-
     //cancel payment intent - triggered when refreshing or closing the browser tab
     window.addEventListener("unload", (e) => {
       e.preventDefault();
@@ -206,7 +203,7 @@ function Booking({ villa, apartmentId }) {
           });
       }
     };
-  }, [villa]);
+  }, []);
 
   // submit form function
   const handleSubmit = async (e) => {
