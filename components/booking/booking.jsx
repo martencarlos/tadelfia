@@ -206,7 +206,7 @@ function Booking({ villa, apartmentId }) {
           });
       }
     };
-  }, []);
+  }, [villa]);
 
   // submit form function
   const handleSubmit = async (e) => {
