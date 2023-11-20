@@ -215,7 +215,7 @@ async function Success({ searchParams, params }) {
                     <p>
                       {new Date(
                         booking.accomodation.checkin
-                      ).toLocaleDateString()}
+                      ).toLocaleDateString('es-ES')}
                     </p>
                   </div>
                 </div>
@@ -227,7 +227,7 @@ async function Success({ searchParams, params }) {
                     <p>
                       {new Date(
                         booking.accomodation.checkout
-                      ).toLocaleDateString()}
+                      ).toLocaleDateString('es-ES')}
                     </p>
                   </div>
                 </div>
@@ -256,7 +256,7 @@ async function Success({ searchParams, params }) {
                   {booking.accomodation.nights}
                   {" night(s)"}
                 </p>
-                <h4> {"€ " + booking.accomodation.price}</h4>
+                <h4> {"€ " + booking.accomodation.totalPrice}</h4>
               </div>
             </div>
           </div>

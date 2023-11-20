@@ -94,10 +94,13 @@ export const BookingSuccessEmail = ({ booking }) => {
               {booking.accomodation.children+ " children"}
               </Text>
               <Text style={paragraph}>
-              <b>Amount </b>
+              <b>Prepayed amount:</b>
               {booking.payment.amount + " €"}
               </Text>
-
+              <Text style={paragraph}>
+              <b>Total amount: </b>
+              {booking.accomodation.totalPrice + " €"}
+              </Text>
 
               <Text style={paragraph}>
               <b>Full Name: </b>
