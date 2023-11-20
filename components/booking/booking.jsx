@@ -328,7 +328,7 @@ function Booking({ villa, apartmentId }) {
                   <h3 className={styles.h2}>Summary</h3>
                   <div className={styles.summary}>
                     
-                      {/* Checkin and Checkout dates */}
+                      
                       <h4 className={styles.h4}>Accomodation</h4>
                       <div className={styles.summaryRow}>
                         <p className={styles.summaryText}>Apartment:</p>
@@ -350,17 +350,17 @@ function Booking({ villa, apartmentId }) {
                       </div>
                       <br/>
                 
-                    
+                    {/* Checkin and Checkout dates */}
                       {rangeDates &&
                         <div>
                           <h4 className={styles.h4}>Stay</h4>
                           <div className={styles.summaryRow}>
                             <p className={styles.summaryText}>check-in:</p>
-                            <p >{rangeDates[0] && new Date(rangeDates[0]).toDateString()}</p>
+                            <p >{rangeDates[0] && new Date(rangeDates[0]).toLocaleDateString()}</p>
                           </div>
                           <div className={styles.summaryRow}>
                             <p className={styles.summaryText}>check-out:</p>
-                            <p >{rangeDates[1] && new Date(rangeDates[1]).toDateString()}</p>
+                            <p >{rangeDates[1] && new Date(rangeDates[1]).toLocaleDateString()}</p>
                           </div>
                           <div className={styles.summaryRow}>
                             <p className={styles.summaryText}>Nights:</p>
