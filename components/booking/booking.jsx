@@ -386,7 +386,7 @@ function Booking({ villa, apartmentId }) {
                           </div>
                          
                           <div className={styles.summaryRow}>
-                            <p className={styles.summaryText}>Upfront payment:</p>
+                            <p className={styles.summaryText}>Upfront payment (30%):</p>
                             <p >{price}€</p>
                           </div>
                           <div className={styles.summaryRow}>
@@ -564,7 +564,7 @@ function Booking({ villa, apartmentId }) {
                 <Checkbox color="success" required />
                 <p className={styles.terms}>
                   * I agree to the{" "}
-                  <Link className={styles.termsLink} href={"/policy"}>
+                  <Link  rel="noopener noreferrer" target="_blank" className={styles.termsLink} href={"/policy"}>
                     Terms & Conditions
                   </Link>
                 </p>
