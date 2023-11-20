@@ -100,11 +100,11 @@ export default function Checkout({ trigger, updatingIntent, price, setProcessing
       {(isLoading || !stripe || !elements) ? 
         <div className={styles.paymentMessage}>{ "Processing payment..."}</div>
         : ""}*/}
-      {/* Show price info when dates are selected */}
+      {/* Show price info when dates are selected 
       {!isNaN(price) &&
         price !== null &&
         price !== 0 &&
-        <div className={styles.price}>{"To pay now: "+ price + "€"}</div>}
+        <div className={styles.price}>{"To pay now: "+ price + "€"}</div>}*/}
     </div>
   );
 }

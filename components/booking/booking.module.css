@@ -3,11 +3,38 @@
     .arrivalAndDepartureDates{
         width: 100% !important;
     }
+    .bookingSection{
+        flex-direction: column-reverse;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .bookingSummaryArea{
+        width: 100% !important;
+    }
+
+    .bookingSummaryContainer{
+        max-width: 500px;
+        flex: 1;
+        /* margin: 0px !important; */
+    }
+   
+
+    .termsAndSubmitSection{
+        /* min-width: unset !important; */
+    }
+
+    .termsAndSubmitContainer{
+        /* min-width: unset !important; */
+    }
+
     .row{
         flex-direction: column;
     }
     
 }
+
+
 
 .booking{
     display: flex;
@@ -31,14 +58,73 @@
 
 .bookingForm{
     display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.bookingSection{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.bookingSummaryArea{
+
+    display: flex;
+    justify-content: center;
+}
+
+.bookingSummaryContainer{
+    display: flex;
+    
+    margin: 20px;
+    max-width: 500px;
+}
+.bookingSummary{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+
+.summaryRow{
+    display: flex;
+    padding-top: 4px;
+    gap: 10px;
+}
+
+.summaryText{
+    padding-left: 20px;
+}
+
+.bookingInfo{
+    display: flex;
     justify-content: center;
     flex-direction: column;
     margin: 20px;
     max-width: 500px;
-
-    /* flex-direction: column; */
     gap: 20px;
-    /* width: 500px; */
+
+}
+
+.termsAndSubmitArea{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.termsAndSubmitSection{
+    display: flex;
+    max-width: 500px;
+    flex: 1;
+}
+
+.termsAndSubmitContainer{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    margin: 20px;
+    gap: 20px;
 }
 
 
@@ -55,6 +141,7 @@
 
 .subSection{
     display: flex;
+    width: 100%;
     justify-content: space-between;
     flex-wrap: wrap;
   
