@@ -64,7 +64,7 @@
 
 .bookingSection{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 100%;
 }
 
@@ -83,6 +83,7 @@
 .bookingSummary{
     display: flex;
     flex-direction: column;
+    min-width: 240px;
     gap: 20px;
     
 }
@@ -95,6 +96,10 @@
 
 .summaryText{
     padding-left: 20px;
+}
+
+.h4{
+    color: var(--primary-color);
 }
 
 .bookingInfo{

@@ -329,7 +329,7 @@ function Booking({ villa, apartmentId }) {
                   <div className={styles.summary}>
                     
                       {/* Checkin and Checkout dates */}
-                      <h4>Accomodation</h4>
+                      <h4 className={styles.h4}>Accomodation</h4>
                       <div className={styles.summaryRow}>
                         <p className={styles.summaryText}>Apartment:</p>
                         <p >{villa}</p>
@@ -339,7 +339,7 @@ function Booking({ villa, apartmentId }) {
                         <p >{capacity.current}</p>
                       </div>
                       <br/>
-                      <h4 >Guests</h4>
+                      <h4 className={styles.h4}>Guests</h4>
                       <div className={styles.summaryRow}>
                         <p className={styles.summaryText}>Adults:</p>
                         <p >{adults}</p>
@@ -353,7 +353,7 @@ function Booking({ villa, apartmentId }) {
                     
                       {rangeDates &&
                         <div>
-                          <h4>Stay</h4>
+                          <h4 className={styles.h4}>Stay</h4>
                           <div className={styles.summaryRow}>
                             <p className={styles.summaryText}>check-in:</p>
                             <p >{rangeDates[0] && new Date(rangeDates[0]).toDateString()}</p>
@@ -371,10 +371,10 @@ function Booking({ villa, apartmentId }) {
                       <br/>
                       {price &&
                         <div>
-                          <h4>Price Breakdown</h4>
+                          <h4 className={styles.h4}>Price Breakdown</h4>
                           <div className={styles.summaryRow}>
-                            <p className={styles.summaryText}>Upfront payment:</p>
-                            <p >{price}€</p>
+                            <p className={styles.summaryText}>Nightly rate:</p>
+                            <p >{nightlyRate.current}€</p>
                           </div>
                           <div className={styles.summaryRow}>
                             <p className={styles.summaryText}>Cleaning fee:</p>
@@ -384,18 +384,17 @@ function Booking({ villa, apartmentId }) {
                             <p className={styles.summaryText}>Extra Adults:</p>
                             <p >{extraGuestsRef.current*25}€</p>
                           </div>
+                         
                           <div className={styles.summaryRow}>
-                            <p className={styles.summaryText}>Nightly rate:</p>
-                            <p >{nightlyRate.current}€</p>
+                            <p className={styles.summaryText}>Upfront payment:</p>
+                            <p >{price}€</p>
                           </div>
-                          
                           <div className={styles.summaryRow}>
-                            <h4 className={styles.summaryText}>Total price</h4>
-                            <h4 >{price/0.3}€</h4>
+                            <h4 className={[styles.summaryText,styles.h4].join(' ')}>Total price</h4>
+                            <h4 className={styles.h4}>{price/0.3}€</h4>
                           </div>
                         </div>
                       }
-                    
                   </div>
                 </div>
               </div>
