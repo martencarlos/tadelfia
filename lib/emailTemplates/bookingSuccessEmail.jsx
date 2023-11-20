@@ -71,11 +71,11 @@ export const BookingSuccessEmail = ({ booking }) => {
 
               <Text style={paragraph}>
               <b>Check-in: </b>
-              {new Date(booking.accomodation.checkin).toLocaleDateString()} 
+              {new Date(booking.accomodation.checkin).toLocaleDateString('es-ES')} 
               </Text>
               <Text style={paragraph}>
               <b>Check-out: </b>
-              {new Date(booking.accomodation.checkout).toLocaleDateString()}
+              {new Date(booking.accomodation.checkout).toLocaleDateString('es-ES')}
               </Text>
               <Text style={paragraph}>
               <b>Nights: </b>
