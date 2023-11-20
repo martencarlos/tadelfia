@@ -66,6 +66,7 @@ export default function GuestPicker({setAdults, setChildren, villa, setCapacityE
     }}
     >
     <div className={styles.guestPicker__container}>
+    <Tooltip title="> 6 years" placement="top">
     <FormControl  sx={{ m: 1, minWidth: 70 }} size="small">
       <InputLabel id="demo-select-small-label">Adult(s)</InputLabel>
       <Select
@@ -105,7 +106,8 @@ export default function GuestPicker({setAdults, setChildren, villa, setCapacityE
         {villa === "Villa" && <MenuItem value={25}>25</MenuItem>}
       </Select>
       </FormControl>
-      
+      </Tooltip>
+
       <Tooltip title="< 6 years" placement="top">
       <FormControl  sx={{ m: 1, minWidth: 70 }} size="small">
       <InputLabel id="demo-select-small-label">{"Children"}</InputLabel>
@@ -121,11 +123,21 @@ export default function GuestPicker({setAdults, setChildren, villa, setCapacityE
         onChange={handleChangeChildren}
       >
         <MenuItem value={0}>0</MenuItem>
-        <MenuItem value={1}>1</MenuItem>
-        <MenuItem value={2}>2</MenuItem>
-        <MenuItem value={3}>3</MenuItem>
-        <MenuItem value={4}>4</MenuItem>
-        <MenuItem value={5}>5</MenuItem>
+        {villa !== "Eros" &&<MenuItem value={1}>1</MenuItem>}
+        {villa !== "Eros" &&<MenuItem value={2}>2</MenuItem>}
+        {villa !== "Eros" && <MenuItem value={3}>3</MenuItem>}
+        {villa === "Villa" && <MenuItem value={4}>4</MenuItem>}
+        {villa === "Villa" && <MenuItem value={5}>5</MenuItem>}
+        {villa === "Villa" && <MenuItem value={6}>6</MenuItem>}
+        {villa === "Villa" && <MenuItem value={7}>7</MenuItem>}
+        {villa === "Villa" && <MenuItem value={8}>8</MenuItem>}
+        {villa === "Villa" && <MenuItem value={9}>9</MenuItem>}
+        {villa === "Villa" && <MenuItem value={10}>10</MenuItem>}
+        {villa === "Villa" && <MenuItem value={11}>11</MenuItem>}
+        {villa === "Villa" && <MenuItem value={12}>12</MenuItem>}
+        {villa === "Villa" && <MenuItem value={13}>13</MenuItem>}
+        {villa === "Villa" && <MenuItem value={14}>14</MenuItem>}
+        {villa === "Villa" && <MenuItem value={15}>15</MenuItem>}
       </Select>
       
       </FormControl>

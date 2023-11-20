@@ -48,7 +48,8 @@ async function saveBooking(booking, data) {
         notice: booking.accomodation.messageToHost,
         adults: booking.accomodation.adults,
         children: booking.accomodation.children,
-        price: booking.accomodation.price,
+        price: booking.accomodation.totalPrice,
+        prepayment: booking.accomodation.price,
         priceStatus: 1,
       }),
     }

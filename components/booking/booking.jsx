@@ -25,6 +25,7 @@ function Booking({ villa, apartmentId }) {
   const [children, setChildren] = useState(0);
   const [nights, setNights] = useState(null);
   const [price, setPrice] = useState(null);
+  const [totalPrice, setTotalPrice] = useState(null);
   const [booking, setBooking] = useState(null);
   const [processing, setProcessing] = useState(false);
   const [capacityExceeded, setCapacityExceeded] = useState(false); //true if adults+children > capacity
@@ -135,6 +136,7 @@ function Booking({ villa, apartmentId }) {
               setTooltip(true);
             }else{
               setTooltip(false);
+              setTotalPrice(price + cleaningFee)
               price= (price + cleaningFee)*0.3; //30% payment now
               setPrice(price)
             }
@@ -298,6 +300,7 @@ function Booking({ villa, apartmentId }) {
         checkout: new Date(rangeDates[1]),
         nights: nights,
         price: price ? price : 0,
+        totalPrice: totalPrice ? totalPrice : 0,
         guests: adults+children,
         adults: adults,
         children: children,
@@ -328,7 +331,6 @@ function Booking({ villa, apartmentId }) {
                   <h3 className={styles.h2}>Summary</h3>
                   <div className={styles.summary}>
                     
-                      
                       <h4 className={styles.h4}>Accomodation</h4>
                       <div className={styles.summaryRow}>
                         <p className={styles.summaryText}>Apartment:</p>
