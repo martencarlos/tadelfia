@@ -3,7 +3,7 @@ import Loading from '@/components/loading/loading'
 
 function loading() {
   return (
-    <Loading fallback= "Loading..."/>
+    <Loading fallback= "Processing..."/>
   )
 }
 
