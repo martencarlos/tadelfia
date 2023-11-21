@@ -17,8 +17,11 @@ async function saveBooking(booking, data) {
   await dbConnect();
   //check if booking already exists
   const existingBooking = await Booking.findOne({ "payment.id": data.id });
-
-  if(existingBooking) return
+  
+  if(existingBooking && existingBooking.id) {
+    id = existingBooking.id
+    return
+  }
 
   //add payment info to the booking
   booking.payment = {
@@ -53,17 +56,20 @@ async function saveBooking(booking, data) {
         adults: booking.accomodation.adults,
         children: booking.accomodation.children,
         price: booking.accomodation.price/0.3,
+        priceStatus: 0,
         prepayment: booking.accomodation.price,
+        prepaymentStatus: 1,
         priceStatus: 1,
       }),
     }
   );
   const fetchResultMessage = await res.json();
   id = fetchResultMessage.id;
+  booking.id = id; //add smoobu booking id to booking object
   console.log(fetchResultMessage);
 
   // SAVE BOOKING TO MONGODB
-
+  
   if (!existingBooking) {
     // //add payment info to the booking
     // booking.payment = {
@@ -76,7 +82,7 @@ async function saveBooking(booking, data) {
     await newBooking.save();
   }
 
-  booking.id = id
+  
 
   //send email to customer
   // console.log("email info to be sent to customer:")
@@ -259,6 +265,12 @@ async function Success({ searchParams, params }) {
                   {" night(s)"}
                 </p>
                 <h4> {"€ " + booking.accomodation.price/0.3}</h4>
+              </div>
+              <div className={styles.priceWrapper}>
+                <p className={styles.priceLabel}>
+                  {"Paid (30%)"}
+                </p>
+                <h4> {"€ " + booking.accomodation.price}</h4>
               </div>
             </div>
           </div>

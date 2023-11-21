@@ -4,6 +4,10 @@ const { Schema } = mongoose;
 
 const bookingSchema = new Schema(
   {
+    id: {
+      type: String,
+      required: true,
+    },
     contact: {
       firstName: {
         type: String,
