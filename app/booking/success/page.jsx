@@ -80,7 +80,7 @@ async function saveBooking(booking, data) {
   //send email to customer
   console.log("email info to be sent to customer:")
   console.log(booking)
-  const result = await fetch(process.env.NEXT_PUBLIC_HOST+"/api/emailsuccess/", {
+  const result = await fetch(process.env.NEXT_PUBLIC_HOST+"/api/emailsuccess", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
