@@ -78,6 +78,8 @@ async function saveBooking(booking, data) {
   booking.id = id
 
   //send email to customer
+  console.log("email info to be sent to customer:")
+  console.log(booking)
   fetch(process.env.NEXT_PUBLIC_HOST + "/api/emailsuccess", {
     method: "POST",
     headers: {

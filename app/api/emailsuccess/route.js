@@ -7,7 +7,7 @@ export const POST = async ( req ) => {
     const data = await req.json();
 
     console.log("API - sending email to customer")
-    // console.log(data)
+    console.log(data)
     
     await sendBookingSuccess(
         data.contact.email,

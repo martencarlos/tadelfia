@@ -27,6 +27,9 @@ export const BookingSuccessEmail = ({ booking }) => {
   //   currency
   // };
 
+  console.log("successfull email template info:")
+  console.log(booking)
+
   return (
     <Html lang="en">
     <Head />
@@ -94,7 +97,7 @@ export const BookingSuccessEmail = ({ booking }) => {
               {booking.accomodation.children+ " children"}
               </Text>
               <Text style={paragraph}>
-              <b>Prepayed amount:</b>
+              <b>Prepayed amount: </b>
               {booking.payment.amount + " €"}
               </Text>
               <Text style={paragraph}>
