@@ -13,8 +13,12 @@ export const metadata = {
 }
 
 async function saveBooking(booking, data) {
+  
+  await dbConnect();
+  //check if booking already exists
+  const existingBooking = await Booking.findOne({ "payment.id": data.id });
 
-  if(id !== 0) return
+  if(existingBooking) return
 
   //add payment info to the booking
   booking.payment = {
@@ -59,9 +63,6 @@ async function saveBooking(booking, data) {
   console.log(fetchResultMessage);
 
   // SAVE BOOKING TO MONGODB
-    await dbConnect();
-  //check if booking already exists
-  const existingBooking = await Booking.findOne({ "payment.id": data.id });
 
   if (!existingBooking) {
     // //add payment info to the booking
@@ -78,8 +79,8 @@ async function saveBooking(booking, data) {
   booking.id = id
 
   //send email to customer
-  console.log("email info to be sent to customer:")
-  console.log(booking)
+  // console.log("email info to be sent to customer:")
+  // console.log(booking)
   const result = await fetch(process.env.NEXT_PUBLIC_HOST+"/api/emailsuccess", {
     method: "POST",
     headers: {
@@ -147,11 +148,9 @@ async function Success({ searchParams, params }) {
     }
   );
   const data = await res.json();
-
   const booking = JSON.parse(data.metadata.booking);
-
+  
   if (booking) await saveBooking(booking, data);
-
 
   return (
     booking ? (

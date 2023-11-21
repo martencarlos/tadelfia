@@ -27,8 +27,8 @@ export const BookingSuccessEmail = ({ booking }) => {
   //   currency
   // };
 
-  console.log("successfull email template info:")
-  console.log(booking)
+  // console.log("successfull email template info:")
+  // console.log(booking)
 
   return (
     <Html lang="en">

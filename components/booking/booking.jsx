@@ -158,8 +158,7 @@ function Booking({ villa, apartmentId }) {
   // cancel payment intent useEffect
   useEffect(() => {
 
-    //cancel payment intent - triggered when refreshing or closing the browser tab
-    window.addEventListener("unload", (e) => {
+    function cancelPaymentIntent(e) {
       e.preventDefault();
       
       if (paymentIntentSecret.current) {
@@ -174,18 +173,21 @@ function Booking({ villa, apartmentId }) {
           .then((res) => res.json())
           .then((data) => {
             // console.log(data);
-            paymentIntentSecret.current = null;
+            paymentIntentSecret.current = undefined;
           });
       }
       return null;
-    });
-
+    }
+    //cancel payment intent - triggered when refreshing or closing the browser tab
+    window.addEventListener("unload", cancelPaymentIntent)
+    
     // cancel intent - triggered when unmounting booking component.
     // Meaning user has navigated away from booking page but still inside tadelfia website without completing the booking
     return () => {
       // console.log("unmounting booking");
       // console.log(paymentIntentSecret.current);
 
+      window.removeEventListener("unload", cancelPaymentIntent)
       if (paymentIntentSecret.current) {
         fetch("/api/create-payment-intent", {
           method: "POST",
@@ -584,8 +586,6 @@ function Booking({ villa, apartmentId }) {
             </div>
           </div>
         </div>
-
-
       </form>
   
     </div>

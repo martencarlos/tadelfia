@@ -19,7 +19,7 @@ export const GET = async (req) => {
         },
       });
     const data = await res.json();
-      console.log(data)
+    //   console.log(data)
     const dates = data.bookings.map((booking) => {
         // const parts = booking.apartment.name.split(" - ");
         // const apartment = parts[parts.length-1]
