@@ -99,7 +99,7 @@ export const BookingSuccessEmail = ({ booking }) => {
               </Text>
               <Text style={paragraph}>
               <b>Total amount: </b>
-              {booking.accomodation.totalPrice + " €"}
+              {booking.accomodation.price/0.3 + " €"}
               </Text>
 
               <Text style={paragraph}>

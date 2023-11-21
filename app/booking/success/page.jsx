@@ -48,7 +48,7 @@ async function saveBooking(booking, data) {
         notice: booking.accomodation.messageToHost,
         adults: booking.accomodation.adults,
         children: booking.accomodation.children,
-        price: booking.accomodation.totalPrice,
+        price: booking.accomodation.price/0.3,
         prepayment: booking.accomodation.price,
         priceStatus: 1,
       }),
@@ -256,7 +256,7 @@ async function Success({ searchParams, params }) {
                   {booking.accomodation.nights}
                   {" night(s)"}
                 </p>
-                <h4> {"€ " + booking.accomodation.totalPrice}</h4>
+                <h4> {"€ " + booking.accomodation.price/0.3}</h4>
               </div>
             </div>
           </div>
