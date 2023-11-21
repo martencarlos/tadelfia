@@ -296,7 +296,7 @@ function Booking({ villa, apartmentId }) {
         checkin: new Date(rangeDates[0]), //rangeDates[0].format("DD.MM.YYYY"),
         checkout: new Date(rangeDates[1]),
         nights: nights,
-        price: price ? price : 0,
+        price: price ? price*1 : 0,
         guests: adults+children,
         adults: adults,
         children: children,
