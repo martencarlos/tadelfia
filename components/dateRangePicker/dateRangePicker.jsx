@@ -14,8 +14,10 @@ import "react-multi-date-picker/styles/layouts/mobile.css"
 
 function DateRangePicker({rangeDates, setRangeDates,villa}) {
     const datePickerRef = useRef()
+ 
     // const { width } = useWindowSize()
     const [bookedRanges, setBookedRanges] = useState([]); // Booked ranges
+  
   
 
   function isReserved(strDate) {
@@ -47,6 +49,23 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
     return returnValue
   }
 
+  function isNextDayAfterCheckoutDate(strDate) {
+    let returnValue = false;
+    var checkoutDate = new Date();
+    var nextDay;
+    
+    if(bookedRanges.length>0){
+      for (let i = 0; i < bookedRanges.length; i++) {
+        checkoutDate = new Date(bookedRanges[i][1]);
+        nextDay = new Date(checkoutDate.setDate(checkoutDate.getDate()+1));
+        if(strDate=== (nextDay.setHours(0,0,0,0))){
+          return true;
+        }
+      };
+    }
+    return returnValue
+  }
+
   function isCheckinDate(strDate) {
     let returnValue = false;
     
@@ -60,8 +79,28 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
     return returnValue
   }
 
+  function isPreviousDayBeforeCheckinDate(strDate) {
+    let returnValue = false;
+    var checkinDate = new Date();
+    var previousDay;
+    
+    if(bookedRanges.length>0){
+      for (let i = 0; i < bookedRanges.length; i++) {
+        checkinDate = new Date(bookedRanges[i][0]);
+        previousDay = new Date(checkinDate.setDate(checkinDate.getDate()-1));
+        if(strDate=== (previousDay.setHours(0,0,0,0))){
+          return true;
+        }
+      };
+    }
+    return returnValue
+  }
+
+  
+
   useEffect(() => {
     const newRanges = [];
+
     if(villa !== "Villa"){
       getAllBookingRanges().then((data) => {
         if (data.length > 0) {
@@ -70,8 +109,19 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
               return [new Date(booking.accomodation.checkin),new Date(booking.accomodation.checkout)]
             }
           });
-         
-          setBookedRanges(...bookedRanges, newBookedRanges.filter((range) => range !== undefined));
+          var bookedRangesTMP = [...bookedRanges]
+          bookedRangesTMP.push(...newBookedRanges.filter((range) => range !== undefined))
+          
+          // Iterate through the array and subtract one day from each end date
+          bookedRangesTMP.forEach(rangei => {
+            // Add one day to the start date
+            rangei[0].setDate(rangei[0].getDate() + 1);
+            // Subtract one day from the end date
+            rangei[1].setDate(rangei[1].getDate() - 1);
+          });
+
+          setBookedRanges(bookedRangesTMP);
+          // setBookedRanges(...bookedRanges, newBookedRanges.filter((range) => range !== undefined));
         }
       });
     }else{
@@ -81,6 +131,14 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
             return [new Date(booking.accomodation.checkin),new Date(booking.accomodation.checkout)]
           });
           newRanges.push(...newBookedRanges);
+          
+          // Iterate through the array and subtract one day from each end date
+          // newRanges.forEach(range => {
+          //   // Subtract one day from the end date
+          //   range[1].setDate(range[1].getDate() - 1);
+          // });
+          // console.log(newRanges)
+
           setBookedRanges(newRanges);
         }
       });
@@ -104,29 +162,44 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                 onChange={(ranges) => {
                     
                     const bookingRangeIndex = bookedRanges.length
-                  
+                    
+                    // console.log(ranges)
+                    // console.log(bookedRanges)
+
+                    // if the user selects a date range that is already booked do nothing
                     if(ranges.length<= bookingRangeIndex)
                       return false
                     
+                    // if user select a date after having selected a date range
                     if(ranges.length>(bookingRangeIndex+1)){
+                      //in case of first booking ever
                       if(bookingRangeIndex==0)
                         ranges.splice(0,1)
                       else
                         ranges.splice(bookingRangeIndex,1)
-                      // return false
+                        //removes the last one
                     }
-                 
+
                     const startDate= (new Date(ranges[bookingRangeIndex][0]).setHours(0,0,0,0))
-                    const endDate= (new Date(ranges[bookingRangeIndex][bookingRangeIndex]).setHours(0,0,0,0))
+                    const endDate= (new Date(ranges[bookingRangeIndex][1]).setHours(0,0,0,0))
                     
+                   
+
                     if (isReserved(startDate)) 
                       return false;
                     
-                    if ( isReserved(endDate)) 
+                    if (isReserved(endDate)) 
                       return false;
 
+                    // if (isReserved(startDate) && isCheckoutDate(startDate)) 
+                    //   return false;
+                    
+                    // if (isReserved(endDate) && isCheckinDate(endDate)) 
+                    //   return false;
+
+                    //update prop. Does nothing to calendar
                     if(ranges.length<=(bookingRangeIndex+1))
-                      setRangeDates(ranges[bookingRangeIndex]) //update prop
+                      setRangeDates(ranges[bookingRangeIndex]) 
                   
                   }}
                 //style the reserved dates red
@@ -134,8 +207,8 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                     let className;
                     const strDate = (new Date(date).setHours(0,0,0,0))//date.format();
                     if (isReserved(strDate)) className = "reserved";
-                    if (isCheckoutDate(strDate)) className = "checkout";
-                    if (isCheckinDate(strDate)) className = "checkin";
+                    if (isNextDayAfterCheckoutDate(strDate)) className = "checkout";
+                    if (isPreviousDayBeforeCheckinDate(strDate)) className = "checkin";
                     if (className) return { className };
                   }}
 

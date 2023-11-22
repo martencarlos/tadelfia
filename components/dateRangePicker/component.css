@@ -32,19 +32,31 @@
     background-color: rgb(58, 155, 97) ;
 }
 
+/* .start:not(:first-child.sd.reserved){
+    background:linear-gradient(to bottom right, white  50%,rgb(58, 155, 97) 50%);
+    border-bottom-left-radius: unset  !important; 
+    border-top-left-radius: unset  !important; 
+    border-bottom-right-radius: unset  !important; 
+    border-top-right-radius: unset  !important;
+} */
+
 .rmdp-range:has(.reserved) {
     background-color: #ffc0cb;
     /* box-shadow: 0 0 3px #cd949e; */
     box-shadow: unset;
     color: inherit;
+    border-bottom-left-radius: unset  !important; 
+    border-top-left-radius: unset  !important; 
+    border-bottom-right-radius: unset  !important; 
+    border-top-right-radius: unset  !important; 
   }
 
-  .rmdp-range:has(.checkout) {
+  :not(.rmdp-range).rmdp-day:has(.checkout) {
     background:linear-gradient(to bottom right,#ffc0cb 50%,white 50%);
     color: inherit;
     box-shadow: unset;
   }
-  .rmdp-range:has(.checkin) {
+  :not(.rmdp-range).rmdp-day:has(.checkin) {
     background:linear-gradient(to bottom right, white 50%, #ffc0cb 50%);
     color: inherit;
     box-shadow: unset;
@@ -61,12 +73,13 @@
     /* color: white !important; */
 }
 
-.rmdp-range.start:has(.sd.checkin), .rmdp-range.end:has(.sd.checkout) {
+.rmdp-range.start:has(.sd.checkin), :not(.start).rmdp-day:has(.sd.checkout) {
     border-bottom-left-radius: unset  !important; 
     border-top-left-radius: unset  !important; 
     border-bottom-right-radius: unset  !important; 
     border-top-right-radius: unset  !important; 
 }
+
 
 .rmdp-week-day {
     color: var(--primary-color) !important;
