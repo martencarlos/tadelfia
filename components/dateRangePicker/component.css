@@ -37,6 +37,14 @@
     box-shadow: 0 0 3px #cd949e;
   }
 
+  .rmdp-range:has(.checkout) {
+    background:linear-gradient(to bottom right,#ffc0cb 50%,white 50%);
+  }
+  .rmdp-range:has(.checkin) {
+    background:linear-gradient(to bottom right, white 50%, #ffc0cb 50%);
+  }
+  
+
   .rmdp-container{
     position: relative;
     height: 40px;

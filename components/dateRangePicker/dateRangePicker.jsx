@@ -34,6 +34,32 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
     return returnValue
   }
 
+  function isCheckoutDate(strDate) {
+    let returnValue = false;
+    
+    if(bookedRanges.length>0){
+      for (let i = 0; i < bookedRanges.length; i++) {
+        if(strDate=== (new Date(bookedRanges[i][1]).setHours(0,0,0,0))){
+          return true;
+        }
+      };
+    }
+    return returnValue
+  }
+
+  function isCheckinDate(strDate) {
+    let returnValue = false;
+    
+    if(bookedRanges.length>0){
+      for (let i = 0; i < bookedRanges.length; i++) {
+        if(strDate === (new Date(bookedRanges[i][0]).setHours(0,0,0,0))){
+          return true;
+        }
+      };
+    }
+    return returnValue
+  }
+
   useEffect(() => {
     const newRanges = [];
     if(villa !== "Villa"){
@@ -93,17 +119,12 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                     const startDate= (new Date(ranges[bookingRangeIndex][0]).setHours(0,0,0,0))
                     const endDate= (new Date(ranges[bookingRangeIndex][bookingRangeIndex]).setHours(0,0,0,0))
                     
-                 
                     if (isReserved(startDate)) 
                       return false;
                     
-                    
-                   
                     if ( isReserved(endDate)) 
                       return false;
 
-                   
-                    
                     if(ranges.length<=(bookingRangeIndex+1))
                       setRangeDates(ranges[bookingRangeIndex]) //update prop
                   
@@ -113,6 +134,8 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                     let className;
                     const strDate = (new Date(date).setHours(0,0,0,0))//date.format();
                     if (isReserved(strDate)) className = "reserved";
+                    if (isCheckoutDate(strDate)) className = "checkout";
+                    if (isCheckinDate(strDate)) className = "checkin";
                     if (className) return { className };
                   }}
 

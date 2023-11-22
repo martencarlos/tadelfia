@@ -59,7 +59,6 @@ async function saveBooking(booking, data) {
         priceStatus: 0,
         prepayment: booking.accomodation.price,
         prepaymentStatus: 1,
-        priceStatus: 1,
       }),
     }
   );
@@ -262,7 +261,7 @@ async function Success({ searchParams, params }) {
               <div className={styles.priceWrapper}>
                 <p className={styles.priceLabel}>
                   {booking.accomodation.nights}
-                  {" night(s)"}
+                  {"Total price"}
                 </p>
                 <h4> {"€ " + booking.accomodation.price/0.3}</h4>
               </div>
