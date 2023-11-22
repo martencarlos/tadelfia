@@ -24,7 +24,7 @@
     /* background-color: #7ea6f0 !important; */
     background-color: #b0b0b0 !important;
 
-    color: white !important;
+    /* color: white !important; */
 }
 
 
@@ -34,14 +34,20 @@
 
 .rmdp-range:has(.reserved) {
     background-color: #ffc0cb;
-    box-shadow: 0 0 3px #cd949e;
+    /* box-shadow: 0 0 3px #cd949e; */
+    box-shadow: unset;
+    color: inherit;
   }
 
   .rmdp-range:has(.checkout) {
     background:linear-gradient(to bottom right,#ffc0cb 50%,white 50%);
+    color: inherit;
+    box-shadow: unset;
   }
   .rmdp-range:has(.checkin) {
     background:linear-gradient(to bottom right, white 50%, #ffc0cb 50%);
+    color: inherit;
+    box-shadow: unset;
   }
   
 
@@ -52,10 +58,10 @@
 }
 
 .rmdp-range.start, .rmdp-range, .rmdp-range.end{
-    color: white !important;
+    /* color: white !important; */
 }
 
-.rmdp-range.start, .rmdp-range.end {
+.rmdp-range.start:has(.sd.checkin), .rmdp-range.end:has(.sd.checkout) {
     border-bottom-left-radius: unset  !important; 
     border-top-left-radius: unset  !important; 
     border-bottom-right-radius: unset  !important; 
@@ -94,7 +100,7 @@
 
 .rmdp-day:not(.rmdp-disabled):not(.rmdp-day-hidden) span:hover {
     background-color: rgb(58, 155, 97) !important;
-    color: white !important;
+    /* color: white !important; */
 }
 
 
