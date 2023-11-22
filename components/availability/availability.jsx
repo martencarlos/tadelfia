@@ -9,6 +9,7 @@ import styles from "./availability.module.css";
 import "./component.css";
 import { useEffect, useState } from "react";
 import { getAllBookingRanges } from "@/lib/booking";
+import { use } from "react";
 
 function Availability({ villa }) {
   const size = useWindowSize();
@@ -26,7 +27,6 @@ function Availability({ villa }) {
         if (data.length > 0) {
           const bookedRanges = data.map((booking) => {
             if(booking.accomodation.villa === villa || booking.accomodation.villa === "Villa"){
-              
               return {
                 startDate: new Date(booking.accomodation.checkin),
                 endDate: new Date(booking.accomodation.checkout),
@@ -60,6 +60,10 @@ function Availability({ villa }) {
 
     
   }, [villa]);
+
+  useEffect(() => {
+    console.log(ranges);
+  }, [ranges]);
 
   // useEffect(() => {
   //   setLoading(false);

@@ -52,13 +52,50 @@
     margin: 0px;
 }
 
-[class^="availability"] .rdrEndEdge {
-    border-top-right-radius: unset ;
-    /* border-bottom-right-radius:  unset ; */
+
+
+
+
+.rdrDay:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span, .rdrDay:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span, .rdrDay:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span, .rdrDay:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span {
+    color: rgb(51, 51, 51) !important;
 }
 
 
-[class^="availability"] .rdrStartEdge {
+[class^="availability"] .rdrStartEdge{
     /* border-top-left-radius: unset; */
+    background: linear-gradient(to bottom right, white  50%, #ffc0cb 50%);
     border-bottom-left-radius: unset;
+    border-top-left-radius: unset;
+    border-bottom-right-radius: unset;
+    border-top-right-radius: unset;
 }
+[class^="availability"] .rdrDayStartOfWeek span, [class^="availability"] .rdrDayEndOfWeek span,[class^="availability"] .rdrDayEndOfMonth span,[class^="availability"] .rdrDayStartOfMonth span{
+    border-bottom-left-radius: unset;
+    border-top-left-radius: unset;
+    border-bottom-right-radius: unset;
+    border-top-right-radius: unset;
+}
+
+[class^="availability"] .rdrEndEdge {
+    background: linear-gradient(to bottom right, #ffc0cb 50%, white  50%);
+    border-bottom-left-radius: unset;
+    border-top-left-radius: unset;
+    border-bottom-right-radius: unset;
+    border-top-right-radius: unset;
+}
+
+/* [class^="availability"] .rdrDayEndOfWeek span{
+    border-bottom-left-radius: unset;
+    border-top-left-radius: unset;
+    border-bottom-right-radius: unset;
+    border-top-right-radius: unset;
+} */
+
+[class^="availability"] .rdrInRange+.rdrStartEdge,[class^="availability"] .rdrInRange+.rdrStartEdge+.rdrStartEdge{
+    background: #ffc0cb;
+}
+[class^="availability"] .rdrInRange+.rdrEndEdge{
+    background: #ffc0cb;
+}
+
+
