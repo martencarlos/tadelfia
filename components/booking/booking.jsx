@@ -348,11 +348,12 @@ function Booking({ villa, apartmentId }) {
                         <p className={styles.summaryText}>Children:</p>
                         <p >{children}</p>
                       </div>
-                      <br/>
+                      
                 
                     {/* Checkin and Checkout dates */}
                       {rangeDates &&
                         <div>
+                          <br/>
                           <h4 className={styles.h4}>Stay</h4>
                           <div className={styles.summaryRow}>
                             <p className={styles.summaryText}>check-in:</p>
@@ -368,9 +369,10 @@ function Booking({ villa, apartmentId }) {
                           </div>
                         </div>
                       }
-                      <br/>
+                      
                       {price &&
                         <div>
+                          <br/>
                           <h4 className={styles.h4}>Price Breakdown</h4>
                           <div className={styles.summaryRow}>
                             <p className={styles.summaryText}>Nightly rate:</p>
