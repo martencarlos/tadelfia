@@ -22,13 +22,36 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
 
   function isReserved(strDate) {
     let returnValue = false;
-    
     if(bookedRanges.length>0){
       for (let i = 0; i < bookedRanges.length; i++) {
         // console.log("select date "+strDate.setHours(0,0,0,0))
         // console.log("start date "+new Date(bookedRanges[i][0]).setHours(0,0,0,0))
         // console.log("end date "+new Date(bookedRanges[i][1]).setHours(0,0,0,0))
         if(strDate >= (new Date(bookedRanges[i][0]).setHours(0,0,0,0)) && strDate<= (new Date(bookedRanges[i][1]).setHours(0,0,0,0))){
+          return true;
+        }
+      };
+    }
+    return returnValue
+  }
+
+  function isReservedPlusMinusOneDay(strDate) {
+    let returnValue = false;
+    
+    if(bookedRanges.length>0){
+      for (let i = 0; i < bookedRanges.length; i++) {
+        var checkinDate = new Date();
+        var previousDay;
+        var checkoutDate = new Date();
+        var nextDay;
+        // console.log("select date "+strDate.setHours(0,0,0,0))
+        // console.log("start date "+new Date(bookedRanges[i][0]).setHours(0,0,0,0))
+        // console.log("end date "+new Date(bookedRanges[i][1]).setHours(0,0,0,0))
+        checkinDate = new Date(bookedRanges[i][0]);
+        previousDay = new Date(checkinDate.setDate(checkinDate.getDate()-1));
+        checkoutDate = new Date(bookedRanges[i][1]);
+        nextDay = new Date(checkoutDate.setDate(checkoutDate.getDate()+1));
+        if(strDate >= previousDay.setHours(0,0,0,0) && strDate<= nextDay.setHours(0,0,0,0)){
           return true;
         }
       };
@@ -132,11 +155,12 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
           });
           newRanges.push(...newBookedRanges);
           
-          // Iterate through the array and subtract one day from each end date
-          // newRanges.forEach(range => {
-          //   // Subtract one day from the end date
-          //   range[1].setDate(range[1].getDate() - 1);
-          // });
+          //Iterate through the array and subtract one day from each end date
+          newRanges.forEach(range => {
+            // Subtract one day from the end date
+            range[0].setDate(range[0].getDate() + 1);
+            range[1].setDate(range[1].getDate() - 1);
+          });
           // console.log(newRanges)
 
           setBookedRanges(newRanges);
@@ -206,9 +230,13 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                 mapDays={({date}) => {
                     let className;
                     const strDate = (new Date(date).setHours(0,0,0,0))//date.format();
-                    if (isReserved(strDate)) className = "reserved";
-                    if (isNextDayAfterCheckoutDate(strDate)) className = "checkout";
+                    if (isReservedPlusMinusOneDay(strDate)) className = "reserved";
+                    if (isNextDayAfterCheckoutDate(strDate)) className ="checkout";
                     if (isPreviousDayBeforeCheckinDate(strDate)) className = "checkin";
+                    if (isReservedPlusMinusOneDay(strDate) && isCheckoutDate(strDate)) className = "reserved checkout";
+                    if (isReservedPlusMinusOneDay(strDate) && isCheckinDate(strDate)) className = "reserved checkin";
+                    if (isCheckoutDate(strDate) && isCheckinDate(strDate)) className = "checkout checkin";
+                    if (isReservedPlusMinusOneDay(strDate) && isNextDayAfterCheckoutDate(strDate) && isPreviousDayBeforeCheckinDate(strDate)) className = "reserved checkout checkin";
                     if (className) return { className };
                   }}
 
