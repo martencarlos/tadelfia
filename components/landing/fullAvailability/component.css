@@ -52,15 +52,39 @@
     margin: 0px;
 }
 
-[class^="fullAvailability"] .rdrEndEdge {
-    border-top-right-radius: unset ;
-    /* border-bottom-right-radius:  unset ; */
+.rdrDay:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span, .rdrDay:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span, .rdrDay:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span, .rdrDay:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span {
+    color: rgb(51, 51, 51) !important;
 }
 
 
-[class^="fullAvailability"] .rdrStartEdge {
+[class^="fullAvailability"] .rdrStartEdge{
     /* border-top-left-radius: unset; */
+    background: linear-gradient(to bottom right, white  50%, #ffc0cb 50%);
     border-bottom-left-radius: unset;
+    border-top-left-radius: unset;
+    border-bottom-right-radius: unset;
+    border-top-right-radius: unset;
+}
+[class^="fullAvailability"] .rdrDayStartOfWeek span, [class^="fullAvailability"] .rdrDayEndOfWeek span,[class^="fullAvailability"] .rdrDayEndOfMonth span,[class^="fullAvailability"] .rdrDayStartOfMonth span{
+    border-bottom-left-radius: unset;
+    border-top-left-radius: unset;
+    border-bottom-right-radius: unset;
+    border-top-right-radius: unset;
+}
+
+[class^="fullAvailability"] .rdrEndEdge {
+    background: linear-gradient(to bottom right, #ffc0cb 50%, white  50%);
+    border-bottom-left-radius: unset;
+    border-top-left-radius: unset;
+    border-bottom-right-radius: unset;
+    border-top-right-radius: unset;
+}
+
+[class^="fullAvailability"] .rdrInRange+.rdrStartEdge,[class^="fullAvailability"] .rdrInRange+.rdrStartEdge+.rdrStartEdge{
+    background: #ffc0cb;
+}
+[class^="fullAvailability"] .rdrInRange+.rdrEndEdge{
+    background: #ffc0cb;
 }
 
 

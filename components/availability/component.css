@@ -84,13 +84,6 @@
     border-top-right-radius: unset;
 }
 
-/* [class^="availability"] .rdrDayEndOfWeek span{
-    border-bottom-left-radius: unset;
-    border-top-left-radius: unset;
-    border-bottom-right-radius: unset;
-    border-top-right-radius: unset;
-} */
-
 [class^="availability"] .rdrInRange+.rdrStartEdge,[class^="availability"] .rdrInRange+.rdrStartEdge+.rdrStartEdge{
     background: #ffc0cb;
 }
