@@ -386,13 +386,14 @@ function Booking({ villa, apartmentId }) {
                           </div>
                          
                           <div className={styles.summaryRow}>
-                            <p className={styles.summaryText}>Upfront payment (30%):</p>
-                            <p >{price}€</p>
+                            <p className={styles.summaryText}>Total price</p>
+                            <p>{price/0.3}€</p>
                           </div>
+                          <br/>
                           <div className={styles.summaryRow}>
-                            <h4 className={[styles.summaryText,styles.h4].join(' ')}>Total price</h4>
-                            <h4 className={styles.h4}>{price/0.3}€</h4>
-                          </div>
+                            <h4 className={[styles.summaryText,styles.h4].join(' ')}>Upfront payment (30%):</h4>
+                            <h4 className={styles.h4}>{price}€</h4>
+                        </div>
                         </div>
                       }
                   </div>
