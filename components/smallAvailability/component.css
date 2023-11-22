@@ -14,9 +14,6 @@
 
 }
 
-.highlight {
-  background-color: pink !important;
-}
 
 .react-calendar {
     
@@ -56,3 +53,15 @@
     padding: 5px 6.6667px !important;
     /* padding: 3px 3px !important; */
 }
+
+.highlight {
+    background-color: pink !important;
+  }
+
+/* .highlight.start{
+    background: linear-gradient(to bottom right, white  50%,pink 50%);
+}
+
+.highlight.end{
+    background: linear-gradient(to bottom right, pink  50%,white 50%);
+} */

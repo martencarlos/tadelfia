@@ -80,6 +80,8 @@ function SmallAvailability({ villa }) {
           minDate={new Date()}
           showFixedNumberOfWeeks={true}
           tileClassName={({ date, view }) => {
+            let classes = []
+
             if (view === "month") {
               if (
                 ranges.find(
@@ -88,8 +90,26 @@ function SmallAvailability({ villa }) {
                     x[1].setHours(0, 0, 0, 0) >= date.setHours(0, 0, 0, 0)
                 )
               ) {
-                return "highlight";
+                classes.push("highlight");
               }
+              if (
+                ranges.find(
+                  (x) =>
+                    x !== undefined && x[0].setHours(0, 0, 0, 0) === date.setHours(0, 0, 0, 0)
+                )
+              ) {
+                classes.push("start");
+              }
+              if (
+                ranges.find(
+                  (x) =>
+                    x !== undefined && x[1].setHours(0, 0, 0, 0) === date.setHours(0, 0, 0, 0)
+                )
+              ) {
+                classes.push("end");
+                
+              }
+              return classes;
             }
           }}
         />

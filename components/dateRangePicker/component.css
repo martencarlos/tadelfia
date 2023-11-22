@@ -72,6 +72,10 @@
 
 /* Calendar inside */
 
+.rmdp-today span{
+    background-color: #b0b0b0 !important;
+}
+
 .rmdp-range-hover.start, .rmdp-range.start{
     border-bottom-left-radius: unset !important; 
     border-top-left-radius: unset !important;
@@ -114,6 +118,10 @@
 .end:not(.start):has(.checkin){
     background:linear-gradient(to bottom right,  rgb(131, 195, 126) 50%, #ffc0cb 50%) !important;
 }
+/* :not(.start).rmdp-range.rmdp-day:has(.checkin):has(:not(.checkout.reserved.checkin)){
+    background:linear-gradient(to bottom right,  rgb(131, 195, 126) 50%, #ffc0cb 50%) !important;
+
+} */
 
 
 /* .rmdp-day:not(.rmdp-disabled):not(.rmdp-day-hidden) span:hover {
@@ -152,12 +160,7 @@
     border-top-right-radius: unset  !important; 
   }
 
-  .rmdp-today span{
-    
-    background-color: #b0b0b0 !important;
-
   
-}
 
 
 .rmdp-range:not(.reserved){

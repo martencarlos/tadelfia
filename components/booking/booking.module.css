@@ -90,7 +90,7 @@
 .bookingSummary{
     display: flex;
     flex-direction: column;
-    min-width: 240px;
+    min-width: 260px;
     gap: 20px;
     
 }
