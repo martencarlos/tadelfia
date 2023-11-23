@@ -41,9 +41,9 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
     if(bookedRanges.length>0){
       for (let i = 0; i < bookedRanges.length; i++) {
         var checkinDate = new Date();
-        var previousDay;
+        var previousDay= new Date();
         var checkoutDate = new Date();
-        var nextDay;
+        var nextDay= new Date();
         // console.log("select date "+strDate.setHours(0,0,0,0))
         // console.log("start date "+new Date(bookedRanges[i][0]).setHours(0,0,0,0))
         // console.log("end date "+new Date(bookedRanges[i][1]).setHours(0,0,0,0))
@@ -52,6 +52,30 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
         checkoutDate = new Date(bookedRanges[i][1]);
         nextDay = new Date(checkoutDate.setDate(checkoutDate.getDate()+1));
         if(strDate >= previousDay.setHours(0,0,0,0) && strDate<= nextDay.setHours(0,0,0,0)){
+          return true;
+        }
+      };
+    }
+    return returnValue
+  }
+
+  function isMiddle(strDate) {
+    let returnValue = false;
+    
+    if(bookedRanges.length>0){
+      for (let i = 0; i < bookedRanges.length; i++) {
+        var checkinDate = new Date();
+        var previousDay= new Date();
+        var checkoutDate = new Date();
+        var nextDay= new Date();
+        // console.log("select date "+strDate.setHours(0,0,0,0))
+        // console.log("start date "+new Date(bookedRanges[i][0]).setHours(0,0,0,0))
+        // console.log("end date "+new Date(bookedRanges[i][1]).setHours(0,0,0,0))
+        checkinDate = new Date(bookedRanges[i][0]);
+        previousDay = new Date(checkinDate.setDate(checkinDate.getDate()-1));
+        checkoutDate = new Date(bookedRanges[i][1]);
+        nextDay = new Date(checkoutDate.setDate(checkoutDate.getDate()+1));
+        if(strDate > previousDay.setHours(0,0,0,0) && strDate< nextDay.setHours(0,0,0,0)){
           return true;
         }
       };
@@ -230,13 +254,14 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                 mapDays={({date}) => {
                     let className;
                     const strDate = (new Date(date).setHours(0,0,0,0))//date.format();
-                    if (isReservedPlusMinusOneDay(strDate)) className = "reserved";
-                    if (isNextDayAfterCheckoutDate(strDate)) className ="checkout";
-                    if (isPreviousDayBeforeCheckinDate(strDate)) className = "checkin";
-                    if (isReservedPlusMinusOneDay(strDate) && isCheckoutDate(strDate)) className = "reserved checkout";
-                    if (isReservedPlusMinusOneDay(strDate) && isCheckinDate(strDate)) className = "reserved checkin";
-                    if (isCheckoutDate(strDate) && isCheckinDate(strDate)) className = "checkout checkin";
-                    if (isReservedPlusMinusOneDay(strDate) && isNextDayAfterCheckoutDate(strDate) && isPreviousDayBeforeCheckinDate(strDate)) className = "reserved checkout checkin";
+                    if(isMiddle(strDate)) className = className+" middle";
+                    if (isReservedPlusMinusOneDay(strDate)) className = className+" reserved";
+                    if (isNextDayAfterCheckoutDate(strDate)) className = className + " checkout";
+                    if (isPreviousDayBeforeCheckinDate(strDate)) className = className + " checkin";
+                    if (isReservedPlusMinusOneDay(strDate) && isCheckoutDate(strDate)) className = " reserved checkout";
+                    if (isReservedPlusMinusOneDay(strDate) && isCheckinDate(strDate)) className = className+ " reserved checkin";
+                    if (isCheckoutDate(strDate) && isCheckinDate(strDate)) className = className+ " checkout checkin";
+                    if (isReservedPlusMinusOneDay(strDate) && isNextDayAfterCheckoutDate(strDate) && isPreviousDayBeforeCheckinDate(strDate)) className = className +  " reserved checkout checkin";
                     if (className) return { className };
                   }}
 
