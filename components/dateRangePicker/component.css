@@ -34,7 +34,7 @@
 
  
 
-  .rmdp-container{
+.rmdp-container{
     position: relative;
     height: 40px;
     width: 206px;
@@ -103,19 +103,19 @@
     background:linear-gradient(to bottom right, #ffc0cb 50%, white 50%) !important;
 }
 
-:not(.end).rmdp-range.rmdp-day:has(.checkout):has(:not(.checkout.reserved.checkin):not(.middle)){
+.rmdp-day:not(.end).rmdp-range.rmdp-day:has(.checkout):has(:not(.checkout.reserved.checkin):not(.middle)){
     background:linear-gradient(to bottom right, #ffc0cb 50%, rgb(131, 195, 126) 50%) !important;
 }
 
-.start:not(.end):has(:not(.reserved):not(.checkin)){
+.rmdp-day.start:not(.end):has(:not(.reserved):not(.checkin)){
     background:linear-gradient(to bottom right, #fcfbfb 50%, rgb(131, 195, 126) 50%) !important;
 }
 
-.end:not(.start):has(:not(.reserved):not(.checkout):not(.checkin)){
+.rmdp-day.end:not(.start):has(:not(.reserved):not(.checkout):not(.checkin)){
     background:linear-gradient(to bottom right,rgb(131, 195, 126)  50%, #fcfbfb 50%) !important;
 }
 
-.end:not(.start):has(.checkin){
+.rmdp-day.end:not(.start):has(.checkin:not(.checkout)){
     background:linear-gradient(to bottom right,  rgb(131, 195, 126) 50%, #ffc0cb 50%) !important;
 }
 
@@ -127,6 +127,11 @@
     z-index: 10000 !important;
 }
 
+.rmdp-day:not(.rmdp-disabled):not(.rmdp-day-hidden) span:hover {
+    background-color: #83c37e;
+    color: #515151;
+}
+
 .rmdp-day:has(.checkin.checkout){
     background : #ffc0cb !important;
 }
@@ -134,7 +139,7 @@
 .rmdp-day:has(.middle){
     pointer-events: none;
 }
-.end, .start{
+.rmdp-day.end, .rmdp-day.start{
     pointer-events: none;
 }
 .rmdp-day:has(.checkin.checkout){
