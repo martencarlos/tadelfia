@@ -59,11 +59,11 @@
   }
 
 .highlight.start{
-    background: linear-gradient(to bottom right, white  50%,pink 50%);
+    background: linear-gradient(to bottom right, white  50%,pink 50%) !important;
 }
 
 .highlight.end{
-    background: linear-gradient(to bottom right, pink  50%,white 50%);
+    background: linear-gradient(to bottom right, pink  50%,white 50%) !important;
 }
 
 .highlight.middle, .highlight.start.end{
