@@ -66,6 +66,6 @@
     background: linear-gradient(to bottom right, pink  50%,white 50%);
 }
 
-.highlight.middle{
+.highlight.middle, .highlight.start.end{
     background:  pink !important;
 }

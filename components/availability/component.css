@@ -84,10 +84,18 @@
     border-top-right-radius: unset;
 }
 
-[class^="availability"] .rdrInRange+.rdrStartEdge,[class^="availability"] .rdrInRange+.rdrStartEdge+.rdrStartEdge{
+[class^="availability"] .rdrInRange~.rdrStartEdge,[class^="availability"] .rdrInRange+.rdrStartEdge+.rdrStartEdge{
     background: #ffc0cb;
 }
 [class^="availability"] .rdrInRange+.rdrEndEdge{
+    background: #ffc0cb;
+}
+
+[class^="availability"] .rdrEndEdge+.rdrStartEdge{
+    background: #ffc0cb;
+}
+
+[class^="availability"] .rdrInRange+.rdrStartEdge+.rdrStartEdge{
     background: #ffc0cb;
 }
 
