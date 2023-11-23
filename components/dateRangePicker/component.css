@@ -99,11 +99,11 @@
     background:linear-gradient(to bottom right, white  50%,#ffc0cb 50%) !important;
 }
 
-.rmdp-day:has(.checkout:not(.checkin)):not(.end):not(.start){
+.rmdp-day:has(.checkout:not(.checkin):not(.middle)):not(.end):not(.start){
     background:linear-gradient(to bottom right, #ffc0cb 50%, white 50%) !important;
 }
 
-:not(.end).rmdp-range.rmdp-day:has(.checkout):has(:not(.checkout.reserved.checkin)){
+:not(.end).rmdp-range.rmdp-day:has(.checkout):has(:not(.checkout.reserved.checkin):not(.middle)){
     background:linear-gradient(to bottom right, #ffc0cb 50%, rgb(131, 195, 126) 50%) !important;
 }
 
