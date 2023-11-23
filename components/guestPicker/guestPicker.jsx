@@ -18,7 +18,7 @@ export default function GuestPicker({setAdults, setChildren, villa, setCapacityE
   const size = useWindowSize();
   
   useEffect(() => {
-    console.log(adultsPicker, childrenPicker)
+    // console.log(adultsPicker, childrenPicker)
     if(villa === "Eros" && adultsPicker+childrenPicker > 2){
       setExceededCapacity(true);
       setCapacityExceeded(true)

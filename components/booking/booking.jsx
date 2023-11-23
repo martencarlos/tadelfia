@@ -80,7 +80,7 @@ function Booking({ villa, apartmentId }) {
           .then((data) => {
             // console.log(data);
             let minNightsCalc= data[0][1].min_length_of_stay;
-            console.log("minNightsCalc", minNightsCalc)
+            // console.log("minNightsCalc", minNightsCalc)
           
             let price = 0;
             let cleaningFee = 0;

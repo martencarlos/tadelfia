@@ -62,7 +62,7 @@ function Availability({ villa }) {
   }, [villa]);
 
   useEffect(() => {
-    console.log(ranges);
+    // console.log(ranges);
   }, [ranges]);
 
   // useEffect(() => {

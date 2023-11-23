@@ -9,13 +9,15 @@ import DatePicker from "react-multi-date-picker"
 import { BsFillCalendarWeekFill } from "react-icons/bs";
 import { getAllBookingRanges } from "@/lib/booking";
 import "react-multi-date-picker/styles/layouts/mobile.css"
-// import { useWindowSize } from "@/hooks/windowSize"
+
+import { useWindowSize } from "@/hooks/windowSize"
 
 
 function DateRangePicker({rangeDates, setRangeDates,villa}) {
     const datePickerRef = useRef()
+    const firstRanges = useRef()
  
-    // const { width } = useWindowSize()
+    const { width } = useWindowSize()
     const [bookedRanges, setBookedRanges] = useState([]); // Booked ranges
   
   
@@ -208,9 +210,7 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                 multiple
                 currentDate={rangeDates?rangeDates[0]:new Date()}
                 onChange={(ranges) => {
-                    
                     const bookingRangeIndex = bookedRanges.length
-                    
                     // console.log(ranges)
                     // console.log(bookedRanges)
 
@@ -230,25 +230,19 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
 
                     const startDate= (new Date(ranges[bookingRangeIndex][0]).setHours(0,0,0,0))
                     const endDate= (new Date(ranges[bookingRangeIndex][1]).setHours(0,0,0,0))
-                    
-                   
-
                     if (isReserved(startDate)) 
                       return false;
-                    
                     if (isReserved(endDate)) 
                       return false;
 
                     // if (isReserved(startDate) && isCheckoutDate(startDate)) 
                     //   return false;
-                    
                     // if (isReserved(endDate) && isCheckinDate(endDate)) 
                     //   return false;
 
                     //update prop. Does nothing to calendar
                     if(ranges.length<=(bookingRangeIndex+1))
                       setRangeDates(ranges[bookingRangeIndex]) 
-                  
                   }}
                 //style the reserved dates red
                 mapDays={({date}) => {
@@ -264,7 +258,40 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                     if (isReservedPlusMinusOneDay(strDate) && isNextDayAfterCheckoutDate(strDate) && isPreviousDayBeforeCheckinDate(strDate)) className = className +  " reserved checkout checkin";
                     if (className) return { className };
                   }}
+                onPropsChange={(info) => {
+                    //Only relevant in mobile view
+                    if (!firstRanges.current)
+                      firstRanges.current = info.value
 
+                    let ranges = info.value
+                    console.log(firstRanges.current)
+                    const bookingRangeIndex = bookedRanges.length
+
+                    // if the user selects a date range that is already booked do nothing
+                    if(ranges.length<= bookingRangeIndex){
+                      ranges.push(...firstRanges.current)
+                    }
+                    
+                    // if user select a date after having selected a date range
+                    if(ranges.length>(bookingRangeIndex+1)){
+                      //in case of first booking ever
+                      if(bookingRangeIndex==0)
+                        ranges.splice(0,1)
+                      else
+                        ranges.splice(bookingRangeIndex,1)
+                        //removes the last one
+                    }
+
+                    // const startDate= (new Date(ranges[bookingRangeIndex][0]).setHours(0,0,0,0))
+                    // const endDate= (new Date(ranges[bookingRangeIndex][1]).setHours(0,0,0,0))
+                    // if (isReserved(startDate)) {
+                    //   ranges= bookedRanges
+                    // }
+                  
+                    // if (isReserved(endDate)){
+                    //   ranges = bookedRanges
+                    // }
+                }}
                 range
                 weekStartDayIndex={1}
                 value={bookedRanges} //only first time
@@ -273,8 +300,9 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                 minDate={new Date()}
                 showOtherDays
                 monthYearSeparator="|"
+                
                 // dateSeparator=" to "
-                // className={width<600?"rmdp-mobile":"rmdp-desktop"}
+                className={width<600?"rmdp-mobile":"rmdp-desktop"}
                 // placeholder="Arrival & Departure dates"
             />
 
