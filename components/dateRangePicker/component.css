@@ -95,11 +95,11 @@
     background-color: #ffc0cb !important;
 }
 
-.rmdp-day:has(.checkin):not(.rmdp-range):not(.start){
+.rmdp-day:has(.checkin:not(.checkout)):not(.rmdp-range):not(.start){
     background:linear-gradient(to bottom right, white  50%,#ffc0cb 50%) !important;
 }
 
-.rmdp-day:has(.checkout):not(.end):not(.start){
+.rmdp-day:has(.checkout:not(.checkin)):not(.end):not(.start){
     background:linear-gradient(to bottom right, #ffc0cb 50%, white 50%) !important;
 }
 
@@ -127,12 +127,20 @@
     z-index: 10000 !important;
 }
 
+.rmdp-day:has(.checkin.checkout){
+    background : #ffc0cb !important;
+}
+
 .rmdp-day:has(.middle){
     pointer-events: none;
 }
 .end, .start{
     pointer-events: none;
 }
+.rmdp-day:has(.checkin.checkout){
+    pointer-events: none;
+}
+
 
 /* :not(.start).rmdp-range.rmdp-day:has(.checkin):has(:not(.checkout.reserved.checkin)){
     background:linear-gradient(to bottom right,  rgb(131, 195, 126) 50%, #ffc0cb 50%) !important;

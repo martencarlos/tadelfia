@@ -269,7 +269,9 @@ function Booking({ villa, apartmentId }) {
       }),
     })
     const data = await res.json();
-    if(data.bookings.length !== 0){
+    if(data.bookings.length !==0 && data.bookings[0].departure !== startDate || data.bookings.length !==0 && data.bookings[0].arrival !== endDate){
+      console.log(data.bookings[0].arrival)
+      console.log(endDate)
       setTooltip(true);
       setTooltipText(`Dates selected are no longer available, please refresh page and try again`);
       arrivalAndDepartureDates.style.border = "1px solid red";
