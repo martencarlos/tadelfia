@@ -593,6 +593,8 @@ function Booking({ villa, apartmentId }) {
                   value="Available - Book Now!"
                 />
               )}
+              <br />
+           
             </div>
           </div>
         </div>

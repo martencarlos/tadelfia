@@ -119,7 +119,7 @@
     background:linear-gradient(to bottom right,  rgb(131, 195, 126) 50%, #ffc0cb 50%) !important;
 }
 
-.rmdp-range:has(.checkin:not(.middle)):not(.start){
+.rmdp-range:has(.checkin:not(.middle):not(.checkin.checkout)):not(.start){
     background:linear-gradient(to bottom right,  rgb(131, 195, 126) 50%, #ffc0cb 50%) !important;
 }
 
