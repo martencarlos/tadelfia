@@ -260,7 +260,6 @@ async function Success({ searchParams, params }) {
             <div className={styles.apartmentButtonSection}>
               <div className={styles.priceWrapper}>
                 <p className={styles.priceLabel}>
-                  {booking.accomodation.nights}
                   {"Total price"}
                 </p>
                 <h4> {"€ " + booking.accomodation.price/0.3}</h4>
