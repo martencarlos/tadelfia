@@ -58,10 +58,14 @@
     background-color: pink !important;
   }
 
-/* .highlight.start{
+.highlight.start{
     background: linear-gradient(to bottom right, white  50%,pink 50%);
 }
 
 .highlight.end{
     background: linear-gradient(to bottom right, pink  50%,white 50%);
-} */
+}
+
+.highlight.middle{
+    background:  pink !important;
+}

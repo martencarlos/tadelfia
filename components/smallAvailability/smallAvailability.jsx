@@ -95,6 +95,15 @@ function SmallAvailability({ villa }) {
               if (
                 ranges.find(
                   (x) =>
+                    x !== undefined && x[0].setHours(0, 0, 0, 0) < date.setHours(0, 0, 0, 0) &&
+                    x[1].setHours(0, 0, 0, 0) > date.setHours(0, 0, 0, 0) 
+                )
+              ) {
+                classes.push("middle");
+              }
+              if (
+                ranges.find(
+                  (x) =>
                     x !== undefined && x[0].setHours(0, 0, 0, 0) === date.setHours(0, 0, 0, 0)
                 )
               ) {
