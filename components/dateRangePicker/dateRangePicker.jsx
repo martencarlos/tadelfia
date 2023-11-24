@@ -6,6 +6,7 @@ import styles from "./dateRangePicker.module.css"
 import "./component.css"
 
 import DatePicker from "react-multi-date-picker"
+import DateObject from "react-date-object"
 import { BsFillCalendarWeekFill } from "react-icons/bs";
 import { getAllBookingRanges } from "@/lib/booking";
 import "react-multi-date-picker/styles/layouts/mobile.css"
@@ -196,6 +197,10 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
     
   }, [villa]);
 
+  useEffect(() => {
+    console.log(rangeDates)
+  }
+  , [rangeDates]);
 
     return (
         <div className={styles.dateRangePicker}>
@@ -208,7 +213,8 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                 required
                 format="DD.MM.YYYY"
                 multiple
-                currentDate={rangeDates?rangeDates[0]:new Date()}
+                currentDate={rangeDates !== null ? rangeDates[0] : new DateObject()}
+               
                 onChange={(ranges) => {
                     const bookingRangeIndex = bookedRanges.length
                     // console.log(ranges)
