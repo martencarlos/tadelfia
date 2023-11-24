@@ -95,7 +95,7 @@ async function saveBooking(booking, data) {
   })
 
   if (result && result.status === 200) {
-    console.log("email sent to merchant");
+    // console.log("email sent to merchant");
     return true;
   } else {
     console.log("Something went wrong! email not sent to merchant");

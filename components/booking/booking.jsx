@@ -269,10 +269,10 @@ function Booking({ villa, apartmentId }) {
       }),
     })
     const data = await res.json();
-    console.log(data.bookings[0].arrival)
-    console.log(endDate)
-    console.log(data.bookings[0].arrival !== endDate)
-    console.log(data.bookings.length !==0 && data.bookings[0].departure !== startDate)
+    // console.log(data.bookings[0].arrival)
+    // console.log(endDate)
+    // console.log(data.bookings[0].arrival !== endDate)
+    // console.log(data.bookings.length !==0 && data.bookings[0].departure !== startDate)
     if(data.bookings.length !==0 && 
       (data.bookings[0].departure !== startDate && endDate !== data.bookings[0].arrival)){
       // console.log(data.bookings[0].arrival)

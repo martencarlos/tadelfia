@@ -197,11 +197,6 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
     
   }, [villa]);
 
-  useEffect(() => {
-    console.log(rangeDates)
-  }
-  , [rangeDates]);
-
     return (
         <div className={styles.dateRangePicker}>
             <div placeholder="Arrival & Departure dates" className={styles.datesSelected}>
@@ -270,7 +265,7 @@ function DateRangePicker({rangeDates, setRangeDates,villa}) {
                       firstRanges.current = info.value
 
                     let ranges = info.value
-                    console.log(firstRanges.current)
+                    // console.log(firstRanges.current)
                     const bookingRangeIndex = bookedRanges.length
 
                     // if the user selects a date range that is already booked do nothing

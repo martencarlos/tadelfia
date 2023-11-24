@@ -20,7 +20,7 @@ const calculateOrderAmount = (booking) => {
 export const POST = async (req) => {
   console.log("api/create-payment-intent called")
   const {cancel, booking, clientSecret}  = await req.json();
-  console.log("cancel: ", cancel)
+  // console.log("cancel: ", cancel)
   // cancel if booking component is unmounted
   if(cancel && clientSecret){
     
