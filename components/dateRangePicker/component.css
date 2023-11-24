@@ -128,8 +128,9 @@
 }
 
 .rmdp-day:not(.rmdp-disabled):not(.rmdp-day-hidden) span:hover {
-    background-color: #83c37e;
-    color: #515151;
+    background-color: #83c37e !important;
+    color: #515151 !important;
+    border-radius: 5px !important;
 }
 
 .rmdp-day:has(.checkin.checkout){

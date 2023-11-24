@@ -69,7 +69,7 @@ export async function generateMetadata({ params, searchParams }) {
           width={1000}
           height={700}
           priority
-          placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
+          // placeholder={process.env.NEXT_PUBLIC_HOST !== "http://localhost:3000" ? "blur" : undefined}
           alt={params.id}
         />
       </div>
