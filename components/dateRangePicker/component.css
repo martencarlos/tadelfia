@@ -8,6 +8,12 @@
     .rmdp-container{
         width: 100% !important;
     }
+
+    .rmdp-day:not(.rmdp-disabled):not(.rmdp-day-hidden) span:hover {
+        background-color: unset !important;
+        color: unset !important;
+        border-radius: unset !important;
+    }
 }
 
 [class*='booking_'] .rmdp-input{
@@ -127,10 +133,10 @@
     z-index: 10000 !important;
 }
 
-.rmdp-day:not(.rmdp-disabled):not(.rmdp-day-hidden) span:hover {
+.rmdp-day span:hover {
     background-color: #83c37e !important;
     color: #515151 !important;
-    border-radius: 5px !important;
+    border-radius: 50% !important;
 }
 
 .rmdp-day:has(.checkin.checkout){
