@@ -129,6 +129,7 @@ function FullAvailability() {
         months={size.width < 800 ? 1 : 2}
         direction="horizontal"
         ranges={ranges}
+        
         weekStartsOn={1}
         minDate={new Date()}
       />

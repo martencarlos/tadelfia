@@ -57,7 +57,7 @@
 }
 
 
-[class^="fullAvailability"] .rdrStartEdge{
+[class^="fullAvailability"] button.rdrDay:has(.rdrStartEdge:not(.rdrEndEdge)) span.rdrStartEdge{
     /* border-top-left-radius: unset; */
     background: linear-gradient(to bottom right, white  50%, #ffc0cb 50%);
     border-bottom-left-radius: unset;
@@ -72,7 +72,7 @@
     border-top-right-radius: unset;
 }
 
-[class^="fullAvailability"] .rdrEndEdge {
+[class^="fullAvailability"] button.rdrDay:has(.rdrEndEdge:not(.rdrStartEdge)) span.rdrEndEdge{
     background: linear-gradient(to bottom right, #ffc0cb 50%, white  50%);
     border-bottom-left-radius: unset;
     border-top-left-radius: unset;
@@ -86,5 +86,14 @@
 [class^="fullAvailability"] .rdrInRange+.rdrEndEdge{
     background: #ffc0cb;
 }
+[class^="fullAvailability"] button.rdrDay:has(.rdrStartEdge.rdrEndEdge) span.rdrDayNumber{
+    background: #ffc0cb ;
+    border-bottom-left-radius: unset;
+    border-top-left-radius: unset;
+    border-bottom-right-radius: unset;
+    border-top-right-radius: unset;
+}
+
+
 
 
