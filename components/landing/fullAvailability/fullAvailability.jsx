@@ -67,25 +67,32 @@ function FullAvailability() {
       
       if (data.length > 0) {
         data.forEach(booking => {
+          
+          const strtDate= new Date(booking.accomodation.checkin);
+          let endDte= new Date(booking.accomodation.checkout);
+          endDte = new Date(endDte.setDate(endDte.getDate() - 1));
+
           if(booking.accomodation.villa === "Villa"){
             newRanges.push({
-              startDate: new Date(booking.accomodation.checkin),
-              endDate: new Date(booking.accomodation.checkout),
+              startDate: strtDate,
+              endDate: endDte,
               color: "#ffc0cb",
-              key: booking._id
+              key: booking.accomodation.villa+"-"+strtDate.setHours(0,0,0,0)
             });
           }else{
             const loop = new Date(booking.accomodation.checkin);
             const end = new Date(booking.accomodation.checkout);
+            // end = new Date(end.setDate(end.getDate() - 1));
+            // console.log(end.toLocaleDateString())
             while(loop.setHours(0,0,0,0) <= end.setHours(0,0,0,0)){
-              const res=data.filter(o => new Date(o["accomodation"]["checkin"]).setHours(0,0,0,0) <=loop.setHours(0,0,0,0) && new Date(o["accomodation"]["checkout"]).setHours(0,0,0,0)>=loop.setHours(0,0,0,0))
+              const res=data.filter(o => new Date(o["accomodation"]["checkin"]).setHours(0,0,0,0) <=loop.setHours(0,0,0,0) && new Date(o["accomodation"]["checkout"]).setHours(0,0,0,0)>loop.setHours(0,0,0,0))
               if(res.length===7){
                 // console.log(new Date(loop).toLocaleDateString())
                 newRanges.push({
                   startDate: new Date(loop),
                   endDate: new Date(loop),
                   color: "#ffc0cb",
-                  key: booking._id+"-"+loop.setHours(0,0,0,0)
+                  key: booking.accomodation.villa+"-"+loop.setHours(0,0,0,0)
                 });
               }         
               loop.setDate(loop.getDate() + 1);
@@ -109,6 +116,8 @@ function FullAvailability() {
       // }
     });
   }, []);
+
+  // console.log(ranges)
 
   return (
     // !loading ?
