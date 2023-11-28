@@ -40,7 +40,7 @@
 
    {
     "_apartmentId": "1819967",
-    "apartmentId": "1920662",    
+    "apartmentId": "1921403",    
     "villa":"Galini",
     "pricePerNight": 139,
     "title": "Welcome to GALINI !",
@@ -59,7 +59,7 @@
   },
    {
     "_apartmentId": "1819979",
-    "apartmentId": "1920665",    
+    "apartmentId": "1921406",    
     "villa": "Iris",
     "pricePerNight": 132,
     "title": "Welcome to Iris !",
@@ -115,7 +115,8 @@
   
   },
   {
-    "apartmentId": "1819976",
+    "_apartmentId": "1819976",
+    "apartmentId": "1921409",
     "villa": "Gaia",
     "pricePerNight": 163,
     "title": "Welcome to Gaïa !",
@@ -133,7 +134,7 @@
   },
    {
     "_apartmentId": "1819970",
-    "apartmentId": "1908020",
+    "apartmentId": "1920662",
     "villa": "Ermis",
     "pricePerNight": 137,
     "title": "Welcome to Ermis !",
