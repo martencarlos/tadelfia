@@ -139,7 +139,9 @@
     border-radius: 50% !important;
 }
 
-.rmdp-day:has(.checkin.checkout){
+
+
+.rmdp-day:has(.checkin.checkout), .rmdp-day:has(.middle){
     background : #ffc0cb !important;
 }
 
