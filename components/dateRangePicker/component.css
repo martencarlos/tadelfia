@@ -101,7 +101,7 @@
     background-color: #ffc0cb !important;
 }
 
-.rmdp-day:has(.checkin:not(.checkout)):not(.rmdp-range):not(.start){
+.rmdp-day:has(.checkin:not(.checkout):not(.middle)):not(.rmdp-range):not(.start){
     background:linear-gradient(to bottom right, white  50%,#ffc0cb 50%) !important;
 }
 
